@@ -421,6 +421,94 @@
     to { opacity: 1; transform: translateY(0); }
   }
 
+  /* Captura */
+  .capture-card {
+    background: var(--dark2);
+    border: 1px solid var(--dark3);
+    border-top: 2px solid var(--gold);
+    padding: 36px;
+    border-radius: 2px;
+    margin-bottom: 48px;
+  }
+
+  .capture-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 24px;
+    font-weight: 300;
+    color: var(--text);
+    margin-bottom: 8px;
+  }
+
+  .capture-desc {
+    font-size: 14px;
+    color: var(--text-dim);
+    margin-bottom: 28px;
+    line-height: 1.6;
+  }
+
+  .field-group {
+    margin-bottom: 20px;
+  }
+
+  .field-label {
+    display: block;
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold-dim);
+    margin-bottom: 8px;
+  }
+
+  .field-input {
+    width: 100%;
+    background: var(--dark3);
+    border: 1px solid #333;
+    border-radius: 2px;
+    padding: 14px 16px;
+    font-size: 15px;
+    color: var(--text);
+    font-family: 'DM Sans', sans-serif;
+    outline: none;
+    transition: border-color 0.2s ease;
+    box-sizing: border-box;
+  }
+
+  .field-input:focus {
+    border-color: var(--gold-dim);
+  }
+
+  .field-input::placeholder {
+    color: var(--text-muted);
+  }
+
+  .capture-btn {
+    width: 100%;
+    background: transparent;
+    border: 1.5px solid var(--gold);
+    color: var(--gold);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 13px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    padding: 16px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border-radius: 1px;
+    margin-top: 8px;
+  }
+
+  .capture-btn:hover {
+    background: var(--gold);
+    color: var(--black);
+  }
+
+  .capture-error {
+    display: none;
+    font-size: 13px;
+    color: #E05A5A;
+    margin-bottom: 12px;
+  }
+
   @media (max-width: 540px) {
     .scale-options { gap: 4px; }
     .scale-btn { height: 44px; font-size: 14px; }
@@ -457,7 +545,30 @@
       <div class="progress-bar-fill" id="progressBar"></div>
     </div>
 
-    <form id="diagnostico">
+    <div id="capture-section">
+      <div class="capture-card">
+        <div class="capture-title">Antes de começar</div>
+        <div class="capture-desc">Preencha os campos abaixo para receber seu diagnóstico completo.</div>
+        <div class="capture-fields">
+          <div class="field-group">
+            <label class="field-label">Nome completo</label>
+            <input type="text" id="cap-nome" class="field-input" placeholder="Seu nome completo">
+          </div>
+          <div class="field-group">
+            <label class="field-label">WhatsApp com DDD</label>
+            <input type="tel" id="cap-whatsapp" class="field-input" placeholder="(11) 99999-9999">
+          </div>
+          <div class="field-group">
+            <label class="field-label">E-mail</label>
+            <input type="email" id="cap-email" class="field-input" placeholder="seuemail@gmail.com">
+          </div>
+          <div class="capture-error" id="capture-error">Preencha todos os campos para continuar.</div>
+          <button type="button" class="capture-btn" onclick="iniciarDiagnostico()">Quero fazer meu diagnóstico</button>
+        </div>
+      </div>
+    </div>
+
+    <form id="diagnostico" style="display:none;">
 
       <!-- BLOCO 1: TRAÇO DE CARÁTER -->
       <div class="section-header" style="animation-delay:0.1s">
@@ -859,7 +970,7 @@
 
     <div class="result-cta">
       <p>"Identificar o padrão é o primeiro passo. O segundo é decidir que ele não vai mais te custar caro."</p>
-      <a href="https://dohsiao.github.io" class="cta-btn">Quero dar o próximo passo</a>
+      <a href="https://pay.kiwify.com.br/xU0P0I6" class="cta-btn">Quero dar o próximo passo</a>
     </div>
 
     <div class="footer">
@@ -871,6 +982,46 @@
 </div>
 
 <script>
+// Dados capturados
+let dadosCliente = {};
+
+async function iniciarDiagnostico() {
+  const nome = document.getElementById('cap-nome').value.trim();
+  const whatsapp = document.getElementById('cap-whatsapp').value.trim();
+  const email = document.getElementById('cap-email').value.trim();
+  const erro = document.getElementById('capture-error');
+
+  if (!nome || !whatsapp || !email) {
+    erro.style.display = 'block';
+    return;
+  }
+
+  erro.style.display = 'none';
+  dadosCliente = { nome, whatsapp, email };
+
+  // Envia para Formspree
+  try {
+    await fetch('https://formspree.io/f/meenajyy', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        nome,
+        whatsapp,
+        email,
+        produto: 'Reset da Autossabotagem',
+        etapa: 'Captura inicial - diagnóstico não concluído'
+      })
+    });
+  } catch(e) {
+    console.log('Formspree erro:', e);
+  }
+
+  // Esconde captura e mostra formulário
+  document.getElementById('capture-section').style.display = 'none';
+  document.getElementById('diagnostico').style.display = 'block';
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
 // Mapa de resultados por Traço de Caráter
 const tracosMap = {
   EQ: {
@@ -957,7 +1108,7 @@ function getCruzamento(traco, ocean) {
 }
 
 // Lógica de cálculo
-function calcularResultado() {
+async function calcularResultado() {
   const form = document.getElementById('diagnostico');
   
   // Pontuação por traço
@@ -988,12 +1139,36 @@ function calcularResultado() {
   const oceanData = oceanMap[oceanDominante];
   
   // Preenche resultado
+  const primeiroNome = dadosCliente.nome ? dadosCliente.nome.split(' ')[0] : '';
   document.getElementById('resultTitle').textContent = tracoData.titulo;
   document.getElementById('resultSubtitle').textContent = tracoData.subtitulo;
   document.getElementById('resultTraco').innerHTML = tracoData.texto;
   document.getElementById('resultOcean').innerHTML = `<p style="font-size:13px;color:var(--gold-dim);letter-spacing:0.1em;margin-bottom:12px;">${oceanData.label}</p>` + oceanData.texto;
   document.getElementById('resultCruzamento').innerHTML = getCruzamento(tracoDominante, oceanDominante);
   
+  // Envia perfil completo para Formspree
+  const tracosNomes = { EQ: 'Esquizoide', OR: 'Oral', PS: 'Psicopata', MA: 'Masoquista', RI: 'Rígido' };
+  const oceanNomes = { O: 'Abertura', C: 'Conscienciosidade', E: 'Extroversão', A: 'Agradabilidade', N: 'Neuroticismo' };
+  try {
+    await fetch('https://formspree.io/f/meenajyy', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        nome: dadosCliente.nome || '',
+        whatsapp: dadosCliente.whatsapp || '',
+        email: dadosCliente.email || '',
+        produto: 'Reset da Autossabotagem',
+        etapa: 'Diagnóstico concluído',
+        traco_dominante: tracosNomes[tracoDominante] || tracoDominante,
+        perfil_ocean: oceanNomes[oceanDominante] || oceanDominante,
+        perfil_completo: tracoData.titulo,
+        subtitulo: tracoData.subtitulo
+      })
+    });
+  } catch(e) {
+    console.log('Formspree erro perfil:', e);
+  }
+
   // Mostra resultado
   document.getElementById('form-section').style.display = 'none';
   const resultEl = document.getElementById('result');
