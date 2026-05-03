@@ -308,6 +308,9 @@
     display: none;
     opacity: 0;
     animation: fadeUp 0.8s ease forwards;
+    max-width: 720px;
+    margin: 0 auto;
+    width: 100%;
   }
 
   .result-header {
@@ -1174,7 +1177,9 @@ async function calcularResultado() {
   document.getElementById('form-section').style.display = 'none';
   const resultEl = document.getElementById('result');
   resultEl.style.display = 'block';
-  window.scrollTo({ top: 0, behavior: 'smooth' });
+  setTimeout(() => {
+    resultEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }, 100);
 }
 
 // Progress tracking
