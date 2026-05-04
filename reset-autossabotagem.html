@@ -989,16 +989,25 @@
 // Dados capturados
 let dadosCliente = {};
 
+let capturaEnviada = false;
+
 async function iniciarDiagnostico() {
+  if (capturaEnviada) return;
+
   const nome = document.getElementById('cap-nome').value.trim();
   const whatsapp = document.getElementById('cap-whatsapp').value.trim();
   const email = document.getElementById('cap-email').value.trim();
   const erro = document.getElementById('capture-error');
+  const btn = document.querySelector('.capture-btn');
 
   if (!nome || !whatsapp || !email) {
     erro.style.display = 'block';
     return;
   }
+
+  capturaEnviada = true;
+  btn.disabled = true;
+  btn.textContent = 'Aguarde...';
 
   erro.style.display = 'none';
   dadosCliente = { nome, whatsapp, email };
