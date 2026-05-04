@@ -83,10 +83,14 @@ a:hover { color: var(--gold-light); }
 /* ── HERO ── */
 .hero { text-align: center; padding: 1rem 0 2.5rem; }
 .hero-byline {
-  font-size: 11px;
+  display: inline-block;
+  font-size: 10px;
   letter-spacing: 0.18em;
   text-transform: uppercase;
-  color: var(--text-muted);
+  color: var(--gold);
+  border: 1px solid rgba(201,168,76,0.35);
+  padding: 6px 22px;
+  border-radius: 30px;
   margin-bottom: 1.5rem;
 }
 .hero h1 {
@@ -596,6 +600,7 @@ a:hover { color: var(--gold-light); }
     <p class="hero-byline">Diagnóstico Emocional</p>
     <h1>Reset da <em>Autossabotagem</em></h1>
     <div class="divider"></div>
+    <p class="hero-lead">Antes de começar, preciso entender como você funciona. Não existe resposta certa ou errada. Existe apenas o que é verdadeiro pra você agora.</p>
   </section>
 
   <!-- SCREEN: INTRO -->
@@ -1039,6 +1044,7 @@ function calculate() {
   document.getElementById('progress-fill').style.width = '100%';
   document.getElementById('progress-pct').textContent = '100%';
 
+  document.querySelector('.hero').style.display = 'none';
   showScreen('screen-result');
 }
 
@@ -1051,6 +1057,7 @@ function showScreen(id) {
 function restart() {
   answers = new Array(TOTAL).fill(null);
   currentBlock = 0;
+  document.querySelector('.hero').style.display = '';
   showScreen('screen-intro');
 }
 </script>
