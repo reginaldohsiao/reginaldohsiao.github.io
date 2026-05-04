@@ -1003,11 +1003,12 @@ async function iniciarDiagnostico() {
   erro.style.display = 'none';
   dadosCliente = { nome, whatsapp, email };
 
-  // Envia para Formspree
+  // Envia lead inicial para Google Sheets
   try {
     await fetch('https://script.google.com/macros/s/AKfycbzUvIDQeXzdizWb2VsY0AVMvr8ymMLjCNk9_QCz3kkRr8WaoEPLtJBKlxXPaBKYFoJf/exec', {
       method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
+      mode: 'no-cors',
+      headers: { 'Content-Type': 'text/plain' },
       body: JSON.stringify({
         nome,
         whatsapp,
@@ -1017,7 +1018,7 @@ async function iniciarDiagnostico() {
       })
     });
   } catch(e) {
-    console.log('Formspree erro:', e);
+    console.log('Erro captura inicial:', e);
   }
 
   // Esconde captura e mostra formulário
@@ -1150,13 +1151,14 @@ async function calcularResultado() {
   document.getElementById('resultOcean').innerHTML = `<p style="font-size:13px;color:var(--gold-dim);letter-spacing:0.1em;margin-bottom:12px;">${oceanData.label}</p>` + oceanData.texto;
   document.getElementById('resultCruzamento').innerHTML = getCruzamento(tracoDominante, oceanDominante);
   
-  // Envia perfil completo para Formspree
+  // Envia perfil completo para Google Sheets
   const tracosNomes = { EQ: 'Esquizoide', OR: 'Oral', PS: 'Psicopata', MA: 'Masoquista', RI: 'Rígido' };
   const oceanNomes = { O: 'Abertura', C: 'Conscienciosidade', E: 'Extroversão', A: 'Agradabilidade', N: 'Neuroticismo' };
   try {
     await fetch('https://script.google.com/macros/s/AKfycbzUvIDQeXzdizWb2VsY0AVMvr8ymMLjCNk9_QCz3kkRr8WaoEPLtJBKlxXPaBKYFoJf/exec', {
       method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
+      mode: 'no-cors',
+      headers: { 'Content-Type': 'text/plain' },
       body: JSON.stringify({
         nome: dadosCliente.nome || '',
         whatsapp: dadosCliente.whatsapp || '',
@@ -1170,7 +1172,7 @@ async function calcularResultado() {
       })
     });
   } catch(e) {
-    console.log('Formspree erro perfil:', e);
+    console.log('Erro envio perfil:', e);
   }
 
   // Mostra resultado
