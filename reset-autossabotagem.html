@@ -57,20 +57,18 @@ a:hover { color: var(--gold-light); }
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 0px;
-  padding: 0;           /* Mude de 0.2rem para 0 */
+  gap: 10px;
+  padding: 1.25rem 0 0.75rem;
   border-bottom: none;
-  margin-bottom: 0;     /* Mude de 0.25rem para 0 */
+  margin-bottom: 0.25rem;
   text-align: center;
 }
-
 .site-header img {
   width: 80px;
   height: auto;
   border-radius: 0;
   object-fit: contain;
   border: none;
-  margin-bottom: 5px;   /* Adicione isso para a logo não colar no nome */
 }
 .site-header-text { display: flex; flex-direction: column; align-items: center; gap: 2px; }
 .site-header-name {
@@ -91,10 +89,8 @@ a:hover { color: var(--gold-light); }
 /* ── HERO ── */
 .hero { 
   text-align: center; 
-  padding: 0 0 0.6rem; 
-  margin: 0;
+  padding: 0.3rem 0 0.8rem !important; 
 }
-
 .hero-byline {
   display: inline-block;
   font-size: 10px;
@@ -104,39 +100,26 @@ a:hover { color: var(--gold-light); }
   border: 1px solid rgba(201,168,76,0.35);
   padding: 6px 22px;
   border-radius: 30px;
-  margin: 0.4rem 0 0.4rem 0;
+  margin-bottom: 0.8rem !important;
 }
-
 .hero h1 {
-  margin: 0;
   font-family: var(--serif);
   font-size: clamp(2.2rem, 6vw, 3.2rem);
   font-weight: 500;
   color: var(--text-light);
   line-height: 1.15;
-  margin-bottom: 0.6rem;
+  0.6rem !important;
 }
-
 .hero h1 em {
   font-style: italic;
   color: var(--gold);
 }
-
 .hero-lead {
   font-size: 15px;
   color: var(--text-muted);
   max-width: 440px;
   margin: 0 auto;
   line-height: 1.75;
-}
-
-/* DEBUG VISUAL (TEMPORÁRIO) */
-.site-header {
-  outline: 1px solid blue;
-}
-
-.hero {
-  outline: 1px solid red;
 }
 
 /* ── DIVIDER ── */
@@ -147,92 +130,10 @@ a:hover { color: var(--gold-light); }
   margin: 2rem auto;
 }
 
-#screen-result {
-  position: absolute; /* Permite posicionar o elemento livremente */
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100vh; /* Altura total da viewport, pode causar scroll se o conteúdo for maior */
-  overflow-y: auto; /* Permite scroll se o conteúdo exceder a altura */
-  display: flex; /* Habilita layout flexbox */
-  flex-direction: column; /* Empilha os itens verticalmente */
-  align-items: center; /* Centraliza horizontalmente os itens no eixo transversal */
-  justify-content: center; /* Centraliza verticalmente os itens no eixo principal */
-  background: #232323; /* Fundo escuro */
-  color: #f3f3f3; /* Cor do texto clara */
-  font-size: 20px;
-  font-weight: 700;
-  text-align: center;
-  padding: 20px; /* Padding geral, pode ser muito grande ou pequeno dependendo do design */
-  box-sizing: border-box; /* Garante que padding e border sejam incluídos na largura/altura total */
-}
-
-#screen-result .result-content {
-  width: 90%; /* Largura do conteúdo, pode ser ajustada */
-  max-width: 600px; /* Largura máxima para evitar que o conteúdo fique muito largo em telas grandes */
-  margin: 0 auto; /* Centraliza o bloco de conteúdo horizontalmente */
-  padding: 0 20px; /* Padding interno do conteúdo, pode precisar de ajuste */
-  text-align: left; /* Alinha texto à esquerda para melhor leitura de blocos maiores */
-}
-
-/* Regras específicas para remover o 'gap' e alinhar com a página de diagnóstico */
-
-/* Remover margens excessivas de parágrafos dentro do resultado */
-#screen-result .result-content p {
-  margin-bottom: 1em; /* Um espaçamento razoável entre parágrafos */
-  line-height: 1.6; /* Melhora a legibilidade */
-}
-
-/* Ajustar espaçamento em títulos (se houver) */
-#screen-result .result-content h2,
-#screen-result .result-content h3 {
-  margin-top: 1.5em; /* Espaçamento acima dos títulos */
-  margin-bottom: 0.8em; /* Espaçamento abaixo dos títulos */
-}
-
-/* Ajustar o espaçamento do botão de CTA */
-#screen-result .cta-button {
-  margin-top: 2em; /* Espaço acima do botão CTA */
-  margin-bottom: 1em; /* Espaço abaixo do botão CTA */
-  padding: 15px 30px; /* Tamanho do botão */
-  background-color: #ff6b6b; /* Cor do botão */
-  color: white;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  font-size: 1.1em;
-  transition: background-color 0.3s ease;
-}
-
-#screen-result .cta-button:hover {
-  background-color: #e74c3c; /* Cor ao passar o mouse */
-}
-
-/* Se houver um rodapé, ajustar seu espaçamento */
-#screen-result .site-footer {
-  margin-top: auto; /* Empurra o footer para o final, caso o conteúdo não ocupe a tela inteira */
-  padding: 20px;
-  text-align: center;
-  width: 100%;
-  background: rgba(0, 0, 0, 0.3); /* Fundo semi-transparente para o footer */
-  font-size: 0.8em;
-}
-
-
 /* ── SCREENS ── */
 .screen { display: none; }
-
-.screen.active { 
-  display: block;
-  flex-direction: column;
-  align-items: stretch;
-  animation: fadeIn 0.3s ease; 
-}
-
-@keyframes fadeIn { 
-  from { opacity: 0; transform: translateY(8px); } 
-  to { opacity: 1; transform: translateY(0); } 
-}
+.screen.active { display: block; animation: fadeIn 0.3s ease; }
+@keyframes fadeIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
 
 /* ── FORM CARD (INTRO) ── */
 .form-card {
@@ -454,10 +355,8 @@ a:hover { color: var(--gold-light); }
 /* ── RESULT ── */
 .result-top {
   text-align: center;
-  padding: 0 0 1rem; /* remove espaço de cima */
-  margin-top: 0;     /* garante zero respiro */
+  padding: 0.5rem 0 1.5rem;
 }
-
 .result-badge {
   display: inline-block;
   font-size: 10px;
@@ -467,24 +366,60 @@ a:hover { color: var(--gold-light); }
   border: 1px solid rgba(201,168,76,0.3);
   padding: 5px 16px;
   border-radius: 20px;
-  margin: 0 0 1rem 0; /* controla espaçamento com precisão */
+  margin-bottom: 1.5rem;
 }
-
 .result-title {
   font-family: var(--serif);
   font-size: clamp(1.8rem, 5vw, 2.6rem);
   color: var(--text-light);
   font-weight: 500;
   line-height: 1.2;
-  margin: 0 0 0.6rem 0;
+  margin-bottom: 0.75rem;
 }
-
 .result-subtitle {
   font-size: 15px;
   color: var(--text-muted);
   line-height: 1.7;
   max-width: 480px;
   margin: 0 auto;
+}
+
+.result-card {
+  background: var(--dark-2);
+  border: 1px solid rgba(201,168,76,0.12);
+  border-radius: var(--radius-lg);
+  padding: 1.5rem;
+  margin-bottom: 1rem;
+}
+.result-card-label {
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 0.75rem;
+}
+.result-card-body {
+  font-size: 15px;
+  color: var(--text-body);
+  line-height: 1.75;
+}
+
+.dor-list { list-style: none; display: flex; flex-direction: column; gap: 10px; margin-top: 0.5rem; }
+.dor-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  font-size: 14px;
+  color: var(--text-body);
+  line-height: 1.55;
+}
+.dor-icon {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--gold);
+  margin-top: 7px;
+  flex-shrink: 0;
 }
 
 /* ── QUOTE ── */
