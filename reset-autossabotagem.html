@@ -57,18 +57,20 @@ a:hover { color: var(--gold-light); }
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 10px;
-  padding: 0 0 0.2rem;
+  gap: 0px;
+  padding: 0;           /* Mude de 0.2rem para 0 */
   border-bottom: none;
-  margin-bottom: 0.25rem;
+  margin-bottom: 0;     /* Mude de 0.25rem para 0 */
   text-align: center;
 }
+
 .site-header img {
   width: 80px;
   height: auto;
   border-radius: 0;
   object-fit: contain;
   border: none;
+  margin-bottom: 5px;   /* Adicione isso para a logo não colar no nome */
 }
 .site-header-text { display: flex; flex-direction: column; align-items: center; gap: 2px; }
 .site-header-name {
