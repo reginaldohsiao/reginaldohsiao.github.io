@@ -587,6 +587,95 @@ a:hover { color: var(--gold-light); }
   display: none;
 }
 .quiz-alert.show { display: block; }
+
+/* ── INTRO TEXT ── */
+.intro-text {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 1rem;
+  color: var(--text-light);
+  line-height: 1.9;
+  margin-bottom: 0.25rem;
+}
+
+
+.impact-highlight {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 1rem;
+  color: var(--text-light);
+  border-left: 2px solid rgba(201,76,76,0.5);
+  padding-left: 1rem;
+  margin-bottom: 0 !important;
+}
+
+/* ── PRE-CTA ── */
+.pre-cta {
+  text-align: center;
+  font-size: 14px;
+  color: var(--text-muted);
+  font-style: italic;
+  margin: 1.25rem 0 0.5rem;
+  letter-spacing: 0.02em;
+}
+
+/* ── IMPACT BLOCK ── */
+.impact-block {
+  background: rgba(201,76,76,0.06);
+  border: 1px solid rgba(201,76,76,0.2);
+  border-radius: var(--radius-lg);
+  padding: 1.5rem;
+  margin-bottom: 1rem;
+}
+.impact-block h3 {
+  font-family: var(--serif);
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: #E07070;
+  margin-bottom: 0.75rem;
+}
+.impact-block p {
+  font-size: 14px;
+  color: var(--text-body);
+  line-height: 1.7;
+  margin-bottom: 0.75rem;
+}
+.impact-block ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 1rem;
+}
+.impact-block ul li {
+  font-size: 14px;
+  color: var(--text-body);
+  line-height: 1.55;
+  padding-left: 1rem;
+  position: relative;
+}
+.impact-block ul li::before {
+  content: '·';
+  position: absolute;
+  left: 0;
+  color: #E07070;
+}
+.impact-block .highlight {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 1rem;
+  color: #E07070;
+  line-height: 1.6;
+  margin-bottom: 0;
+}
+.pre-cta {
+  text-align: center;
+  font-size: 14px;
+  color: var(--text-muted);
+  font-style: italic;
+  margin: 1.25rem 0 0.5rem;
+  letter-spacing: 0.02em;
+}
 </style>
 </head>
 <body>
@@ -607,14 +696,13 @@ a:hover { color: var(--gold-light); }
     <p class="hero-byline">Diagnóstico Emocional</p>
     <h1>Reset da <em>Autossabotagem</em></h1>
     <div class="divider"></div>
-    <p class="hero-lead">Antes de começar, preciso entender como você funciona. Não existe resposta certa ou errada. Existe apenas o que é verdadeiro pra você agora.</p>
   </section>
 
   <!-- SCREEN: INTRO -->
   <div id="screen-intro" class="screen active">
     <div class="form-card">
       <p class="form-card-title">Antes de começar</p>
-      <p style="font-size:13px;color:var(--text-muted);margin-bottom:1.5rem;line-height:1.7;">Preencha os campos abaixo para receber seu diagnóstico completo.</p>
+      <p style="font-size:12px;color:var(--text-muted);margin-bottom:1.5rem;line-height:1.6;text-align:center;opacity:0.7;">Preencha os campos abaixo para receber seu diagnóstico completo.</p>
 
       <div class="form-group">
         <label for="inp-nome">Nome completo</label>
@@ -649,8 +737,13 @@ a:hover { color: var(--gold-light); }
 
     <div class="quiz-alert" id="quiz-alert">Responda todas as perguntas antes de continuar. As que faltam estão marcadas abaixo.</div>
     <div class="instructions">
-      <strong>Como responder:</strong> Para cada frase abaixo, escolha um número de 1 a 5.<br>
-      <strong>1</strong> = Não me representa nada &nbsp;·&nbsp; <strong>5</strong> = É exatamente assim que me sinto
+      <p style="font-size:14px;color:var(--text-muted);line-height:1.75;margin-bottom:0.85rem;font-style:italic;">Antes de começar, preciso entender como você funciona. Não existe resposta certa ou errada. Existe apenas o que é verdadeiro pra você agora.</p>
+      <p class="intro-text">Isso não é um teste comum.<br>
+      Enquanto responde, não tente acertar.<br>
+      Observe o que cada frase ativa em você.<br>
+      As respostas mais importantes não vêm da lógica.<br>
+      Vêm do que incomoda.</p>
+      <p style="margin-top:0.75rem;font-size:12px;color:var(--text-muted);"><strong style="color:var(--text-body);">1</strong> = Não me representa nada &nbsp;·&nbsp; <strong style="color:var(--text-body);">5</strong> = É exatamente assim que me sinto</p>
     </div>
 
     <div id="quiz-body"></div>
@@ -669,6 +762,7 @@ a:hover { color: var(--gold-light); }
       <span class="result-badge">seu diagnóstico</span>
       <h1 class="result-title" id="res-title"></h1>
       <p class="result-subtitle" id="res-subtitle"></p>
+      <p id="res-extra" style="font-size:13px;color:var(--gold);letter-spacing:0.03em;margin-top:0.75rem;font-style:italic;display:none;"></p>
     </div>
 
     <div class="divider"></div>
@@ -688,12 +782,28 @@ a:hover { color: var(--gold-light); }
       <ul class="dor-list" id="res-dores"></ul>
     </div>
 
+    <p id="res-extra" style="font-size:14px;color:var(--gold);font-style:italic;text-align:center;margin:0.5rem 0 1.5rem;"></p>
+
     <div class="result-quote">"Identificar o padrão é o primeiro passo. O segundo é decidir que ele não vai mais te custar caro."</div>
 
+
+    <p class="pre-cta">Se você se reconheceu nisso, não é coincidência.</p>
+
+    <div class="impact-block">
+      <h3>O que acontece se isso continuar</h3>
+      <p>Se esse padrão continuar operando da mesma forma:</p>
+      <ul>
+        <li>você vai continuar travando nos momentos decisivos</li>
+        <li>vai ver oportunidades passando sem agir</li>
+        <li>e aos poucos vai começar a duvidar do seu próprio potencial</li>
+      </ul>
+      <p class="highlight">O problema não é só o que você não faz. É o que você começa a acreditar sobre você.</p>
+    </div>
+    <p class="pre-cta">Se você se reconheceu nisso, não é coincidência.</p>
     <div class="cta-card">
       <h2 id="cta-title"></h2>
       <p id="cta-text"></p>
-      <a id="cta-link" href="https://pay.kiwify.com.br/xU0P0I6" class="btn-cta">Quero dar o próximo passo</a>
+      <a id="cta-link" href="https://pay.kiwify.com.br/xU0P0I6" class="btn-cta">Quero quebrar esse padrão agora</a>
     </div>
 
     <button class="btn-restart" onclick="restart()">Refazer o diagnóstico</button>
@@ -704,21 +814,22 @@ a:hover { color: var(--gold-light); }
 
 
 <script>
+// ── DATA ──────────────────────────────────────────────────
 const questions = [
-  { text: "Prefiro ficar sozinho a me expor em ambientes sociais ou profissionais.", traco: "esquizoide", ocean: "abertura" },
-  { text: "Me sinto desconectado das coisas que importam para as outras pessoas.", traco: "esquizoide", ocean: "abertura" },
-  { text: "Tenho dificuldade de pedir ajuda, mesmo quando preciso muito.", traco: "oral", ocean: "neuroticismo" },
-  { text: "Busco aprovação nas minhas decisões antes de me sentir seguro para agir.", traco: "oral", ocean: "agradabilidade" },
-  { text: "Tenho facilidade de conseguir o que quero, mas me sinto vazio depois.", traco: "psicopata", ocean: "extroversao" },
-  { text: "Assumo o controle das situações porque confio mais em mim do que nos outros.", traco: "psicopata", ocean: "conscienciosidade" },
-  { text: "Carrego responsabilidades que não são minhas porque é difícil dizer não.", traco: "masoquista", ocean: "agradabilidade" },
-  { text: "Sinto que me sacrifico muito, mas raramente sou reconhecido por isso.", traco: "masoquista", ocean: "neuroticismo" },
-  { text: "Tenho dificuldade de entregar algo que não está perfeito.", traco: "rigido", ocean: "conscienciosidade" },
-  { text: "Me cobro muito e isso me paralisa mais do que me impulsiona.", traco: "rigido", ocean: "neuroticismo" },
-  { text: "Quando o ambiente está negativo ou sem energia, meu desempenho cai muito.", traco: "oral", ocean: "extroversao" },
-  { text: "Tenho muitas ideias, mas raramente executo até o final.", traco: "esquizoide", ocean: "conscienciosidade" },
-  { text: "Me sinto mais funcional quando estou sendo observado ou precisando provar algo.", traco: "psicopata", ocean: "extroversao" },
-  { text: "Sinto que carrego um peso emocional constante, mesmo quando a vida está bem.", traco: "masoquista", ocean: "neuroticismo" }
+  { text: "Sinto que minha mente é um universo rico em ideias, mas tenho dificuldade real em transformar isso em ação concreta.", traco: "esquizoide", ocean: "abertura" },
+  { text: "Sinto que não pertenço aos mesmos interesses das pessoas ao meu redor, e por isso evito situações que me exporiam.", traco: "esquizoide", ocean: "abertura" },
+  { text: "Sinto um vazio intenso quando fico sem apoio, e mesmo assim raramente consigo pedir ajuda quando preciso.", traco: "oral", ocean: "neuroticismo" },
+  { text: "Preciso que alguém valide minha decisão antes de agir, e quando isso não acontece, tendo a travar ou desistir.", traco: "oral", ocean: "agradabilidade" },
+  { text: "Sinto que tenho facilidade de conseguir o que quero, mas logo depois vem um vazio que me faz questionar se valeu.", traco: "psicopata", ocean: "extroversao" },
+  { text: "Quando sinto que estou perdendo o controle de uma situação, tendo a agir de formas que às vezes prejudicam quem está ao meu redor.", traco: "psicopata", ocean: "conscienciosidade" },
+  { text: "Sinto um peso em dizer não, e por isso frequentemente assumo responsabilidades que não são minhas para evitar conflito.", traco: "masoquista", ocean: "agradabilidade" },
+  { text: "Sinto que me dedico muito, mas raramente sou reconhecido, e isso começa a me fazer questionar se vale a pena continuar me doando.", traco: "masoquista", ocean: "neuroticismo" },
+  { text: "Sinto que nada do que produzo é bom o suficiente, e isso me leva a adiar entregas ou nunca considerar um projeto realmente pronto.", traco: "rigido", ocean: "conscienciosidade" },
+  { text: "A autocrítica que carrego é tão intensa que muitas vezes me paralisa antes mesmo de começar algo que sei que sou capaz de fazer.", traco: "rigido", ocean: "neuroticismo" },
+  { text: "Sinto que minha energia e foco dependem muito do ambiente, e quando o contexto está pesado, minha produtividade despenca junto.", traco: "oral", ocean: "extroversao" },
+  { text: "Sinto que tenho muitas ideias e possibilidades ao mesmo tempo, mas raramente consigo levar alguma delas até o fim.", traco: "esquizoide", ocean: "conscienciosidade" },
+  { text: "Sinto que funciono melhor quando estou sendo observado ou quando há algo a provar, e sozinho ou sem pressão externa, me perco.", traco: "psicopata", ocean: "extroversao" },
+  { text: "Carrego um peso emocional constante, e mesmo quando nada de grave está acontecendo, a sensação de sobrecarga não passa.", traco: "masoquista", ocean: "neuroticismo" }
 ];
 
 const TOTAL = questions.length;
@@ -733,7 +844,7 @@ const profiles = {
     dores: [
       "Sensação de não pertencer, mesmo em ambientes que deveriam ser seus",
       "Dificuldade de transformar ideias em ação concreta",
-      "Relações superficiais, você está presente, mas não inteiro",
+      "Relações superficiais, você está presente mas não inteiro",
       "Muita clareza intelectual, pouco movimento real"
     ],
     cta_title: "Existe um caminho de volta para o mundo.",
@@ -748,7 +859,7 @@ const profiles = {
       "Dificuldade de cobrar o que vale, parece que o relacionamento está em jogo",
       "Sensação de dar muito e receber pouco",
       "Insegurança que some quando alguém valida, e volta quando fica sozinho",
-      "Fronteiras quase inexistentes, e um cansaço profundo por causa disso"
+      "Fronteiras quase inexistentes e um cansaço profundo por causa disso"
     ],
     cta_title: "Reconexão começa de dentro.",
     cta_text: "O Reset te ajuda a construir uma base interna que não depende de aprovação para sustentar suas decisões."
@@ -756,7 +867,7 @@ const profiles = {
   estrategista_controlador: {
     title: "O Estrategista Controlador",
     subtitle: "Você tem resultados. Mas o custo interno está alto demais.",
-    base: "Há uma inteligência real aqui, e uma capacidade de mover pessoas e situações que poucos têm. Mas quando o controle vira o modo padrão de operar, ele começa a te custar, relações desgastadas, dificuldade de confiar, sensação de que você carrega mais do que deveria.",
+    base: "Há uma inteligência real aqui, e uma capacidade de mover pessoas e situações que poucos têm. Mas quando o controle vira o modo padrão de operar, ele começa a te custar. Relações desgastadas, dificuldade de confiar, sensação de que você carrega mais do que deveria.",
     manifesta: "Na prática: dificuldade de delegar sem ansiedade, relações onde você lidera mas não se conecta de verdade, e uma sensação de vazio depois das conquistas que não faz sentido racional.",
     dores: [
       "Dificuldade genuína de delegar sem ansiedade",
@@ -773,7 +884,7 @@ const profiles = {
     base: "Tem uma capacidade enorme aqui: suportar, continuar, ser o porto seguro dos outros. Mas em algum momento essa força virou uma prisão. Você carrega porque parece que é o único que consegue, e vai ficando sem espaço para as próprias necessidades.",
     manifesta: "Cansaço que não vai embora nem com descanso. Ressentimento silencioso que vai acumulando. E uma invisibilidade estranha: ninguém percebe o quanto você carrega.",
     dores: [
-      "Dificuldade de pedir, e sensação de que ninguém conseguiria ajudar de qualquer forma",
+      "Dificuldade de pedir e sensação de que ninguém conseguiria ajudar de qualquer forma",
       "Ressentimento silencioso que vai acumulando",
       "Cansaço que não vai embora nem com descanso",
       "Sensação de que ninguém percebe o quanto você carrega"
@@ -785,7 +896,7 @@ const profiles = {
     title: "O Perfeccionista de Alta Performance",
     subtitle: "Seus padrões são altos. Altos demais até para você mesmo.",
     base: "Há uma exigência interna aqui que já te gerou muito resultado. E que agora começa a trabalhar contra você. A paralisia antes de lançar, a revisão infinita, o peso de não estar nunca suficientemente pronto. Não é falta de competência. É o perfeccionismo virando autossabotagem.",
-    manifesta: "Projetos que ficam prontos mas não saem. Sempre falta alguma coisa. Autocrítica que não te deixa celebrar o que já foi feito. Exaustão mental antes mesmo de começar.",
+    manifesta: "Projetos prontos que não saem. Sempre falta alguma coisa. Autocrítica que não te deixa celebrar o que já foi feito. Exaustão mental antes mesmo de começar.",
     dores: [
       "Projetos prontos que não saem, sempre falta alguma coisa",
       "Autocrítica que não te deixa celebrar o que já foi feito",
@@ -798,7 +909,7 @@ const profiles = {
   performatico_dependente: {
     title: "O Performático Dependente",
     subtitle: "Você funciona muito bem. Mas depende do ambiente para isso.",
-    base: "Há uma energia real aqui, e uma capacidade de mover ambientes que impressiona. O problema aparece quando o ambiente não está a favor, aí o motor trava. Sua performance é real, mas está ancorada em fatores externos que você não controla.",
+    base: "Há uma energia real aqui, e uma capacidade de mover ambientes que impressiona. O problema aparece quando o ambiente não está a favor: aí o motor trava. Sua performance é real, mas está ancorada em fatores externos que você não controla.",
     manifesta: "Resultado inconsistente dependendo de quem está por perto. Dificuldade de produzir sozinho, sem audiência ou pressão. E um medo que não aparece em palavras: e se sem o ambiente certo nada acontecer?",
     dores: [
       "Dificuldade de produzir sozinho, sem audiência ou pressão",
@@ -813,7 +924,7 @@ const profiles = {
     title: "O Sensível Saturado",
     subtitle: "Você sente tudo. E isso tem um custo que ninguém vê.",
     base: "Há uma inteligência emocional profunda aqui. Você percebe o que os outros não percebem, sente o que os outros não sentem. Mas essa sensibilidade sem estrutura vai virando peso. O mundo chega muito, e você satura rápido, antes mesmo de perceber que passou do limite.",
-    manifesta: "Dificuldade de separar o que é seu do que é do ambiente. Decisões tomadas no emocional que depois pesam. Esgotamento em situações que outras pessoas navegam sem dificuldade.",
+    manifesta: "Dificuldade de separar o que é seu do que é do ambiente. Decisões tomadas no emocional que depois pesam. Esgotamento em situações que outros navegam sem dificuldade.",
     dores: [
       "Dificuldade de separar o que é seu do que é do ambiente",
       "Decisões tomadas no emocional que depois pesam",
@@ -825,9 +936,19 @@ const profiles = {
   }
 };
 
+// ── STATE ─────────────────────────────────────────────────
 let userData = {};
-let answers = new Array(TOTAL).fill(null);
+let answers = {};
+let sc = {
+  tracos: { esquizoide:0, oral:0, psicopata:0, masoquista:0, rigido:0 },
+  ocean: { abertura:0, conscienciosidade:0, extroversao:0, agradabilidade:0, neuroticismo:0 }
+};
 let currentBlock = 0;
+
+// ── HELPERS ───────────────────────────────────────────────
+function safeGetAnswer(i) {
+  return answers[i] ? answers[i].value : 0;
+}
 
 function getTotalBlocks() { return Math.ceil(TOTAL / BLOCK_SIZE); }
 function getBlockStart(b) { return b * BLOCK_SIZE; }
@@ -835,169 +956,12 @@ function getBlockEnd(b) { return Math.min((b + 1) * BLOCK_SIZE, TOTAL); }
 
 function blockAnswered(b) {
   for (let i = getBlockStart(b); i < getBlockEnd(b); i++) {
-    if (answers[i] === null) return false;
+    if (answers[i] === undefined) return false;
   }
   return true;
 }
 
-function totalAnswered() { return answers.filter(a => a !== null).length; }
-
-function startQuiz() {
-  const nome = document.getElementById('inp-nome').value.trim();
-  const wpp = document.getElementById('inp-wpp').value.trim();
-  const email = document.getElementById('inp-email').value.trim();
-  let hasError = false;
-
-  function setFieldError(id, errId, show) {
-    const input = document.getElementById(id);
-    const err = document.getElementById(errId);
-    if (show) {
-      input.classList.add('input-error');
-      err.classList.add('show');
-      hasError = true;
-    } else {
-      input.classList.remove('input-error');
-      err.classList.remove('show');
-    }
-  }
-
-  setFieldError('inp-nome', 'err-nome', !nome);
-  setFieldError('inp-wpp', 'err-wpp', !wpp);
-  setFieldError('inp-email', 'err-email', !email);
-
-  if (hasError) return;
-
-  userData = { nome, wpp, email };
-  currentBlock = 0;
-  showScreen('screen-quiz');
-  renderBlock();
-}
-
-function renderBlock() {
-  const start = getBlockStart(currentBlock);
-  const end = getBlockEnd(currentBlock);
-  const blockNum = currentBlock + 1;
-  const totalBlocks = getTotalBlocks();
-
-  // progress
-  const pct = Math.round((totalAnswered() / TOTAL) * 100);
-  document.getElementById('progress-fill').style.width = pct + '%';
-  document.getElementById('progress-pct').textContent = pct + '%';
-  document.getElementById('progress-label').textContent = 'parte ' + blockNum + ' de ' + totalBlocks;
-
-  // back button
-  document.getElementById('btn-back').style.visibility = currentBlock === 0 ? 'hidden' : 'visible';
-
-  // count
-  updateAnsweredCount();
-
-  // render questions
-  let html = '';
-
-  // section header
-  const sectionNames = [
-    'Como você se vê por dentro',
-    'Como você funciona aqui e agora'
-  ];
-  html += `<div class="section-header"><div class="section-label">parte ${blockNum} de ${totalBlocks}</div><div class="section-title">${sectionNames[currentBlock] || ''}</div></div>`;
-
-  for (let i = start; i < end; i++) {
-    const q = questions[i];
-    const qNum = String(i + 1).padStart(2, '0');
-    const sel = answers[i];
-    html += `<div class="question-block" data-qidx="${i}">
-      <div class="question-num">${qNum}</div>
-      <div class="question-text">"${q.text}"</div>
-      <div class="scale-wrap">
-        <div class="scale-extremes"><span>Não me representa</span><span>Sou exatamente assim</span></div>
-        <div class="scale-buttons">`;
-    for (let v = 1; v <= 5; v++) {
-      const cls = sel === v ? 'scale-btn selected' : 'scale-btn';
-      html += `<button class="${cls}" onclick="selectAnswer(${i}, ${v}, this)">${v}</button>`;
-    }
-    html += `</div></div></div>`;
-  }
-
-  document.getElementById('quiz-body').innerHTML = html;
-  updateNextBtn();
-  window.scrollTo({ top: 0, behavior: 'smooth' });
-}
-
-function selectAnswer(idx, val, el) {
-  answers[idx] = val;
-  const siblings = el.closest('.scale-buttons').querySelectorAll('.scale-btn');
-  siblings.forEach(b => b.classList.remove('selected'));
-  el.classList.add('selected');
-  const block = el.closest('.question-block');
-  if (block) block.classList.remove('unanswered');
-  updateNextBtn();
-  updateAnsweredCount();
-  // hide alert if all answered
-  if (blockAnswered(currentBlock)) {
-    document.getElementById('quiz-alert').classList.remove('show');
-  }
-}
-
-function clearFieldError(inputId, errId) {
-  document.getElementById(inputId).classList.remove('input-error');
-  document.getElementById(errId).classList.remove('show');
-}
-
-function updateNextBtn() {
-  const btn = document.getElementById('btn-next');
-  const ready = blockAnswered(currentBlock);
-  btn.disabled = false;
-  btn.style.opacity = '1';
-  const isLast = currentBlock === getTotalBlocks() - 1;
-  btn.textContent = isLast ? 'Ver diagnóstico →' : 'Próxima →';
-}
-
-function highlightUnanswered() {
-  const start = getBlockStart(currentBlock);
-  const end = getBlockEnd(currentBlock);
-  let found = false;
-  for (let i = start; i < end; i++) {
-    const block = document.querySelector(`[data-qidx="${i}"]`);
-    if (!block) continue;
-    if (answers[i] === null) {
-      block.classList.add('unanswered');
-      if (!found) {
-        block.scrollIntoView({ behavior: 'smooth', block: 'center' });
-        found = true;
-      }
-    } else {
-      block.classList.remove('unanswered');
-    }
-  }
-  const alert = document.getElementById('quiz-alert');
-  if (found) alert.classList.add('show');
-  else alert.classList.remove('show');
-  return !found;
-}
-
-function updateAnsweredCount() {
-  const start = getBlockStart(currentBlock);
-  const end = getBlockEnd(currentBlock);
-  let done = 0;
-  for (let i = start; i < end; i++) { if (answers[i] !== null) done++; }
-  const total = end - start;
-  document.getElementById('answered-count').innerHTML = `<span>${done}</span> de ${total} respondidas`;
-}
-
-function goNext() {
-  if (!highlightUnanswered()) return;
-  document.getElementById('quiz-alert').classList.remove('show');
-  if (currentBlock < getTotalBlocks() - 1) {
-    currentBlock++;
-    renderBlock();
-  } else {
-    calculate();
-  }
-}
-
-function goBack() {
-  if (currentBlock > 0) { currentBlock--; renderBlock(); }
-}
+function totalAnswered() { return Object.keys(answers).length; }
 
 function getDominant(obj) {
   return Object.keys(obj).reduce((a, b) => obj[a] > obj[b] ? a : b);
@@ -1018,30 +982,216 @@ function mapProfile(traco, ocean) {
   return "perfeccionista";
 }
 
-function calculate() {
-  const sc = {
-    tracos: { esquizoide:0, oral:0, psicopata:0, masoquista:0, rigido:0 },
-    ocean: { abertura:0, conscienciosidade:0, extroversao:0, agradabilidade:0, neuroticismo:0 }
-  };
-  questions.forEach((q, i) => {
-    if (answers[i] !== null) {
-      sc.tracos[q.traco] += answers[i];
-      sc.ocean[q.ocean] += answers[i];
+function getExtraLine(ocean) {
+  if (ocean === "neuroticismo") return "Sua intensidade emocional amplifica ainda mais esse padrão.";
+  if (ocean === "conscienciosidade") return "Seu alto padrão de exigência reforça esse ciclo.";
+  if (ocean === "extroversao") return "Você tende a funcionar melhor com estímulo externo, o que torna esse padrão ainda mais visível.";
+  if (ocean === "agradabilidade") return "Sua tendência a priorizar os outros intensifica o impacto desse padrão em você.";
+  if (ocean === "abertura") return "Sua mente aberta e exploratória pode amplificar a sensação de estar preso nesse ciclo.";
+  return "";
+}
+
+// ── FORM VALIDATION ───────────────────────────────────────
+function clearFieldError(inputId, errId) {
+  var input = document.getElementById(inputId);
+  var err = document.getElementById(errId);
+  if (input) input.classList.remove('input-error');
+  if (err) err.classList.remove('show');
+}
+
+// ── SCREENS ───────────────────────────────────────────────
+function showScreen(id) {
+  document.querySelectorAll('.screen').forEach(function(s) { s.classList.remove('active'); });
+  document.getElementById(id).classList.add('active');
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+// ── INTRO / START ─────────────────────────────────────────
+function startQuiz() {
+  var nome = document.getElementById('inp-nome').value.trim();
+  var wpp = document.getElementById('inp-wpp').value.trim();
+  var email = document.getElementById('inp-email').value.trim();
+  var hasError = false;
+
+  function setFieldError(inputId, errId, show) {
+    var input = document.getElementById(inputId);
+    var err = document.getElementById(errId);
+    if (show) {
+      if (input) input.classList.add('input-error');
+      if (err) err.classList.add('show');
+      hasError = true;
+    } else {
+      if (input) input.classList.remove('input-error');
+      if (err) err.classList.remove('show');
     }
-  });
-  const traco = getDominant(sc.tracos);
-  const ocean = getDominant(sc.ocean);
-  const key = mapProfile(traco, ocean);
-  const p = profiles[key];
+  }
+
+  setFieldError('inp-nome', 'err-nome', !nome);
+  setFieldError('inp-wpp', 'err-wpp', !wpp);
+  setFieldError('inp-email', 'err-email', !email);
+
+  if (hasError) return;
+
+  userData = { nome: nome, wpp: wpp, email: email };
+  currentBlock = 0;
+  showScreen('screen-quiz');
+  renderBlock();
+}
+
+// ── QUIZ RENDER ───────────────────────────────────────────
+function renderBlock() {
+  var start = getBlockStart(currentBlock);
+  var end = getBlockEnd(currentBlock);
+  var blockNum = currentBlock + 1;
+  var totalBlocks = getTotalBlocks();
+
+  var pct = Math.round((totalAnswered() / TOTAL) * 100);
+  document.getElementById('progress-fill').style.width = pct + '%';
+  document.getElementById('progress-pct').textContent = pct + '%';
+  document.getElementById('progress-label').textContent = 'parte ' + blockNum + ' de ' + totalBlocks;
+
+  document.getElementById('btn-back').style.visibility = currentBlock === 0 ? 'hidden' : 'visible';
+
+  updateAnsweredCount();
+
+  var sectionNames = ['Como você se vê por dentro', 'Como você funciona aqui e agora'];
+  var html = '<div class="section-header"><div class="section-label">parte ' + blockNum + ' de ' + totalBlocks + '</div><div class="section-title">' + (sectionNames[currentBlock] || '') + '</div></div>';
+
+  for (var i = start; i < end; i++) {
+    var q = questions[i];
+    var qNum = String(i + 1).padStart(2, '0');
+    var selVal = answers[i] ? answers[i].value : null;
+
+    html += '<div class="question-block" data-qidx="' + i + '">';
+    html += '<div class="question-num">' + qNum + '</div>';
+    html += '<div class="question-text">"' + q.text + '"</div>';
+    html += '<div class="scale-wrap">';
+    html += '<div class="scale-extremes"><span>Não me representa</span><span>Sou exatamente assim</span></div>';
+    html += '<div class="scale-buttons">';
+    for (var v = 1; v <= 5; v++) {
+      var cls = (selVal !== null && selVal === v) ? 'scale-btn selected' : 'scale-btn';
+      html += '<button class="' + cls + '" onclick="selectAnswer(' + i + ', ' + v + ', this)">' + v + '</button>';
+    }
+    html += '</div></div></div>';
+  }
+
+  document.getElementById('quiz-body').innerHTML = html;
+  updateNextBtn();
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+function selectAnswer(idx, val, el) {
+  var q = questions[idx];
+
+  // subtract previous answer from scores if re-answering
+  if (answers[idx] !== undefined) {
+    sc.tracos[answers[idx].traco] -= answers[idx].value;
+    sc.ocean[answers[idx].ocean] -= answers[idx].value;
+  }
+
+  // store new answer and add to scores
+  answers[idx] = { value: val, traco: q.traco, ocean: q.ocean };
+  sc.tracos[q.traco] += val;
+  sc.ocean[q.ocean] += val;
+
+  var siblings = el.closest('.scale-buttons').querySelectorAll('.scale-btn');
+  siblings.forEach(function(b) { b.classList.remove('selected'); });
+  el.classList.add('selected');
+
+  var block = el.closest('.question-block');
+  if (block) block.classList.remove('unanswered');
+
+  updateNextBtn();
+  updateAnsweredCount();
+
+  if (blockAnswered(currentBlock)) {
+    document.getElementById('quiz-alert').classList.remove('show');
+  }
+}
+
+function updateNextBtn() {
+  var btn = document.getElementById('btn-next');
+  var isLast = currentBlock === getTotalBlocks() - 1;
+  btn.disabled = false;
+  btn.style.opacity = '1';
+  btn.textContent = isLast ? 'Ver diagnóstico →' : 'Próxima →';
+}
+
+function updateAnsweredCount() {
+  var start = getBlockStart(currentBlock);
+  var end = getBlockEnd(currentBlock);
+  var done = 0;
+  for (var i = start; i < end; i++) {
+    if (answers[i] !== undefined) done++;
+  }
+  var total = end - start;
+  document.getElementById('answered-count').innerHTML = '<span>' + done + '</span> de ' + total + ' respondidas';
+}
+
+function highlightUnanswered() {
+  var start = getBlockStart(currentBlock);
+  var end = getBlockEnd(currentBlock);
+  var found = false;
+  for (var i = start; i < end; i++) {
+    var block = document.querySelector('[data-qidx="' + i + '"]');
+    if (!block) continue;
+    if (answers[i] === undefined) {
+      block.classList.add('unanswered');
+      if (!found) {
+        block.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        found = true;
+      }
+    } else {
+      block.classList.remove('unanswered');
+    }
+  }
+  var alert = document.getElementById('quiz-alert');
+  if (found) alert.classList.add('show');
+  else alert.classList.remove('show');
+  return !found;
+}
+
+function goNext() {
+  if (!highlightUnanswered()) return;
+  document.getElementById('quiz-alert').classList.remove('show');
+  if (currentBlock < getTotalBlocks() - 1) {
+    currentBlock++;
+    renderBlock();
+  } else {
+    calculate();
+  }
+}
+
+function goBack() {
+  if (currentBlock > 0) {
+    currentBlock--;
+    renderBlock();
+  }
+}
+
+// ── CALCULATE & RESULT ────────────────────────────────────
+function calculate() {
+  var traco = getDominant(sc.tracos);
+  var ocean = getDominant(sc.ocean);
+  var key = mapProfile(traco, ocean);
+  var p = profiles[key];
+  var extraLine = getExtraLine(ocean);
 
   document.getElementById('res-title').textContent = p.title;
   document.getElementById('res-subtitle').textContent = p.subtitle;
+
+  var extraEl = document.getElementById('res-extra');
+  if (extraEl) {
+    extraEl.textContent = extraLine;
+    extraEl.style.display = extraLine ? 'block' : 'none';
+  }
+
   document.getElementById('res-base').textContent = p.base;
   document.getElementById('res-manifesta').textContent = p.manifesta;
 
-  let doresHtml = '';
-  p.dores.forEach(d => {
-    doresHtml += `<li class="dor-item"><span class="dor-icon"></span>${d}</li>`;
+  var doresHtml = '';
+  p.dores.forEach(function(d) {
+    doresHtml += '<li class="dor-item"><span class="dor-icon"></span>' + d + '</li>';
   });
   document.getElementById('res-dores').innerHTML = doresHtml;
 
@@ -1055,14 +1205,13 @@ function calculate() {
   showScreen('screen-result');
 }
 
-function showScreen(id) {
-  document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
-  document.getElementById(id).classList.add('active');
-  window.scrollTo({ top: 0, behavior: 'smooth' });
-}
-
+// ── RESTART ───────────────────────────────────────────────
 function restart() {
-  answers = new Array(TOTAL).fill(null);
+  answers = {};
+  sc = {
+    tracos: { esquizoide:0, oral:0, psicopata:0, masoquista:0, rigido:0 },
+    ocean: { abertura:0, conscienciosidade:0, extroversao:0, agradabilidade:0, neuroticismo:0 }
+  };
   currentBlock = 0;
   document.querySelector('.hero').style.display = '';
   showScreen('screen-intro');
