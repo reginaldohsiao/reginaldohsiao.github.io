@@ -147,42 +147,77 @@ a:hover { color: var(--gold-light); }
   margin: 2rem auto;
 }
 
-/* AJUSTE FINAL — REMOVE GAP DA TELA RESULTADO */
 #screen-result {
-  padding-top: 0 !important;
-  margin-top: 0 !important;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  position: absolute; /* Permite posicionar o elemento livremente */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh; /* Altura total da viewport, pode causar scroll se o conteúdo for maior */
+  overflow-y: auto; /* Permite scroll se o conteúdo exceder a altura */
+  display: flex; /* Habilita layout flexbox */
+  flex-direction: column; /* Empilha os itens verticalmente */
+  align-items: center; /* Centraliza horizontalmente os itens no eixo transversal */
+  justify-content: center; /* Centraliza verticalmente os itens no eixo principal */
+  background: #232323; /* Fundo escuro */
+  color: #f3f3f3; /* Cor do texto clara */
+  font-size: 20px;
+  font-weight: 700;
+  text-align: center;
+  padding: 20px; /* Padding geral, pode ser muito grande ou pequeno dependendo do design */
+  box-sizing: border-box; /* Garante que padding e border sejam incluídos na largura/altura total */
 }
 
-#screen-result .result-top {
-  margin-top: 0 !important;
-  padding-top: 0 !important;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 0 !important; /* Remove espaço entre logo e textos */
+#screen-result .result-content {
+  width: 90%; /* Largura do conteúdo, pode ser ajustada */
+  max-width: 600px; /* Largura máxima para evitar que o conteúdo fique muito largo em telas grandes */
+  margin: 0 auto; /* Centraliza o bloco de conteúdo horizontalmente */
+  padding: 0 20px; /* Padding interno do conteúdo, pode precisar de ajuste */
+  text-align: left; /* Alinha texto à esquerda para melhor leitura de blocos maiores */
 }
 
-/* Ajuste específico para aproximar o Pill do texto Mentor & Terapeuta */
-#screen-result .site-header-role {
-  margin-bottom: 0 !important;
-  padding-bottom: 0 !important;
-  line-height: 1.1 !important; /* Reduz a área invisível do texto */
+/* Regras específicas para remover o 'gap' e alinhar com a página de diagnóstico */
+
+/* Remover margens excessivas de parágrafos dentro do resultado */
+#screen-result .result-content p {
+  margin-bottom: 1em; /* Um espaçamento razoável entre parágrafos */
+  line-height: 1.6; /* Melhora a legibilidade */
 }
 
-#screen-result .status-pill {
-  margin-top: -8px !important; /* Puxa o Pill para cima para eliminar o buraco */
-  margin-bottom: 1.5rem !important;
-  display: inline-flex;
+/* Ajustar espaçamento em títulos (se houver) */
+#screen-result .result-content h2,
+#screen-result .result-content h3 {
+  margin-top: 1.5em; /* Espaçamento acima dos títulos */
+  margin-bottom: 0.8em; /* Espaçamento abaixo dos títulos */
 }
 
-#screen-result .divider {
-  margin: 0.8rem auto !important; /* Centraliza a linha divisória */
-  width: 40px;
-  height: 2px;
+/* Ajustar o espaçamento do botão de CTA */
+#screen-result .cta-button {
+  margin-top: 2em; /* Espaço acima do botão CTA */
+  margin-bottom: 1em; /* Espaço abaixo do botão CTA */
+  padding: 15px 30px; /* Tamanho do botão */
+  background-color: #ff6b6b; /* Cor do botão */
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1.1em;
+  transition: background-color 0.3s ease;
 }
+
+#screen-result .cta-button:hover {
+  background-color: #e74c3c; /* Cor ao passar o mouse */
+}
+
+/* Se houver um rodapé, ajustar seu espaçamento */
+#screen-result .site-footer {
+  margin-top: auto; /* Empurra o footer para o final, caso o conteúdo não ocupe a tela inteira */
+  padding: 20px;
+  text-align: center;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.3); /* Fundo semi-transparente para o footer */
+  font-size: 0.8em;
+}
+
 
 /* ── SCREENS ── */
 .screen { display: none; }
