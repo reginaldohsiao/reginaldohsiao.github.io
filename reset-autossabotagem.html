@@ -54,11 +54,11 @@ a:hover { color: var(--gold-light); }
 
 /* ── HEADER ── */
 .site-header {
-  display: block;
+  display: flex;
   flex-direction: column;
   align-items: center;
   gap: 10px;
-  padding: 1.25rem 0 0.75rem;
+  padding: 0 0 0.2rem;
   border-bottom: none;
   margin-bottom: 0.25rem;
   text-align: center;
@@ -89,8 +89,10 @@ a:hover { color: var(--gold-light); }
 /* ── HERO ── */
 .hero { 
   text-align: center; 
-  padding: 0.3rem 0 0.8rem !important; 
+  padding: 0 0 0.6rem; 
+  margin: 0;
 }
+
 .hero-byline {
   display: inline-block;
   font-size: 10px;
@@ -100,26 +102,39 @@ a:hover { color: var(--gold-light); }
   border: 1px solid rgba(201,168,76,0.35);
   padding: 6px 22px;
   border-radius: 30px;
-  margin-bottom: 0.8rem !important;
+  margin: 0.4rem 0 0.4rem 0;
 }
+
 .hero h1 {
+  margin: 0;
   font-family: var(--serif);
   font-size: clamp(2.2rem, 6vw, 3.2rem);
   font-weight: 500;
   color: var(--text-light);
   line-height: 1.15;
-  0.6rem !important;
+  margin-bottom: 0.6rem;
 }
+
 .hero h1 em {
   font-style: italic;
   color: var(--gold);
 }
+
 .hero-lead {
   font-size: 15px;
   color: var(--text-muted);
   max-width: 440px;
   margin: 0 auto;
   line-height: 1.75;
+}
+
+/* DEBUG VISUAL (TEMPORÁRIO) */
+.site-header {
+  outline: 1px solid blue;
+}
+
+.hero {
+  outline: 1px solid red;
 }
 
 /* ── DIVIDER ── */
