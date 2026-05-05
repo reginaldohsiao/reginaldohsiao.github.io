@@ -169,16 +169,17 @@ a:hover { color: var(--gold-light); }
 #screen-result .site-header-role {
   margin-bottom: 0 !important;
   padding-bottom: 0 !important;
-  line-height: 1.1 !important;
+  line-height: 1.1 !important; /* Reduz a área invisível do texto */
 }
 
 #screen-result .status-pill {
-  margin-top: -5px !important; /* Puxa o Pill para cima para colar no texto */
+  margin-top: -8px !important; /* Puxa o Pill para cima para eliminar o buraco */
   margin-bottom: 1.5rem !important;
+  display: inline-flex;
 }
 
 #screen-result .divider {
-  margin: 0.8rem auto !important; /* Corrigido de '0.8rem auto' para 'margin' */
+  margin: 0.8rem auto !important; /* Centraliza a linha divisória */
   width: 40px;
   height: 2px;
 }
