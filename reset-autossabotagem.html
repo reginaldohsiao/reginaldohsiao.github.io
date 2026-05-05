@@ -151,15 +151,36 @@ a:hover { color: var(--gold-light); }
 #screen-result {
   padding-top: 0 !important;
   margin-top: 0 !important;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 #screen-result .result-top {
   margin-top: 0 !important;
   padding-top: 0 !important;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0 !important; /* Remove espaço entre logo e textos */
+}
+
+/* Ajuste específico para aproximar o Pill do texto Mentor & Terapeuta */
+#screen-result .site-header-role {
+  margin-bottom: 0 !important;
+  padding-bottom: 0 !important;
+  line-height: 1.1 !important;
+}
+
+#screen-result .status-pill {
+  margin-top: -5px !important; /* Puxa o Pill para cima para colar no texto */
+  margin-bottom: 1.5rem !important;
 }
 
 #screen-result .divider {
-  margin-top: 0.8rem auto !important;
+  margin: 0.8rem auto !important; /* Corrigido de '0.8rem auto' para 'margin' */
+  width: 40px;
+  height: 2px;
 }
 
 /* ── SCREENS ── */
