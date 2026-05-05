@@ -676,6 +676,20 @@ a:hover { color: var(--gold-light); }
   margin: 1.25rem 0 0.5rem;
   letter-spacing: 0.02em;
 }
+
+/* ── TRUTH BLOCK ── */
+.truth {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 1.05rem;
+  color: var(--text-muted);
+  line-height: 1.75;
+  text-align: center;
+  padding: 1.25rem 1rem;
+  margin: 0.5rem 0 1rem;
+  border-top: 1px solid rgba(201,168,76,0.1);
+  border-bottom: 1px solid rgba(201,168,76,0.1);
+}
 </style>
 </head>
 <body>
@@ -776,6 +790,7 @@ a:hover { color: var(--gold-light); }
       <div class="result-card-label">como isso se manifesta hoje</div>
       <div class="result-card-body" id="res-manifesta"></div>
     </div>
+    <p class="truth" id="res-truth"></p>
 
     <div class="result-card">
       <div class="result-card-label">o que isso tem a ver com sua autossabotagem</div>
@@ -791,7 +806,7 @@ a:hover { color: var(--gold-light); }
 
     <div class="impact-block">
       <h3>O que acontece se isso continuar</h3>
-      <p>Se esse padrão continuar operando da mesma forma:</p>
+      <p>Se você continuar operando exatamente desse jeito:</p>
       <ul>
         <li>você vai continuar travando nos momentos decisivos</li>
         <li>vai ver oportunidades passando sem agir</li>
@@ -803,7 +818,7 @@ a:hover { color: var(--gold-light); }
     <div class="cta-card">
       <h2 id="cta-title"></h2>
       <p id="cta-text"></p>
-      <a id="cta-link" href="https://pay.kiwify.com.br/xU0P0I6" class="btn-cta">Quero quebrar esse padrão agora</a>
+      <a id="cta-link" href="https://pay.kiwify.com.br/xU0P0I6" class="btn-cta">Quero parar de travar e começar a agir de verdade</a>
     </div>
 
     <button class="btn-restart" onclick="restart()">Refazer o diagnóstico</button>
@@ -829,7 +844,12 @@ const questions = [
   { text: "Sinto que minha energia e foco dependem muito do ambiente, e quando o contexto está pesado, minha produtividade despenca junto.", traco: "oral", ocean: "extroversao" },
   { text: "Sinto que tenho muitas ideias e possibilidades ao mesmo tempo, mas raramente consigo levar alguma delas até o fim.", traco: "esquizoide", ocean: "conscienciosidade" },
   { text: "Sinto que funciono melhor quando estou sendo observado ou quando há algo a provar, e sozinho ou sem pressão externa, me perco.", traco: "psicopata", ocean: "extroversao" },
-  { text: "Carrego um peso emocional constante, e mesmo quando nada de grave está acontecendo, a sensação de sobrecarga não passa.", traco: "masoquista", ocean: "neuroticismo" }
+  { text: "Carrego um peso emocional constante, e mesmo quando nada de grave está acontecendo, a sensação de sobrecarga não passa.", traco: "masoquista", ocean: "neuroticismo" },
+  { text: "Mesmo quando sei o que preciso fazer, sinto que travo na hora de agir.", traco: "rigido", ocean: "neuroticismo" },
+  { text: "Penso demais nas possibilidades e acabo não executando o que realmente importa.", traco: "esquizoide", ocean: "conscienciosidade" },
+  { text: "Evito me expor ou agir porque, no fundo, não quero lidar com o julgamento.", traco: "oral", ocean: "neuroticismo" },
+  { text: "Adio decisões importantes mesmo sabendo que isso está me prejudicando.", traco: "rigido", ocean: "conscienciosidade" },
+  { text: "Sinto que poderia estar muito mais avançado, mas algo sempre me puxa para trás.", traco: "masoquista", ocean: "neuroticismo" }
 ];
 
 const TOTAL = questions.length;
@@ -983,11 +1003,11 @@ function mapProfile(traco, ocean) {
 }
 
 function getExtraLine(ocean) {
-  if (ocean === "neuroticismo") return "Sua intensidade emocional amplifica ainda mais esse padrão.";
-  if (ocean === "conscienciosidade") return "Seu alto padrão de exigência reforça esse ciclo.";
-  if (ocean === "extroversao") return "Você tende a funcionar melhor com estímulo externo, o que torna esse padrão ainda mais visível.";
-  if (ocean === "agradabilidade") return "Sua tendência a priorizar os outros intensifica o impacto desse padrão em você.";
-  if (ocean === "abertura") return "Sua mente aberta e exploratória pode amplificar a sensação de estar preso nesse ciclo.";
+  if (ocean === "neuroticismo") return "Sua intensidade emocional amplifica ainda mais esse padrão — o que você sente te paralisa mais do que deveria.";
+  if (ocean === "conscienciosidade") return "Seu alto padrão de exigência faz você travar exatamente onde deveria avançar.";
+  if (ocean === "extroversao") return "Você funciona melhor com estímulo externo, o que dificulta manter constância sozinho.";
+  if (ocean === "abertura") return "Você tem muitas ideias, mas transformar isso em ação consistente é o desafio.";
+  if (ocean === "agradabilidade") return "Você se adapta demais aos outros e acaba se deixando de lado nos momentos decisivos.";
   return "";
 }
 
@@ -1054,7 +1074,7 @@ function renderBlock() {
 
   updateAnsweredCount();
 
-  var sectionNames = ['Como você se vê por dentro', 'Como você funciona aqui e agora'];
+  var sectionNames = ['Como você se vê por dentro', 'Como você funciona aqui e agora', 'O que está travando sua evolução'];
   var html = '<div class="section-header"><div class="section-label">parte ' + blockNum + ' de ' + totalBlocks + '</div><div class="section-title">' + (sectionNames[currentBlock] || '') + '</div></div>';
 
   for (var i = start; i < end; i++) {
@@ -1170,9 +1190,7 @@ function goBack() {
 }
 
 // ── CALCULATE & RESULT ────────────────────────────────────
-function calculate() {
-  var traco = getDominant(sc.tracos);
-  var ocean = getDominant(sc.ocean);
+function renderResult(traco, ocean) {
   var key = mapProfile(traco, ocean);
   var p = profiles[key];
   var extraLine = getExtraLine(ocean);
@@ -1189,6 +1207,11 @@ function calculate() {
   document.getElementById('res-base').textContent = p.base;
   document.getElementById('res-manifesta').textContent = p.manifesta;
 
+  var truthEl = document.getElementById('res-truth');
+  if (truthEl) {
+    truthEl.textContent = 'Em algum nível, você já percebeu isso. A diferença é que agora está claro demais pra continuar ignorando.';
+  }
+
   var doresHtml = '';
   p.dores.forEach(function(d) {
     doresHtml += '<li class="dor-item"><span class="dor-icon"></span>' + d + '</li>';
@@ -1198,11 +1221,33 @@ function calculate() {
   document.getElementById('cta-title').textContent = p.cta_title;
   document.getElementById('cta-text').textContent = p.cta_text;
 
+  document.querySelector('.hero').style.display = 'none';
+  showScreen('screen-result');
+}
+
+function calculate() {
+  var traco = getDominant(sc.tracos);
+  var ocean = getDominant(sc.ocean);
+
   document.getElementById('progress-fill').style.width = '100%';
   document.getElementById('progress-pct').textContent = '100%';
 
+  // Show loading state briefly
   document.querySelector('.hero').style.display = 'none';
   showScreen('screen-result');
+  document.getElementById('res-title').textContent = 'Analisando seu padrão...';
+  document.getElementById('res-subtitle').textContent = '';
+  document.getElementById('res-extra').style.display = 'none';
+  document.getElementById('res-base').textContent = '';
+  document.getElementById('res-manifesta').textContent = '';
+  document.getElementById('res-truth').textContent = '';
+  document.getElementById('res-dores').innerHTML = '';
+  document.getElementById('cta-title').textContent = '';
+  document.getElementById('cta-text').textContent = '';
+
+  setTimeout(function() {
+    renderResult(traco, ocean);
+  }, 1400);
 }
 
 // ── RESTART ───────────────────────────────────────────────
