@@ -39,6 +39,9 @@ body {
   min-height: 100vh;
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 img { max-width: 100%; display: block; }
@@ -47,7 +50,7 @@ a { color: var(--gold); text-decoration: none; }
 a:hover { color: var(--gold-light); }
 
 /* ── LAYOUT ── */
-.page { max-width: 720px; margin: 0 auto; padding: 0 1.5rem 5rem; }
+.page { max-width: 600px; width: 100%; margin: 0 auto; padding: 0 1.5rem 5rem; }
 
 /* ── HEADER ── */
 .site-header {
@@ -1487,7 +1490,7 @@ function restart() {
 
   </div>
 
-<footer class="site-footer">
+<footer class="site-footer" style="width:100%;max-width:600px;margin:0 auto;">
   <p class="footer-label">entre em contato</p>
   <div class="footer-contacts">
     <a class="footer-link" href="https://wa.me/5511916736373" target="_blank" rel="noopener">
