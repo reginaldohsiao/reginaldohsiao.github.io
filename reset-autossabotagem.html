@@ -1121,11 +1121,15 @@ function sendToWebhook(data) {
   var now = new Date();
   var pad = function(n) { return n < 10 ? '0' + n : n; };
   data.data = pad(now.getDate()) + '/' + pad(now.getMonth()+1) + '/' + now.getFullYear() + ', ' + pad(now.getHours()) + ':' + pad(now.getMinutes()) + ':' + pad(now.getSeconds());
-  fetch('https://hook.us2.make.com/ahn6i1w2pt2c5i9romdghergu4x2c1jh', {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify(data)
-  }).catch(function(err) { console.warn('Webhook error:', err); });
+
+  var params = Object.keys(data).map(function(k) {
+    return encodeURIComponent(k) + '=' + encodeURIComponent(data[k]);
+  }).join('&');
+
+  var url = 'https://script.google.com/macros/s/AKfycbzUvIDQeXzdizWb2VsY0AVMvr8ymMLjCNk9_QCz3kkRr8WaoEPLtJBKlxXPaBKYFoJf/exec?' + params;
+
+  fetch(url, { method: 'GET', mode: 'no-cors' })
+    .catch(function(err) { console.warn('Sheet error:', err); });
 }
 
 function getDominant(obj) {
