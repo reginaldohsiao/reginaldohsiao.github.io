@@ -3,81 +3,179 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Método RESET</title>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+<title>Reginaldo Hsiao | Mentor & Terapeuta</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
 <style>
-body{margin:0;font-family:Inter;background:#000;color:#fff}
-.wrap{max-width:900px;margin:auto;padding:40px 20px}
+*{margin:0;padding:0;box-sizing:border-box}
+
+body{
+  font-family:Inter,system-ui,sans-serif;
+  background:#000;
+  color:#fff;
+  -webkit-font-smoothing:antialiased;
+}
+
+.wrap{
+  max-width:920px;
+  margin:0 auto;
+  padding:60px 24px 80px;
+}
+
+/* LOGO + ASSINATURA */
+.brand{
+  text-align:center;
+  margin-bottom:48px;
+  opacity:0;
+  animation:fadeUp 1s forwards;
+}
 
 .logo{
-  width: 80px;
-  height: 80px;
-  margin: 0 auto 32px;
-  border-radius: 50%;
-  background: #000;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border: 1px solid #1a1a1a;
-  animation: fade 1s forwards;
-  opacity: 0;
+  width:88px;
+  height:88px;
+  margin:0 auto 16px;
+  border-radius:50%;
+  background:transparent;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  border:1px solid #1a1a1a;
 }
+
 .logo img{
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-  padding: 12px;
+  width:100%;
+  height:100%;
+  object-fit:contain;
+  padding:10px;
 }
 
-h1{font-size:38px;opacity:0;animation:fade 1s .2s forwards}
-p{color:#BDBDBD;opacity:0;animation:fade 1s .4s forwards}
+.assinatura{
+  font-size:12px;
+  color:#C9A961;
+  letter-spacing:2px;
+  text-transform:uppercase;
+  font-weight:500;
+  opacity:.85;
+}
 
-@keyframes fade{to{opacity:1}}
+/* TÍTULO */
+h1{
+  font-size:42px;
+  font-weight:800;
+  line-height:1.1;
+  margin-bottom:12px;
+  opacity:0;
+  animation:fadeUp 1s .15s forwards;
+}
 
-.grid{display:grid;gap:16px;margin-top:30px}
+.subtitle{
+  color:#999;
+  font-size:18px;
+  font-weight:400;
+  margin-bottom:40px;
+  opacity:0;
+  animation:fadeUp 1s .25s forwards;
+}
+
+/* ROUTER BOX */
+.router{
+  padding:24px;
+  border:1px solid #1a1a1a;
+  border-radius:16px;
+  margin-bottom:32px;
+  background:linear-gradient(180deg,#050505 0%,#000 100%);
+  opacity:0;
+  animation:fadeUp 1s .35s forwards;
+}
+
+.router strong{
+  display:block;
+  margin-bottom:16px;
+  font-weight:600;
+  font-size:16px;
+}
+
+.option{
+  color:#BDBDBD;
+  margin:10px 0;
+  font-size:15px;
+}
+
+.option:before{
+  content:"•";
+  color:#F2C94C;
+  margin-right:10px;
+}
+
+/* CARDS */
+.grid{
+  display:grid;
+  gap:20px;
+}
 
 .card{
-border:1px solid #1a1a1a;
-border-radius:16px;
-padding:20px;
-transition:.3s;
-opacity:0;
-animation:fade 1s .6s forwards;
+  border:1px solid #1a1a1a;
+  border-radius:20px;
+  padding:28px;
+  background:#050505;
+  transition:all .3s ease;
+  opacity:0;
+  animation:fadeUp 1s .45s forwards;
 }
+
+.card:nth-child(2){animation-delay:.55s}
+.card:nth-child(3){animation-delay:.65s}
 
 .card:hover{
-transform:translateY(-5px);
-border-color:#F2C94C;
+  transform:translateY(-4px);
+  border-color:#F2C94C;
+  box-shadow:0 8px 30px rgba(242,201,76,0.08);
 }
 
-.title{font-size:20px;font-weight:700}
-.sub{color:#BDBDBD;font-size:14px;margin:6px 0 12px}
+.card .title{
+  font-size:22px;
+  font-weight:700;
+  margin-bottom:6px;
+}
+
+.card .sub{
+  color:#888;
+  font-size:14px;
+  margin-bottom:20px;
+  font-weight:400;
+}
 
 .btn{
-display:block;
-text-align:center;
-padding:14px;
-border-radius:12px;
-background:#F2C94C;
-color:#000;
-text-decoration:none;
-font-weight:700;
-cursor:pointer;
+  display:block;
+  text-align:center;
+  padding:16px;
+  border-radius:14px;
+  background:#F2C94C;
+  color:#000;
+  text-decoration:none;
+  font-weight:700;
+  font-size:15px;
+  cursor:pointer;
+  transition:all .2s;
 }
 
-.btn:hover{background:#FFD760}
-
-.router{
-margin-top:20px;
-padding:20px;
-border:1px solid #1a1a1a;
-border-radius:12px;
-opacity:0;
-animation:fade 1s .5s forwards;
+.btn:hover{
+  background:#FFD760;
+  transform:scale(1.02);
 }
 
-.option{margin:8px 0;color:#ddd}
+/* ANIMAÇÕES */
+@keyframes fadeUp{
+  from{opacity:0;transform:translateY(10px)}
+  to{opacity:1;transform:translateY(0)}
+}
+
+/* MOBILE */
+@media(max-width:600px){
+  h1{font-size:32px}
+  .wrap{padding:40px 20px 60px}
+  .card{padding:24px}
+}
 </style>
 
 <script>
@@ -96,38 +194,42 @@ function go(path, event){
 <body>
 <div class="wrap">
 
-<div class="logo">
-  <img src="logo.png" alt="RH - Reginaldo Hsiao">
-</div>
+  <div class="brand">
+    <div class="logo">
+      <img src="logo.png" alt="RH - Reginaldo Hsiao">
+    </div>
+    <div class="assinatura">Reginaldo Hsiao | Mentor & Terapeuta</div>
+  </div>
 
-<h1>Você não está travado por falta de esforço</h1>
-<p>Escolha o ponto onde você está hoje</p>
+  <h1>Você não está travado por falta de esforço</h1>
+  <p class="subtitle">Escolha o ponto onde você está hoje</p>
 
-<div class="router">
-<strong>Qual dessas situações é mais você?</strong>
-<div class="option">• Sei o que fazer, mas não executo</div>
-<div class="option">• Estou perdido, sem direção</div>
-<div class="option">• Isso se repete há anos</div>
-</div>
+  <div class="router">
+    <strong>Qual dessas situações é mais você?</strong>
+    <div class="option">Sei o que fazer, mas não executo</div>
+    <div class="option">Estou perdido, sem direção</div>
+    <div class="option">Isso se repete há anos</div>
+  </div>
 
-<div class="grid">
-<div class="card">
-<div class="title">Quero destravar minha execução</div>
-<div class="sub">Reset da Autossabotagem</div>
-<a class="btn" onclick="go('/produtos/reset/','click_reset')">Entrar</a>
-</div>
+  <div class="grid">
+    <div class="card">
+      <div class="title">Quero destravar minha execução</div>
+      <div class="sub">Reset da Autossabotagem</div>
+      <a class="btn" onclick="go('/produtos/reset/','click_reset')">Entrar</a>
+    </div>
 
-<div class="card">
-<div class="title">Quero clareza e direção</div>
-<div class="sub">Tríade do Desbloqueio</div>
-<a class="btn" onclick="go('/produtos/triade/','click_triade')">Entrar</a>
-</div>
+    <div class="card">
+      <div class="title">Quero clareza e direção</div>
+      <div class="sub">Tríade do Desbloqueio</div>
+      <a class="btn" onclick="go('/produtos/triade/','click_triade')">Entrar</a>
+    </div>
 
-<div class="card">
-<div class="title">Quero resolver isso na raiz</div>
-<div class="sub">Processo Terapêutico</div>
-<a class="btn" onclick="go('/produtos/terapia/','click_terapia')">Entrar</a>
-</div>
+    <div class="card">
+      <div class="title">Quero resolver isso na raiz</div>
+      <div class="sub">Processo Terapêutico</div>
+      <a class="btn" onclick="go('/produtos/terapia/','click_terapia')">Entrar</a>
+    </div>
+  </div>
 
 </div>
 </body>
