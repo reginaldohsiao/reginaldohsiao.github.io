@@ -4,7 +4,6 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Método RESET</title>
-
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
 
 <style>
@@ -29,6 +28,7 @@ body{margin:0;font-family:Inter;background:#000;color:#fff}
   height: 100%;
   object-fit: contain;
   padding: 12px;
+}
 
 h1{font-size:38px;opacity:0;animation:fade 1s .2s forwards}
 p{color:#BDBDBD;opacity:0;animation:fade 1s .4s forwards}
@@ -42,6 +42,8 @@ border:1px solid #1a1a1a;
 border-radius:16px;
 padding:20px;
 transition:.3s;
+opacity:0;
+animation:fade 1s .6s forwards;
 }
 
 .card:hover{
@@ -64,21 +66,18 @@ font-weight:700;
 cursor:pointer;
 }
 
-.btn:hover{
-background:#FFD760;
-}
+.btn:hover{background:#FFD760}
 
 .router{
 margin-top:20px;
 padding:20px;
 border:1px solid #1a1a1a;
 border-radius:12px;
+opacity:0;
+animation:fade 1s .5s forwards;
 }
 
-.option{
-margin:8px 0;
-color:#ddd;
-}
+.option{margin:8px 0;color:#ddd}
 </style>
 
 <script>
@@ -87,16 +86,14 @@ function track(eventName){
   window.dataLayer = window.dataLayer || [];
   dataLayer.push({event: eventName});
 }
-
 function go(path, event){
   track(event);
   window.location.href = path;
 }
 </script>
-
 </head>
-<body>
 
+<body>
 <div class="wrap">
 
 <div class="logo">
@@ -108,15 +105,12 @@ function go(path, event){
 
 <div class="router">
 <strong>Qual dessas situações é mais você?</strong>
-
 <div class="option">• Sei o que fazer, mas não executo</div>
 <div class="option">• Estou perdido, sem direção</div>
 <div class="option">• Isso se repete há anos</div>
-
 </div>
 
 <div class="grid">
-
 <div class="card">
 <div class="title">Quero destravar minha execução</div>
 <div class="sub">Reset da Autossabotagem</div>
@@ -136,6 +130,5 @@ function go(path, event){
 </div>
 
 </div>
-
 </body>
 </html>
