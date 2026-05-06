@@ -1,1 +1,141 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Método RESET</title>
 
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+
+<style>
+body{margin:0;font-family:Inter;background:#000;color:#fff}
+.wrap{max-width:900px;margin:auto;padding:40px 20px}
+
+.logo{
+  width: 80px;
+  height: 80px;
+  margin: 0 auto 32px;
+  border-radius: 50%;
+  background: #000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #1a1a1a;
+  animation: fade 1s forwards;
+  opacity: 0;
+}
+.logo img{
+  width: 44px;
+  height: 44px;
+  object-fit: contain;
+}
+
+h1{font-size:38px;opacity:0;animation:fade 1s .2s forwards}
+p{color:#BDBDBD;opacity:0;animation:fade 1s .4s forwards}
+
+@keyframes fade{to{opacity:1}}
+
+.grid{display:grid;gap:16px;margin-top:30px}
+
+.card{
+border:1px solid #1a1a1a;
+border-radius:16px;
+padding:20px;
+transition:.3s;
+}
+
+.card:hover{
+transform:translateY(-5px);
+border-color:#F2C94C;
+}
+
+.title{font-size:20px;font-weight:700}
+.sub{color:#BDBDBD;font-size:14px;margin:6px 0 12px}
+
+.btn{
+display:block;
+text-align:center;
+padding:14px;
+border-radius:12px;
+background:#F2C94C;
+color:#000;
+text-decoration:none;
+font-weight:700;
+cursor:pointer;
+}
+
+.btn:hover{
+background:#FFD760;
+}
+
+.router{
+margin-top:20px;
+padding:20px;
+border:1px solid #1a1a1a;
+border-radius:12px;
+}
+
+.option{
+margin:8px 0;
+color:#ddd;
+}
+</style>
+
+<script>
+function track(eventName){
+  console.log("Evento:", eventName);
+  window.dataLayer = window.dataLayer || [];
+  dataLayer.push({event: eventName});
+}
+
+function go(path, event){
+  track(event);
+  window.location.href = path;
+}
+</script>
+
+</head>
+<body>
+
+<div class="wrap">
+
+<div class="logo">
+  <img src="logo.png" alt="RH - Reginaldo Hsiao">
+</div>
+
+<h1>Você não está travado por falta de esforço</h1>
+<p>Escolha o ponto onde você está hoje</p>
+
+<div class="router">
+<strong>Qual dessas situações é mais você?</strong>
+
+<div class="option">• Sei o que fazer, mas não executo</div>
+<div class="option">• Estou perdido, sem direção</div>
+<div class="option">• Isso se repete há anos</div>
+
+</div>
+
+<div class="grid">
+
+<div class="card">
+<div class="title">Quero destravar minha execução</div>
+<div class="sub">Reset da Autossabotagem</div>
+<a class="btn" onclick="go('/produtos/reset/','click_reset')">Entrar</a>
+</div>
+
+<div class="card">
+<div class="title">Quero clareza e direção</div>
+<div class="sub">Tríade do Desbloqueio</div>
+<a class="btn" onclick="go('/produtos/triade/','click_triade')">Entrar</a>
+</div>
+
+<div class="card">
+<div class="title">Quero resolver isso na raiz</div>
+<div class="sub">Processo Terapêutico</div>
+<a class="btn" onclick="go('/produtos/terapia/','click_terapia')">Entrar</a>
+</div>
+
+</div>
+
+</body>
+</html>
