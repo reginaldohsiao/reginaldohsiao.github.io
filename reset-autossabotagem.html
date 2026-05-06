@@ -1112,6 +1112,22 @@ function blockAnswered(b) {
 
 function totalAnswered() { return Object.keys(answers).length; }
 
+function capitalize(str) {
+  if (!str) return '';
+  return str.charAt(0).toUpperCase() + str.slice(1);
+}
+
+function sendToWebhook(data) {
+  var now = new Date();
+  var pad = function(n) { return n < 10 ? '0' + n : n; };
+  data.data = pad(now.getDate()) + '/' + pad(now.getMonth()+1) + '/' + now.getFullYear() + ', ' + pad(now.getHours()) + ':' + pad(now.getMinutes()) + ':' + pad(now.getSeconds());
+  fetch('https://hook.us2.make.com/ahn6i1w2pt2c5i9romdghergu4x2c1jh', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(data)
+  }).catch(function(err) { console.warn('Webhook error:', err); });
+}
+
 function getDominant(obj) {
   return Object.keys(obj).reduce((a, b) => obj[a] > obj[b] ? a : b);
 }
@@ -1191,6 +1207,17 @@ function startQuiz() {
   if (hasError) return;
 
   userData = { nome: nome, wpp: wpp, email: email };
+
+  sendToWebhook({
+    nome: nome,
+    whatsapp: wpp,
+    email: email,
+    traco: '',
+    ocean: '',
+    perfil: '',
+    etapa: 'Captura inicial - diagnóstico não concluído'
+  });
+
   currentBlock = 0;
   showScreen('screen-quiz');
   renderBlock();
@@ -1332,6 +1359,16 @@ function renderResult(traco, ocean) {
   var key = mapProfile(traco, ocean);
   var p = profiles[key];
   var extraLine = getExtraLine(ocean);
+
+  sendToWebhook({
+    nome: userData.nome || '',
+    whatsapp: userData.wpp || '',
+    email: userData.email || '',
+    traco: capitalize(traco),
+    ocean: capitalize(ocean),
+    perfil: p.title,
+    etapa: 'Diagnóstico concluído'
+  });
 
   document.getElementById('res-title').textContent = p.title;
   document.getElementById('res-subtitle').textContent = p.subtitle;
