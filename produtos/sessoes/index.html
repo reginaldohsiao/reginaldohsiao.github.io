@@ -13,10 +13,13 @@
       line-height: 1.6;
     }
     .container { max-width: 900px; margin: 0 auto; padding: 0 20px; }
-    .header { padding: 30px 0; text-align: center; }
-    .logo { height: 40px; }
+    .header { padding: 40px 0; text-align: center; }
+    .logo { 
+      height: 50px; 
+      max-width: 220px;
+    }
     .hero-sessoes {
-      padding: 60px 20px;
+      padding: 40px 20px 60px;
       text-align: center;
       border-bottom: 1px solid #222;
     }
@@ -64,7 +67,9 @@
       text-decoration: none;
       width: 100%;
       text-align: center;
+      transition: 0.2s;
     }
+    .btn-principal:hover { transform: scale(1.02); }
     .vagas {
       margin-top: 15px;
       color: #facc15;
@@ -83,6 +88,7 @@
       color: #d4d4d4;
       max-width: 600px;
       margin: 0 auto 15px;
+      font-size: 1.1rem;
     }
     .sessoes-detalhes {
       padding: 80px 20px;
@@ -97,6 +103,7 @@
       border-radius: 12px;
       padding: 30px;
       margin-bottom: 20px;
+      text-align: left;
     }
     .sessao-item.destaque {
       border: 2px solid #facc15;
@@ -138,13 +145,14 @@
       .hero-sessoes h1 { font-size: 2rem; }
       .preco-novo { font-size: 2.8rem; }
       .sessao-item { flex-direction: column; gap: 15px; }
+      .logo { height: 40px; }
     }
   </style>
 </head>
 <body>
   <header class="header">
     <div class="container">
-      <h3 style="color: #facc15;">RH</h3>
+      <img src="../logo.png" alt="Reginaldo Hsiao" class="logo">
     </div>
   </header>
 
