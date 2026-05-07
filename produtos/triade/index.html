@@ -16,9 +16,14 @@ body{font-family:Inter,system-ui,sans-serif;background:#000;color:#fff;-webkit-f
 .logo{width:110px;height:110px;margin:0 auto 10px;display:block;background:transparent}
 .logo img{width:100%;height:100%;object-fit:contain}
 .tagline{color:#C9A961;font-size:10px;font-weight:400;text-align:center;margin-bottom:24px;letter-spacing:3px;text-transform:uppercase;opacity:.65;}
-h1{font-size:36px;font-weight:800;line-height:1.15;margin-bottom:12px;text-align:center}
-.subtitle{color:#999;font-size:18px;text-align:center;margin-bottom:32px}
-.price-box{background:linear-gradient(180deg,#050505 0%,#000 100%);border:1px solid #1a1a1a;border-radius:20px;padding:28px;text-align:center;margin-bottom:32px}
+h1{font-size:36px;font-weight:800;line-height:1.15;margin-bottom:16px;text-align:center}
+.dor-abertura{color:#BDBDBD;font-size:17px;line-height:1.7;text-align:center;margin-bottom:32px;max-width:680px;margin-left:auto;margin-right:auto}
+.dor-abertura strong{color:#fff;font-weight:600}
+.espelho-box{background:#0A0A0A;border:1px solid #1a1a1a;border-left:3px solid #F2C94C;border-radius:16px;padding:24px;margin-bottom:32px}
+.espelho-box h2{font-size:18px;font-weight:700;margin-bottom:16px;color:#fff}
+.espelho-item{display:flex;align-items:flex-start;gap:12px;margin:14px 0;color:#BDBDBD;line-height:1.6}
+.espelho-item:before{content:"•";color:#F2C94C;font-weight:700;font-size:20px;flex-shrink:0;line-height:1.2}
+.price-box{background:linear-gradient(180deg,#050505 0%,#000 100%);border:1px solid #1a1a1a;border-radius:20px;padding:28px;text-align:center;margin:32px 0}
 .price{font-size:42px;font-weight:800;color:#F2C94C;margin-bottom:8px}
 .price-sub{color:#666;font-size:14px;margin-bottom:20px}
 .btn-buy{display:block;width:100%;padding:18px;border-radius:14px;background:#F2C94C;color:#000;text-decoration:none;font-weight:800;font-size:16px;cursor:pointer;transition:all .2s;border:none}
@@ -36,18 +41,20 @@ h1{font-size:36px;font-weight:800;line-height:1.15;margin-bottom:12px;text-align
 .pilar-item{color:#888;font-size:14px;margin:6px 0;display:flex;align-items:center;gap:8px}
 .pilar-item:before{content:"•";color:#F2C94C}
 .cta-final{background:linear-gradient(180deg,#050505 0%,#000 100%);border:1px solid #F2C94C;border-radius:20px;padding:32px 24px;text-align:center;margin-top:32px}
-.cta-final h3{font-size:24px;margin-bottom:20px}
+.cta-final h3{font-size:24px;margin-bottom:12px;line-height:1.3}
+.cta-final p{color:#999;margin-bottom:20px}
 @media(max-width:600px){
   h1{font-size:28px;line-height:1.2}
   .wrap{padding:16px 14px 32px}
   .back{margin-bottom:16px}
   .logo{width:80px;height:80px;margin:0 auto 10px}
   .tagline{font-size:9px;letter-spacing:2.5px}
-  .subtitle{margin-bottom:24px;font-size:16px}
+  .dor-abertura{font-size:16px;margin-bottom:24px}
   .price{font-size:36px}
   .section{padding:20px}
   .pilar{padding:18px}
   .pilar-title{font-size:17px}
+  .cta-final h3{font-size:21px}
 }
 </style>
 
@@ -67,84 +74,85 @@ function checkout(){
   <div class="logo"><img src="../logo.png" alt="RH - Reginaldo Hsiao"></div>
   <p class="tagline">Reginaldo Hsiao | Mentor & Terapeuta</p>
   
-  <h1>Tríade do Desbloqueio</h1>
-  <p class="subtitle">Um processo estruturado para desbloquear os padrões mentais, emocionais e comportamentais que mantêm você preso no mesmo ciclo</p>
+  <h1>Você sabe o que fazer.<br>Mas não consegue fazer.</h1>
+  
+  <p class="dor-abertura">
+    Você já leu livros, fez cursos, entendeu seus padrões. <strong>Mas quando chega a hora de agir, trava.</strong><br><br>
+    A procrastinação te vence. A autossabotagem sabota o que você mais quer. E no fim do dia, a sensação é sempre a mesma: <strong>frustração com você mesmo.</strong>
+  </p>
+  
+  <div class="espelho-box">
+    <h2>Se você se identifica com isso:</h2>
+    <div class="espelho-item">Começa projetos cheio de energia, mas abandona no meio do caminho</div>
+    <div class="espelho-item">Sabe exatamente o que precisa mudar, mas repete os mesmos erros há anos</div>
+    <div class="espelho-item">Sente um freio invisível toda vez que está perto de conseguir algo grande</div>
+    <div class="espelho-item">Tem clareza mental, mas suas emoções te derrubam quando mais precisa de força</div>
+    <div class="espelho-item">Vive com a sensação de estar "patinando" enquanto a vida passa</div>
+  </div>
+  
+  <p class="dor-abertura">
+    <strong>Isso não é falta de disciplina. É padrão.</strong><br>
+    Seu cérebro foi programado pra te proteger da dor. E ele aprendeu que crescer, aparecer e ter sucesso... dói. Então ele te sabota.
+    <br><br>
+    <strong>A Tríade do Desbloqueio reprograma isso na raiz.</strong>
+  </p>
   
   <div class="price-box">
     <div class="price">R$ 497</div>
     <div class="price-sub">à vista ou 12x de R$ 51,23</div>
-    <button class="btn-buy" onclick="checkout()">Quero fazer a Tríade</button>
+    <button class="btn-buy" onclick="checkout()">Quero quebrar esse ciclo agora</button>
     <div class="garantia">7 dias de garantia incondicional</div>
   </div>
   
   <div class="section">
-    <h2>O Funil da Transformação</h2>
-    <p>Seu processo segue uma lógica clara:</p>
-    <div class="list-item"><strong>Reset da Autossabotagem</strong> — consciência inicial</div>
-    <div class="list-item"><strong>Tríade do Desbloqueio</strong> — reestruturação profunda</div>
-    <div class="list-item"><strong>Processo Terapêutico 5 Sessões</strong> — acompanhamento individual</div>
-    <div class="list-item"><strong>Mentoria Premium</strong> — expansão/identidade/direção</div>
-    <p style="margin-top:16px"><strong>A Tríade é o meio do caminho.</strong> Depois da consciência, antes da terapia individual.</p>
-  </div>
-  
-  <div class="section">
-    <h2>O que é a Tríade do Desbloqueio</h2>
+    <h2>Como funciona a Tríade</h2>
     <h3>Reestruturação completa em 3 pilares.</h3>
-    <p>Criado para quebrar o ciclo que se repete há anos através de:</p>
-    <div class="list-item">Reprogramar padrões mentais de autossabotagem</div>
-    <div class="list-item">Regular respostas emocionais automáticas</div>
-    <div class="list-item">Instalar um novo padrão de ação e execução</div>
+    <p>Não é mais um curso de motivação. É reprogramação prática:</p>
   </div>
   
   <div class="section">
-    <h2>Os 3 Pilares da Tríade</h2>
+    <h2>Os 3 Pilares do Desbloqueio</h2>
     
     <div class="pilar">
       <div class="pilar-num">Pilar 1</div>
-      <div class="pilar-title">Mental</div>
-      <div class="pilar-item">Aulas sobre padrões de pensamento</div>
-      <div class="pilar-item">Exercícios de percepção e autodiagnóstico</div>
-      <div class="pilar-item">Reprogramação de crenças limitantes</div>
+      <div class="pilar-title">Mental — Quebrar o ciclo de pensamento</div>
+      <div class="pilar-item">Identificar as crenças que te travam sem você perceber</div>
+      <div class="pilar-item">Reprogramar o diálogo interno de autocrítica</div>
+      <div class="pilar-item">Instalar um novo padrão de decisão</div>
     </div>
     
     <div class="pilar">
       <div class="pilar-num">Pilar 2</div>
-      <div class="pilar-title">Emocional</div>
-      <div class="pilar-item">Áudios guiados de regulação emocional</div>
+      <div class="pilar-title">Emocional — Desativar os gatilhos</div>
+      <div class="pilar-item">Áudios de regulação para momentos de ansiedade e trava</div>
       <div class="pilar-item">Técnicas Integradas de Reprocessamento, PNL e Neurociência</div>
-      <div class="pilar-item">Protocolo de desativação de gatilhos</div>
+      <div class="pilar-item">Protocolo pra desligar a autossabotagem na hora que ela aparece</div>
     </div>
     
     <div class="pilar">
       <div class="pilar-num">Pilar 3</div>
-      <div class="pilar-title">Ação / Integração</div>
-      <div class="pilar-item">Plano prático de execução 30 dias</div>
-      <div class="pilar-item">Posicionamento e tomada de decisão</div>
-      <div class="pilar-item">Ferramentas de manutenção do novo padrão</div>
+      <div class="pilar-title">Ação — Instalar o novo comportamento</div>
+      <div class="pilar-item">Plano prático de 30 dias pra sair da inércia</div>
+      <div class="pilar-item">Ferramentas pra manter consistência sem depender de motivação</div>
+      <div class="pilar-item">Sistema SOS pra momentos de recaída</div>
     </div>
   </div>
   
   <div class="section">
-    <h2>O que você recebe</h2>
-    <div class="list-item">9 aulas em vídeo divididas nos 3 pilares</div>
-    <div class="list-item">Workbook PDF com exercícios de cada pilar</div>
-    <div class="list-item">6 áudios de reprogramação mental e emocional</div>
+    <h2>O que você recebe hoje</h2>
+    <div class="list-item">9 aulas em vídeo direto ao ponto, sem enrolação</div>
+    <div class="list-item">6 áudios de reprogramação pra ouvir quando travar</div>
+    <div class="list-item">Workbook com exercícios práticos dos 3 pilares</div>
     <div class="list-item">Planilha de acompanhamento 30 dias</div>
-    <div class="list-item">Protocolo SOS para momentos de recaída</div>
-    <div class="list-item">Bônus: Aula de PNL para instalação de hábitos</div>
-  </div>
-  
-  <div class="section">
-    <h2>Pra quem é a Tríade</h2>
-    <p>Pra quem já fez o Reset e entendeu o padrão, mas precisa reestruturar de forma profunda.</p>
-    <p>Pra quem está entre "saber o que fazer" e "conseguir fazer sozinho".</p>
-    <p>Pra quem quer clareza mental, equilíbrio emocional e plano de ação integrado.</p>
+    <div class="list-item">Protocolo SOS pra emergência emocional</div>
+    <div class="list-item">Bônus: Aula de PNL para instalar hábitos novos</div>
   </div>
   
   <div class="cta-final">
-    <h3>Ou você continua consciente mas travado.<br>Ou reestrutura os 3 pilares agora.</h3>
+    <h3>Você pode continuar lendo sobre seus padrões.<br>Ou pode reprogramar eles agora.</h3>
+    <p>A escolha entre "saber" e "fazer" está a um clique.</p>
     <button class="btn-buy" onclick="checkout()">Quero a Tríade do Desbloqueio</button>
-    <div class="garantia">7 dias de garantia incondicional</div>
+    <div class="garantia">7 dias de garantia. Se não sentir diferença, devolvo 100%</div>
   </div>
 </div>
 </body>
