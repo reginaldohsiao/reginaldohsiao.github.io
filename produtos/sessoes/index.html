@@ -16,6 +16,7 @@
       --text-muted: #a3a3a3;
       --gold: #facc15;
       --gold-dark: #eab308;
+      --gold-muted: #a1824a;
     }
     * { margin: 0; padding: 0; box-sizing: border-box; }
     body {
@@ -27,30 +28,30 @@
     }
     .container { max-width: 800px; margin: 0 auto; padding: 0 24px; }
     
-    /* HEADER IDÊNTICO TRÍADE - LOGO 110PX */
+    /* HEADER IDÊNTICO TRÍADE - BOTÃO POSIÇÃO CORRIGIDA */
     .header {
-      padding: 40px 0 32px;
+      padding: 48px 0 40px;
       text-align: center;
       position: relative;
     }
     .logo {
-      height: 110px; /* TAMANHO CORRETO DA TRÍADE */
+      height: 110px;
       display: block;
-      margin: 0 auto 12px;
+      margin: 0 auto 16px;
     }
     .logo-text {
       font-size: 0.625rem;
       font-weight: 500;
-      color: var(--gold);
-      opacity: 0.7;
+      color: var(--gold-muted);
+      opacity: 0.9;
       text-transform: uppercase;
-      letter-spacing: 2px;
+      letter-spacing: 2.5px;
       display: block;
     }
     .btn-voltar {
       position: absolute;
       left: 24px;
-      top: 40px;
+      top: 48px; /* ALINHADO COM CENTRO DA LOGO */
       font-size: 0.875rem;
       color: var(--text-muted);
       text-decoration: none;
@@ -61,7 +62,7 @@
     
     .hero {
       text-align: center;
-      padding: 32px 0 80px; /* REDUZI O TOP PRA MATAR O VÃO */
+      padding: 32px 0 80px;
       border-bottom: 1px solid var(--border);
     }
     .hero h1 {
@@ -127,7 +128,7 @@
     }
     
     .section {
-      padding: 64px 0; /* REDUZI DE 80PX PRA 64PX PRA MATAR VÃO */
+      padding: 64px 0;
       border-bottom: 1px solid var(--border);
     }
     .section:last-of-type { border-bottom: none; }
@@ -143,7 +144,7 @@
       color: var(--text-muted);
       text-align: center;
       max-width: 600px;
-      margin: 0 auto 40px; /* REDUZI DE 48PX PRA 40PX */
+      margin: 0 auto 40px;
     }
     
     .pain-box {
@@ -230,7 +231,7 @@
       background: var(--card);
       border: 1px solid var(--border);
       border-radius: 16px;
-      padding: 40px;
+      padding: 36px;
       text-align: center;
     }
     .guarantee-box h3 {
@@ -243,13 +244,13 @@
       max-width: 500px;
       margin: 0 auto 12px;
       font-size: 1.125rem;
-      line-height: 1.6;
+      line-height: 1.8;
     }
     .guarantee-box p:last-child { margin: 0 auto; }
     .guarantee-box strong { color: var(--text); }
     
     .cta-final {
-      padding: 64px 0 80px; /* REDUZI PRA MATAR VÃO */
+      padding: 64px 0 80px;
       text-align: center;
     }
     .cta-final h2 {
@@ -270,14 +271,14 @@
       .price-value { font-size: 3rem; }
       .section-title { font-size: 1.75rem; }
       .session-item { flex-direction: column; gap: 16px; }
-      .logo { height: 80px; } /* MOBILE 80PX IGUAL TRÍADE */
-      .logo-text { font-size: 0.6rem; }
-      .header { padding: 32px 0 24px; }
-      .section { padding: 48px 0; } /* MOBILE REDUZI MAIS */
+      .logo { height: 80px; }
+      .logo-text { font-size: 0.55rem; letter-spacing: 2px; }
+      .header { padding: 40px 0 32px; }
+      .section { padding: 48px 0; }
       .hero { padding: 24px 0 64px; }
       .btn-voltar {
         left: 16px;
-        top: 32px;
+        top: 40px;
         font-size: 0.8rem;
       }
     }
@@ -327,15 +328,15 @@
           <div class="session-number">01</div>
           <div class="session-content">
             <h3>Sessão Diagnóstico: Mapeamento de Sabotagem</h3>
-            <p><strong>45 minutos.</strong> Vamos usar meu protocolo clínico pra descobrir EXATAMENTE onde você se boicota. Você sai com clareza brutal do seu padrão invisível.</p>
+            <p><strong>45 minutos.</strong> Vamos usar meu protocolo terapêutico pra identificar os padrões que sustentam sua autossabotagem. Você sai com clareza brutal do seu padrão invisível.</p>
           </div>
         </div>
 
         <div class="session-item">
           <div class="session-number">02</div>
           <div class="session-content">
-            <h3>Sessão Reprogramação: Cirurgia de Crenças</h3>
-            <p><strong>60 minutos.</strong> Aplicação de PNL + Hipnose pra arrancar a crença raiz. Trocamos "não sou capaz" por "eu comando". Você sente na hora.</p>
+            <h3>Sessão Reprogramação: Reestruturação Interna</h3>
+            <p><strong>60 minutos.</strong> Aplicação de Reprocessamento + Neurociência + PNL pra arrancar a crença raiz. Trocamos "não sou capaz" por "eu comando". Foco em alteração de resposta emocional e percepção interna.</p>
           </div>
         </div>
 
@@ -343,22 +344,22 @@
           <div class="session-number">03</div>
           <div class="session-content">
             <h3>Sessão Instalação: Tríade Personalizada</h3>
-            <p><strong>45 minutos.</strong> Pegamos os 3 pilares Mental, Emocional e Ação e adaptamos 100% pra sua rotina, seus horários, seu caos. Zero genérico.</p>
+            <p><strong>45 minutos.</strong> Pegamos os 3 pilares Mental, Emocional e Ação e adaptamos 100% pra sua rotina, seus horários, seu caos. adaptado à sua realidade emocional, rotina e padrões específicos.</p>
           </div>
         </div>
 
         <div class="session-item">
           <div class="session-number">04</div>
           <div class="session-content">
-            <h3>Sessão Execução: Plano 30 Dias Blindado</h3>
-            <p><strong>45 minutos.</strong> Você sai com planilha no Google Sheets, gatilhos diários e protocolo de consistência. Impossível procrastinar depois disso.</p>
+            <h3>Sessão Execução: Consolidação do Novo Padrão</h3>
+            <p><strong>45 minutos.</strong> plano de integração prática + estrutura de sustentação comportamental + protocolo de consistência. Impossível procrastinar depois disso.</p>
           </div>
         </div>
 
         <div class="session-item featured">
           <div class="session-number">05</div>
           <div class="session-content">
-            <h3>Sessão BÔNUS: Blindagem Emocional Vitalícia</h3>
+            <h3>Sessão BÔNUS: Sessão Sustentação: Prevenção de Recaídas</h3>
             <p><strong>60 minutos.</strong> Instalamos o Protocolo SOS de 5 minutos + o hábito-âncora que te mantém no controle pra sempre. Anti-recaída garantido.</p>
           </div>
         </div>
