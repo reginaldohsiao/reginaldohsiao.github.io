@@ -3,245 +3,398 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Processo Terapêutico 5 Sessões - R$ 897 | Reginaldo Hsiao</title>
+  <title>Processo Terapêutico: 5 Sessões | Reginaldo Hsiao</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&display=swap" rel="stylesheet">
   <style>
+    :root {
+      --bg: #000000;
+      --card: #0a0a0a;
+      --border: #1f1f1f;
+      --text: #ffffff;
+      --text-muted: #a3a3a3;
+      --gold: #facc15;
+      --gold-dark: #eab308;
+    }
     * { margin: 0; padding: 0; box-sizing: border-box; }
     body {
-      background: #000;
-      color: #fff;
-      font-family: 'Inter', -apple-system, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Inter', sans-serif;
       line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
     }
-    .container { max-width: 900px; margin: 0 auto; padding: 0 20px; }
-    .header { padding: 48px 0 32px; text-align: center; }
+    .container { max-width: 800px; margin: 0 auto; padding: 0 24px; }
+    
+    /* HEADER PADRÃO: VOLTAR ESQUERDA | LOGO CENTRO */
+    .header { 
+      padding: 32px 0; 
+      border-bottom: 1px solid var(--border);
+      position: relative;
+    }
+    .header .container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+    }
+    .logo-wrap {
+      text-align: center;
+    }
     .logo { 
       height: 56px; 
-      max-width: 220px;
+      display: block;
+      margin: 0 auto 8px;
     }
+    .logo-text {
+      font-size: 0.75rem;
+      font-weight: 500;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      display: block;
+    }
+    .btn-voltar {
+      position: absolute;
+      left: 24px;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 0.875rem;
+      color: var(--text-muted);
+      text-decoration: none;
+      border: 1px solid var(--border);
+      padding: 10px 16px;
+      border-radius: 8px;
+      transition: 0.2s;
+    }
+    .btn-voltar:hover {
+      color: var(--text);
+      border-color: var(--gold);
+    }
+    
     .hero {
-  padding: 0 0 80px;
-  text-align: center;
-  border-bottom: 1px solid #1f1f1f;
-}
-    .hero-sessoes h1 { font-size: 2.8rem; margin-bottom: 15px; }
-    .subheadline {
-      font-size: 1.2rem;
-      color: #a3a3a3;
-      max-width: 600px;
-      margin: 0 auto 40px;
+      text-align: center;
+      padding: 64px 0 80px;
     }
-    .preco-box {
-      background: #0a0a0a;
-      border: 1px solid #1f1f1f;
-      border-radius: 16px;
-      padding: 40px;
-      max-width: 500px;
+    .hero h1 {
+      font-size: 2.75rem;
+      font-weight: 900;
+      letter-spacing: -1.5px;
+      margin: 0 0 16px;
+    }
+    .hero .subheadline {
+      font-size: 1.125rem;
+      color: var(--text-muted);
+      max-width: 560px;
+      margin: 0 auto 48px;
+    }
+    
+    .price-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 32px;
+      max-width: 480px;
       margin: 0 auto;
     }
-    .preco-antigo {
-      display: block;
-      color: #666;
-      text-decoration: line-through;
-      font-size: 1.1rem;
+    .price-tag {
+      font-size: 0.875rem;
+      font-weight: 500;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 1px;
     }
-    .preco-novo {
-      display: block;
+    .price-value {
       font-size: 3.5rem;
       font-weight: 900;
-      color: #facc15;
-      margin: 10px 0;
+      color: var(--gold);
+      line-height: 1;
+      margin: 8px 0;
     }
-    .parcelamento {
+    .price-installments {
+      font-size: 1rem;
+      color: var(--text-muted);
+      margin-bottom: 24px;
+    }
+    .btn {
       display: block;
-      color: #a3a3a3;
-      margin-bottom: 25px;
-    }
-    .btn-principal {
-      display: inline-block;
-      background: #facc15;
+      background: var(--gold);
       color: #000;
-      font-size: 1.1rem;
+      font-size: 1.125rem;
       font-weight: 700;
-      padding: 18px 40px;
-      border-radius: 8px;
+      padding: 18px;
+      border-radius: 12px;
       text-decoration: none;
-      width: 100%;
       text-align: center;
       transition: 0.2s;
     }
-    .btn-principal:hover { transform: scale(1.02); }
-    .vagas {
-      margin-top: 15px;
-      color: #facc15;
-      font-size: 0.9rem;
+    .btn:hover {
+      background: var(--gold-dark);
+      transform: translateY(-2px);
     }
-    .dor, .para-quem, .garantia {
-      padding: 80px 20px;
-      text-align: center;
-      border-bottom: 1px solid #222;
+    .scarcity {
+      margin-top: 16px;
+      font-size: 0.875rem;
+      color: var(--gold);
     }
-    .dor h2, .para-quem h2, .garantia h2, .sessoes-detalhes h2 {
+    
+    /* SEÇÕES COM PADDING CORRETO - SEM VÃO */
+    .section {
+      padding: 80px 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .section:last-of-type { border-bottom: none; }
+    .section-title {
       font-size: 2rem;
-      margin-bottom: 20px;
+      font-weight: 900;
+      text-align: center;
+      margin-bottom: 24px;
+      letter-spacing: -1px;
     }
-    .dor p, .garantia p {
-      color: #d4d4d4;
+    .section-subtitle {
+      font-size: 1.125rem;
+      color: var(--text-muted);
+      text-align: center;
       max-width: 600px;
-      margin: 0 auto 15px;
-      font-size: 1.1rem;
+      margin: 0 auto 48px;
     }
-    .sessoes-detalhes {
-      padding: 80px 20px;
-      border-bottom: 1px solid #222;
-    }
-    .sessoes-detalhes h2 { text-align: center; margin-bottom: 60px; }
-    .sessao-item {
-      display: flex;
-      gap: 25px;
-      background: #0a0a0a;
-      border: 1px solid #1f1f1f;
-      border-radius: 12px;
-      padding: 30px;
-      margin-bottom: 20px;
+    
+    .pain-box {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 32px;
       text-align: left;
     }
-    .sessao-item.destaque {
-      border: 2px solid #facc15;
-      background: #111;
+    .pain-box p {
+      color: var(--text-muted);
+      margin-bottom: 16px;
+      font-size: 1.125rem;
     }
-    .sessao-numero {
-      font-size: 2.5rem;
+    .pain-box p:last-child { margin-bottom: 0; }
+    .pain-box strong {
+      color: var(--text);
+      font-weight: 700;
+    }
+    
+    .session-list {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+    .session-item {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 24px;
+      display: flex;
+      gap: 24px;
+      align-items: flex-start;
+    }
+    .session-item.featured {
+      border: 2px solid var(--gold);
+      background: linear-gradient(180deg, #111 0%, #0a0a0a 100%);
+    }
+    .session-number {
+      font-size: 2rem;
       font-weight: 900;
-      color: #facc15;
-      min-width: 50px;
+      color: var(--gold);
       line-height: 1;
     }
-    .sessao-conteudo h3 { font-size: 1.3rem; margin-bottom: 8px; }
-    .sessao-conteudo p { color: #d4d4d4; }
-    .para-quem ul {
+    .session-content h3 {
+      font-size: 1.25rem;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+    .session-content p {
+      color: var(--text-muted);
+      font-size: 1rem;
+    }
+    .session-content strong { color: var(--text); }
+    
+    .checklist {
       list-style: none;
-      max-width: 500px;
-      margin: 30px auto 0;
-      text-align: left;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      max-width: 560px;
+      margin: 0 auto;
     }
-    .para-quem li {
-      background: #0a0a0a;
-      border: 1px solid #1f1f1f;
-      border-radius: 8px;
-      padding: 15px;
-      margin-bottom: 10px;
+    .checklist li {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 16px 20px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 1.125rem;
     }
-    .cta-final {
-      padding: 80px 20px;
+    .checklist li::before {
+      content: '✓';
+      color: var(--gold);
+      font-weight: 700;
+      font-size: 1.25rem;
+    }
+    
+    .guarantee-box {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 40px;
       text-align: center;
     }
-    .cta-final h2 { font-size: 1.8rem; color: #a3a3a3; }
-    .cta-final h3 {
-      font-size: 2.2rem;
-      color: #facc15;
-      margin: 10px 0 40px;
+    .guarantee-box h3 {
+      font-size: 1.5rem;
+      font-weight: 900;
+      margin-bottom: 16px;
     }
+    .guarantee-box p {
+      color: var(--text-muted);
+      max-width: 500px;
+      margin: 0 auto 12px;
+      font-size: 1.125rem;
+    }
+    .guarantee-box strong { color: var(--text); }
+    
+    .cta-final {
+      padding: 80px 0;
+      text-align: center;
+    }
+    .cta-final h2 {
+      font-size: 1.75rem;
+      color: var(--text-muted);
+      font-weight: 500;
+    }
+    .cta-final h3 {
+      font-size: 2.25rem;
+      font-weight: 900;
+      color: var(--gold);
+      margin: 8px 0 40px;
+    }
+    
     @media (max-width: 768px) {
-      .hero-sessoes h1 { font-size: 2rem; }
-      .preco-novo { font-size: 2.8rem; }
-      .sessao-item { flex-direction: column; gap: 15px; }
-      .logo { height: 40px; }
+      .hero h1 { font-size: 2.25rem; }
+      .price-value { font-size: 3rem; }
+      .section-title { font-size: 1.75rem; }
+      .session-item { flex-direction: column; gap: 16px; }
+      .logo { height: 48px; }
+      .logo-text { font-size: 0.7rem; }
+      .header { padding: 24px 0; }
+      .section { padding: 64px 0; }
+      .btn-voltar {
+        left: 16px;
+        padding: 8px 12px;
+        font-size: 0.8rem;
+      }
     }
   </style>
 </head>
 <body>
   <header class="header">
     <div class="container">
-      <img src="../logo.png" alt="Reginaldo Hsiao" class="logo">
+      <a href="https://reginaldohsiao.github.io/produtos/" class="btn-voltar">← Voltar</a>
+      <div class="logo-wrap">
+        <img src="../logo.png" alt="Reginaldo Hsiao" class="logo">
+        <span class="logo-text">Reginaldo Hsiao | Mentor & Terapeuta</span>
+      </div>
     </div>
   </header>
 
-  <section class="hero-sessoes">
+  <section class="hero">
     <div class="container">
       <h1>Processo Terapêutico: 5 Sessões</h1>
       <p class="subheadline">Acompanhamento individual comigo, Reginaldo Hsiao. Sem curso gravado. Sem grupo. É você e eu, destravando sua vida ao vivo.</p>
       
-      <div class="preco-box">
-        <span class="preco-antigo">De R$ 1.500</span>
-        <span class="preco-novo">Por R$ 897</span>
-        <span class="parcelamento">ou 12x de R$ 89,70</span>
-        <a href="COLA_SEU_LINK_DA_KIWIFY_AQUI" class="btn-principal">QUERO MINHAS 5 SESSÕES AGORA</a>
-        <p class="vagas">Vagas limitadas. Atendo apenas 8 pessoas por mês.</p>
+      <div class="price-card">
+        <span class="price-tag">Investimento</span>
+        <div class="price-value">R$ 897</div>
+        <div class="price-installments">ou 12x de R$ 89,70</div>
+        <a href="COLA_SEU_LINK_DA_KIWIFY_AQUI" class="btn">QUERO MINHAS 5 SESSÕES AGORA</a>
+        <p class="scarcity">Vagas limitadas. Atendo apenas 8 pessoas por mês.</p>
       </div>
     </div>
   </section>
 
-  <section class="dor">
+  <section class="section">
     <div class="container">
-      <h2>Você já tentou de tudo sozinho...</h2>
-      <p>Curso, livro, YouTube, terapia em grupo. Mas a autossabotagem sempre volta porque ninguém olhou pro SEU caso específico.</p>
-      <p><strong>Chega de conteúdo genérico. Você precisa de direção pessoal.</strong></p>
+      <h2 class="section-title">Você já tentou de tudo sozinho...</h2>
+      <div class="pain-box">
+        <p>Curso, livro, YouTube, terapia em grupo. Mas a autossabotagem sempre volta porque ninguém olhou pro SEU caso específico.</p>
+        <p><strong>Chega de conteúdo genérico. Você precisa de direção pessoal.</strong></p>
+      </div>
     </div>
   </section>
 
-  <section class="sessoes-detalhes">
+  <section class="section">
     <div class="container">
-      <h2>O que acontece em cada encontro:</h2>
+      <h2 class="section-title">O que acontece em cada encontro:</h2>
+      <p class="section-subtitle">5 etapas guiadas, com execução prática e sem enrolação.</p>
       
-      <div class="sessao-item">
-        <div class="sessao-numero">01</div>
-        <div class="sessao-conteudo">
-          <h3>Sessão Diagnóstico: Mapeamento de Sabotagem</h3>
-          <p><strong>45 minutos.</strong> Vamos usar meu protocolo clínico pra descobrir EXATAMENTE onde você se boicota. Você sai com clareza brutal do seu padrão invisível.</p>
+      <div class="session-list">
+        <div class="session-item">
+          <div class="session-number">01</div>
+          <div class="session-content">
+            <h3>Sessão Diagnóstico: Mapeamento de Sabotagem</h3>
+            <p><strong>45 minutos.</strong> Vamos usar meu protocolo clínico pra descobrir EXATAMENTE onde você se boicota. Você sai com clareza brutal do seu padrão invisível.</p>
+          </div>
         </div>
-      </div>
 
-      <div class="sessao-item">
-        <div class="sessao-numero">02</div>
-        <div class="sessao-conteudo">
-          <h3>Sessão Reprogramação: Cirurgia de Crenças</h3>
-          <p><strong>60 minutos.</strong> Aplicação de PNL + Hipnose pra arrancar a crença raiz. Trocamos "não sou capaz" por "eu comando". Você sente na hora.</p>
+        <div class="session-item">
+          <div class="session-number">02</div>
+          <div class="session-content">
+            <h3>Sessão Reprogramação: Cirurgia de Crenças</h3>
+            <p><strong>60 minutos.</strong> Aplicação de PNL + Hipnose pra arrancar a crença raiz. Trocamos "não sou capaz" por "eu comando". Você sente na hora.</p>
+          </div>
         </div>
-      </div>
 
-      <div class="sessao-item">
-        <div class="sessao-numero">03</div>
-        <div class="sessao-conteudo">
-          <h3>Sessão Instalação: Tríade Personalizada</h3>
-          <p><strong>45 minutos.</strong> Pegamos os 3 pilares Mental, Emocional e Ação e adaptamos 100% pra sua rotina, seus horários, seu caos. Zero genérico.</p>
+        <div class="session-item">
+          <div class="session-number">03</div>
+          <div class="session-content">
+            <h3>Sessão Instalação: Tríade Personalizada</h3>
+            <p><strong>45 minutos.</strong> Pegamos os 3 pilares Mental, Emocional e Ação e adaptamos 100% pra sua rotina, seus horários, seu caos. Zero genérico.</p>
+          </div>
         </div>
-      </div>
 
-      <div class="sessao-item">
-        <div class="sessao-numero">04</div>
-        <div class="sessao-conteudo">
-          <h3>Sessão Execução: Plano 30 Dias Blindado</h3>
-          <p><strong>45 minutos.</strong> Você sai com planilha no Google Sheets, gatilhos diários e protocolo de consistência. Impossível procrastinar depois disso.</p>
+        <div class="session-item">
+          <div class="session-number">04</div>
+          <div class="session-content">
+            <h3>Sessão Execução: Plano 30 Dias Blindado</h3>
+            <p><strong>45 minutos.</strong> Você sai com planilha no Google Sheets, gatilhos diários e protocolo de consistência. Impossível procrastinar depois disso.</p>
+          </div>
         </div>
-      </div>
 
-      <div class="sessao-item destaque">
-        <div class="sessao-numero">05</div>
-        <div class="sessao-conteudo">
-          <h3>Sessão BÔNUS: Blindagem Emocional Vitalícia</h3>
-          <p><strong>60 minutos.</strong> Instalamos o Protocolo SOS de 5 minutos + o hábito-âncora que te mantém no controle pra sempre. Anti-recaída garantido.</p>
+        <div class="session-item featured">
+          <div class="session-number">05</div>
+          <div class="session-content">
+            <h3>Sessão BÔNUS: Blindagem Emocional Vitalícia</h3>
+            <p><strong>60 minutos.</strong> Instalamos o Protocolo SOS de 5 minutos + o hábito-âncora que te mantém no controle pra sempre. Anti-recaída garantido.</p>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
-  <section class="para-quem">
+  <section class="section">
     <div class="container">
-      <h2>As 5 Sessões são pra você se:</h2>
-      <ul>
-        <li>✓ Já fez curso e não aplicou nada sozinho</li>
-        <li>✓ Precisa de alguém pra te cobrar e direcionar</li>
-        <li>✓ Quer resultado em 30 dias, não em 6 meses</li>
-        <li>✓ Entende que investir em si é o melhor ROI que existe</li>
+      <h2 class="section-title">As 5 Sessões são pra você se:</h2>
+      <ul class="checklist">
+        <li>Já fez curso e não aplicou nada sozinho</li>
+        <li>Precisa de alguém pra te cobrar e direcionar</li>
+        <li>Quer resultado em 30 dias, não em 6 meses</li>
+        <li>Entende que investir em si é o melhor ROI que existe</li>
       </ul>
     </div>
   </section>
 
-  <section class="garantia">
+  <section class="section">
     <div class="container">
-      <h2>Garantia de 7 Dias + Sessão 1</h2>
-      <p>Faça a primeira sessão comigo. Se não sentir que foi a conversa mais transformadora da sua vida, devolvo 100% dos R$ 897. Sem pergunta, sem burocracia.</p>
-      <p><strong>O risco é todo meu. O resultado é todo seu.</strong></p>
+      <div class="guarantee-box">
+        <h3>Garantia de 7 Dias + Sessão 1</h3>
+        <p>Faça a primeira sessão comigo. Se não sentir que foi a conversa mais transformadora da sua vida, devolvo 100% dos R$ 897. Sem pergunta, sem burocracia.</p>
+        <p><strong>O risco é todo meu. O resultado é todo seu.</strong></p>
+      </div>
     </div>
   </section>
 
@@ -249,11 +402,12 @@
     <div class="container">
       <h2>Ou você continua tentando sozinho por mais 1 ano...</h2>
       <h3>Ou resolve em 5 sessões comigo agora.</h3>
-      <div class="preco-box">
-        <span class="preco-novo">R$ 897</span>
-        <span class="parcelamento">ou 12x de R$ 89,70</span>
-        <a href="COLA_SEU_LINK_DA_KIWIFY_AQUI" class="btn-principal">AGENDAR MINHAS 5 SESSÕES</a>
-        <p class="vagas">Apenas 8 vagas mensais. Quando fechar, só mês que vem.</p>
+      <div class="price-card">
+        <span class="price-tag">Investimento</span>
+        <div class="price-value">R$ 897</div>
+        <div class="price-installments">ou 12x de R$ 89,70</div>
+        <a href="COLA_SEU_LINK_DA_KIWIFY_AQUI" class="btn">AGENDAR MINHAS 5 SESSÕES</a>
+        <p class="scarcity">Apenas 8 vagas mensais. Quando fechar, só mês que vem.</p>
       </div>
     </div>
   </section>
