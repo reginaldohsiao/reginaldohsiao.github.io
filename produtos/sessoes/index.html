@@ -27,55 +27,42 @@
     }
     .container { max-width: 800px; margin: 0 auto; padding: 0 24px; }
     
-    /* HEADER PADRÃO: VOLTAR ESQUERDA | LOGO CENTRO */
-    .header { 
-      padding: 32px 0; 
-      border-bottom: 1px solid var(--border);
-      position: relative;
-    }
-    .header .container {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      position: relative;
-    }
-    .logo-wrap {
+    /* HEADER EXATO DA TRÍADE */
+    .header {
+      padding: 40px 0 32px;
       text-align: center;
+      position: relative;
     }
-    .logo { 
-      height: 56px; 
+    .logo {
+      height: 72px;
       display: block;
-      margin: 0 auto 8px;
+      margin: 0 auto 12px;
     }
     .logo-text {
-      font-size: 0.75rem;
+      font-size: 0.625rem;
       font-weight: 500;
-      color: var(--text-muted);
+      color: var(--gold);
+      opacity: 0.7; /* OPACIDADE IGUAL TRÍADE */
       text-transform: uppercase;
-      letter-spacing: 1px;
+      letter-spacing: 2px;
       display: block;
     }
     .btn-voltar {
       position: absolute;
       left: 24px;
-      top: 50%;
-      transform: translateY(-50%);
+      top: 40px;
       font-size: 0.875rem;
       color: var(--text-muted);
       text-decoration: none;
-      border: 1px solid var(--border);
-      padding: 10px 16px;
-      border-radius: 8px;
-      transition: 0.2s;
     }
     .btn-voltar:hover {
-      color: var(--text);
-      border-color: var(--gold);
+      color: var(--gold);
     }
     
     .hero {
       text-align: center;
-      padding: 64px 0 80px;
+      padding: 48px 0 80px;
+      border-bottom: 1px solid var(--border);
     }
     .hero h1 {
       font-size: 2.75rem;
@@ -115,7 +102,7 @@
     .price-installments {
       font-size: 1rem;
       color: var(--text-muted);
-      margin-bottom: 24px;
+      margin: 0 0 24px;
     }
     .btn {
       display: block;
@@ -134,12 +121,11 @@
       transform: translateY(-2px);
     }
     .scarcity {
-      margin-top: 16px;
+      margin: 16px 0 0;
       font-size: 0.875rem;
       color: var(--gold);
     }
     
-    /* SEÇÕES COM PADDING CORRETO - SEM VÃO */
     .section {
       padding: 80px 0;
       border-bottom: 1px solid var(--border);
@@ -149,7 +135,7 @@
       font-size: 2rem;
       font-weight: 900;
       text-align: center;
-      margin-bottom: 24px;
+      margin: 0 0 24px;
       letter-spacing: -1px;
     }
     .section-subtitle {
@@ -165,14 +151,13 @@
       border: 1px solid var(--border);
       border-radius: 16px;
       padding: 32px;
-      text-align: left;
     }
     .pain-box p {
       color: var(--text-muted);
-      margin-bottom: 16px;
+      margin: 0 0 16px;
       font-size: 1.125rem;
     }
-    .pain-box p:last-child { margin-bottom: 0; }
+    .pain-box p:last-child { margin: 0; }
     .pain-box strong {
       color: var(--text);
       font-weight: 700;
@@ -205,11 +190,12 @@
     .session-content h3 {
       font-size: 1.25rem;
       font-weight: 700;
-      margin-bottom: 8px;
+      margin: 0 0 8px;
     }
     .session-content p {
       color: var(--text-muted);
       font-size: 1rem;
+      margin: 0;
     }
     .session-content strong { color: var(--text); }
     
@@ -248,7 +234,7 @@
     .guarantee-box h3 {
       font-size: 1.5rem;
       font-weight: 900;
-      margin-bottom: 16px;
+      margin: 0 0 16px;
     }
     .guarantee-box p {
       color: var(--text-muted);
@@ -256,6 +242,7 @@
       margin: 0 auto 12px;
       font-size: 1.125rem;
     }
+    .guarantee-box p:last-child { margin: 0 auto; }
     .guarantee-box strong { color: var(--text); }
     
     .cta-final {
@@ -266,6 +253,7 @@
       font-size: 1.75rem;
       color: var(--text-muted);
       font-weight: 500;
+      margin: 0;
     }
     .cta-final h3 {
       font-size: 2.25rem;
@@ -279,13 +267,14 @@
       .price-value { font-size: 3rem; }
       .section-title { font-size: 1.75rem; }
       .session-item { flex-direction: column; gap: 16px; }
-      .logo { height: 48px; }
-      .logo-text { font-size: 0.7rem; }
-      .header { padding: 24px 0; }
+      .logo { height: 56px; }
+      .logo-text { font-size: 0.6rem; }
+      .header { padding: 32px 0 24px; }
       .section { padding: 64px 0; }
+      .hero { padding: 40px 0 64px; }
       .btn-voltar {
         left: 16px;
-        padding: 8px 12px;
+        top: 32px;
         font-size: 0.8rem;
       }
     }
@@ -295,10 +284,8 @@
   <header class="header">
     <div class="container">
       <a href="https://reginaldohsiao.github.io/produtos/" class="btn-voltar">← Voltar</a>
-      <div class="logo-wrap">
-        <img src="../logo.png" alt="Reginaldo Hsiao" class="logo">
-        <span class="logo-text">Reginaldo Hsiao | Mentor & Terapeuta</span>
-      </div>
+      <img src="../logo.png" alt="Reginaldo Hsiao" class="logo">
+      <span class="logo-text">REGINALDO HSIAO | MENTOR & TERAPEUTA</span>
     </div>
   </header>
 
