@@ -14,7 +14,7 @@
       --border: #1f1f1f;
       --text: #ffffff;
       --text-muted: #a3a3a3;
-      --gold: #facc15;
+      --gold: #f5c542;
       --gold-dark: #eab308;
       --gold-muted: #a1824a;
     }
@@ -23,12 +23,12 @@
       background: var(--bg);
       color: var(--text);
       font-family: 'Inter', sans-serif;
-      line-height: 1.6;
+      line-height: 1.7; /* RESPIRO AUMENTADO */
       -webkit-font-smoothing: antialiased;
     }
     .container { max-width: 800px; margin: 0 auto; padding: 0 24px; }
     
-    /* HEADER IDÊNTICO TRÍADE - BOTÃO POSIÇÃO CORRIGIDA */
+    /* HEADER PADRÃO TRÍADE */
     .header {
       padding: 48px 0 40px;
       text-align: center;
@@ -51,7 +51,7 @@
     .btn-voltar {
       position: absolute;
       left: 24px;
-      top: 48px; /* ALINHADO COM CENTRO DA LOGO */
+      top: 48px;
       font-size: 0.875rem;
       color: var(--text-muted);
       text-decoration: none;
@@ -69,22 +69,25 @@
       font-size: 2.75rem;
       font-weight: 900;
       letter-spacing: -1.5px;
-      margin: 0 0 16px;
+      margin: 0 0 20px; /* MAIS RESPIRO */
+      line-height: 1.2;
     }
     .hero .subheadline {
       font-size: 1.125rem;
       color: var(--text-muted);
       max-width: 560px;
       margin: 0 auto 48px;
+      line-height: 1.7;
     }
     
+    /* PRICE CARD PREMIUM */
     .price-card {
       background: var(--card);
       border: 1px solid var(--border);
       border-radius: 20px;
       padding: 32px;
       max-width: 480px;
-      margin: 0 auto;
+      margin: 0 auto 22px; /* RESPIRO ENTRE CARDS */
     }
     .price-tag {
       font-size: 0.875rem;
@@ -94,32 +97,36 @@
       letter-spacing: 1px;
     }
     .price-value {
-      font-size: 3.5rem;
-      font-weight: 900;
+      font-size: 56px; /* DOMINANTE */
+      font-weight: 800;
       color: var(--gold);
       line-height: 1;
-      margin: 8px 0;
+      margin: 12px 0; /* MAIS RESPIRO */
     }
     .price-installments {
       font-size: 1rem;
       color: var(--text-muted);
       margin: 0 0 24px;
     }
+    
+    /* BOTÃO PREMIUM */
     .btn {
       display: block;
-      background: var(--gold);
+      background: #f5c542;
       color: #000;
-      font-size: 1.125rem;
+      font-size: 16px;
       font-weight: 700;
-      padding: 18px;
-      border-radius: 12px;
+      letter-spacing: 0.3px;
+      padding: 18px 24px;
+      border-radius: 14px;
       text-decoration: none;
       text-align: center;
-      transition: 0.2s;
+      box-shadow: 0 0 20px rgba(245,197,66,0.18);
+      transition: 0.3s;
     }
     .btn:hover {
-      background: var(--gold-dark);
       transform: translateY(-2px);
+      opacity: 0.95;
     }
     .scarcity {
       margin: 16px 0 0;
@@ -127,8 +134,9 @@
       color: var(--gold);
     }
     
+    /* SEÇÕES COM MAIS RESPIRO */
     .section {
-      padding: 64px 0;
+      padding: 70px 20px; /* RESPIRO LUXO */
       border-bottom: 1px solid var(--border);
     }
     .section:last-of-type { border-bottom: none; }
@@ -145,19 +153,49 @@
       text-align: center;
       max-width: 600px;
       margin: 0 auto 40px;
+      line-height: 1.7;
     }
     
+    /* BULLETS DA DOR */
+    .pain-bullets {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      max-width: 560px;
+      margin: 0 auto;
+    }
+    .pain-bullets li {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 16px 20px;
+      font-size: 1.125rem;
+      color: var(--text-muted);
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+    }
+    .pain-bullets li::before {
+      content: '•';
+      color: var(--gold);
+      font-weight: 700;
+      font-size: 1.5rem;
+      line-height: 1;
+    }
     .pain-box {
       background: var(--card);
       border: 1px solid var(--border);
       border-radius: 16px;
-      padding: 32px;
+      padding: 28px;
+      margin-top: 24px;
+      text-align: center;
     }
     .pain-box p {
       color: var(--text-muted);
-      margin: 0 0 16px;
+      margin: 0 0 24px; /* RESPIRO AUMENTADO */
       font-size: 1.125rem;
-      line-height: 1.6;
+      line-height: 1.7;
     }
     .pain-box p:last-child { margin: 0; }
     .pain-box strong {
@@ -165,6 +203,7 @@
       font-weight: 700;
     }
     
+    /* SESSÕES */
     .session-list {
       display: flex;
       flex-direction: column;
@@ -174,11 +213,13 @@
       background: var(--card);
       border: 1px solid var(--border);
       border-radius: 16px;
-      padding: 24px;
+      padding: 28px; /* RESPIRO AUMENTADO */
       display: flex;
       gap: 24px;
       align-items: flex-start;
+      margin-bottom: 22px; /* RESPIRO ENTRE CARDS */
     }
+    .session-item:last-child { margin-bottom: 0; }
     .session-item.featured {
       border: 2px solid var(--gold);
       background: linear-gradient(180deg, #111 0%, #0a0a0a 100%);
@@ -192,13 +233,13 @@
     .session-content h3 {
       font-size: 1.25rem;
       font-weight: 700;
-      margin: 0 0 8px;
+      margin: 0 0 12px; /* MAIS RESPIRO */
     }
     .session-content p {
       color: var(--text-muted);
       font-size: 1rem;
       margin: 0;
-      line-height: 1.6;
+      line-height: 1.7;
     }
     .session-content strong { color: var(--text); }
     
@@ -227,11 +268,40 @@
       font-size: 1.25rem;
     }
     
+    /* AUTORIDADE - NOVA SEÇÃO */
+    .authority-box {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 40px;
+      text-align: center;
+    }
+    .authority-box h3 {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--gold-muted);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin: 0 0 16px;
+    }
+    .authority-box h4 {
+      font-size: 1.75rem;
+      font-weight: 900;
+      margin: 0 0 16px;
+    }
+    .authority-box p {
+      color: var(--text-muted);
+      max-width: 600px;
+      margin: 0 auto;
+      font-size: 1.125rem;
+      line-height: 1.7;
+    }
+    
     .guarantee-box {
       background: var(--card);
       border: 1px solid var(--border);
       border-radius: 16px;
-      padding: 36px;
+      padding: 40px;
       text-align: center;
     }
     .guarantee-box h3 {
@@ -242,7 +312,7 @@
     .guarantee-box p {
       color: var(--text-muted);
       max-width: 500px;
-      margin: 0 auto 12px;
+      margin: 0 auto 16px; /* MAIS RESPIRO */
       font-size: 1.125rem;
       line-height: 1.8;
     }
@@ -250,7 +320,7 @@
     .guarantee-box strong { color: var(--text); }
     
     .cta-final {
-      padding: 64px 0 80px;
+      padding: 70px 20px 80px; /* RESPIRO LUXO */
       text-align: center;
     }
     .cta-final h2 {
@@ -258,23 +328,25 @@
       color: var(--text-muted);
       font-weight: 500;
       margin: 0;
+      line-height: 1.4;
     }
     .cta-final h3 {
       font-size: 2.25rem;
       font-weight: 900;
       color: var(--gold);
-      margin: 8px 0 40px;
+      margin: 12px 0 40px; /* MAIS RESPIRO */
+      line-height: 1.2;
     }
     
     @media (max-width: 768px) {
       .hero h1 { font-size: 2.25rem; }
-      .price-value { font-size: 3rem; }
+      .price-value { font-size: 48px; }
       .section-title { font-size: 1.75rem; }
       .session-item { flex-direction: column; gap: 16px; }
       .logo { height: 80px; }
       .logo-text { font-size: 0.55rem; letter-spacing: 2px; }
       .header { padding: 40px 0 32px; }
-      .section { padding: 48px 0; }
+      .section { padding: 48px 20px; }
       .hero { padding: 24px 0 64px; }
       .btn-voltar {
         left: 16px;
@@ -295,15 +367,15 @@
 
   <section class="hero">
     <div class="container">
-      <h1>Você sabe o que fazer. Mas continua travado.</h1>
-      <p class="subheadline">Acompanhamento individual comigo, Reginaldo Hsiao. Sem curso gravado. Sem grupo. É você e eu, destravando sua vida ao vivo.</p>
+      <h1>Você sabe o que fazer.<br>Mas continua travado.</h1>
+      <p class="subheadline">Processo terapêutico individual para quebrar autossabotagem, destravar execução e reorganizar sua direção emocional.</p>
       
       <div class="price-card">
         <span class="price-tag">Investimento</span>
         <div class="price-value">R$ 897</div>
         <div class="price-installments">ou 12x de R$ 89,70</div>
         <a href="COLA_SEU_LINK_DA_KIWIFY_AQUI" class="btn">QUERO MINHAS 5 SESSÕES AGORA</a>
-        <p class="scarcity">Vagas limitadas. Atendo apenas 8 pessoas por mês.</p>
+        <p class="scarcity">Atendo no máximo 8 pessoas por mês para manter acompanhamento individual real.</p>
       </div>
     </div>
   </section>
@@ -311,8 +383,13 @@
   <section class="section">
     <div class="container">
       <h2 class="section-title">Você já tentou de tudo sozinho...</h2>
+      <ul class="pain-bullets">
+        <li>Curso demais, execução de menos</li>
+        <li>Terapia sem direção prática</li>
+        <li>Muito entendimento e pouca mudança</li>
+        <li>Você sabe o que precisa fazer… mas não faz</li>
+      </ul>
       <div class="pain-box">
-        <p>Curso, livro, YouTube, terapia em grupo. Mas a autossabotagem sempre volta porque ninguém olhou pro SEU caso específico.</p>
         <p><strong>Chega de conteúdo genérico. Você precisa de direção pessoal.</strong></p>
       </div>
     </div>
@@ -344,7 +421,7 @@
           <div class="session-number">03</div>
           <div class="session-content">
             <h3>Sessão Instalação: Tríade Personalizada</h3>
-            <p><strong>45 minutos.</strong> Pegamos os 3 pilares Mental, Emocional e Ação e adaptamos 100% pra sua rotina, seus horários, seu caos. adaptado à sua realidade emocional, rotina e padrões específicos.</p>
+            <p><strong>45 minutos.</strong> Estruturamos sua Tríade de Desbloqueio baseada no seu emocional, rotina, sabotadores e padrão comportamental.</p>
           </div>
         </div>
 
@@ -352,15 +429,15 @@
           <div class="session-number">04</div>
           <div class="session-content">
             <h3>Sessão Execução: Consolidação do Novo Padrão</h3>
-            <p><strong>45 minutos.</strong> plano de integração prática + estrutura de sustentação comportamental + protocolo de consistência. Impossível procrastinar depois disso.</p>
+            <p><strong>45 minutos.</strong> Plano de integração prática com estrutura de sustentação comportamental e protocolo de consistência. Você sai com clareza, estrutura e direção prática de execução.</p>
           </div>
         </div>
 
         <div class="session-item featured">
           <div class="session-number">05</div>
           <div class="session-content">
-            <h3>Sessão BÔNUS: Sessão Sustentação: Prevenção de Recaídas</h3>
-            <p><strong>60 minutos.</strong> Instalamos o Protocolo SOS de 5 minutos + o hábito-âncora que te mantém no controle pra sempre. Anti-recaída garantido.</p>
+            <h3>Sessão Sustentação: Prevenção de Recaídas</h3>
+            <p><strong>60 minutos.</strong> Instalamos o Protocolo SOS de 5 minutos + o hábito-âncora que te mantém no controle pra sempre. Estrutura de prevenção de recaídas emocionais.</p>
           </div>
         </div>
       </div>
@@ -379,11 +456,22 @@
     </div>
   </section>
 
+  <!-- NOVA SEÇÃO: AUTORIDADE -->
+  <section class="section">
+    <div class="container">
+      <div class="authority-box">
+        <h3>Quem conduz o processo</h3>
+        <h4>Reginaldo Hsiao</h4>
+        <p>Mentor e terapeuta especializado em desbloqueio emocional, autossabotagem e reorganização comportamental. Integra ferramentas terapêuticas, neurociência, PNL, reprocessamento emocional e estrutura prática de execução.</p>
+      </div>
+    </div>
+  </section>
+
   <section class="section">
     <div class="container">
       <div class="guarantee-box">
         <h3>Garantia de 7 Dias + Sessão 1</h3>
-        <p>Faça a primeira sessão comigo. Se não sentir que foi a conversa mais transformadora da sua vida, devolvo 100% dos R$ 897. Sem pergunta, sem burocracia.</p>
+        <p>Faça a primeira sessão comigo. Se após a primeira sessão você sentir que não recebeu clareza, direcionamento e valor real, devolvo 100% do investimento. Sem pergunta, sem burocracia.</p>
         <p><strong>O risco é todo meu. O resultado é todo seu.</strong></p>
       </div>
     </div>
@@ -398,7 +486,7 @@
         <div class="price-value">R$ 897</div>
         <div class="price-installments">ou 12x de R$ 89,70</div>
         <a href="COLA_SEU_LINK_DA_KIWIFY_AQUI" class="btn">AGENDAR MINHAS 5 SESSÕES</a>
-        <p class="scarcity">Apenas 8 vagas mensais. Quando fechar, só mês que vem.</p>
+        <p class="scarcity">Atendo no máximo 8 pessoas por mês para manter acompanhamento individual real.</p>
       </div>
     </div>
   </section>
