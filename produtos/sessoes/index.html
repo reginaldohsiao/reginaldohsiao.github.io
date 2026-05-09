@@ -148,23 +148,28 @@
     .about-box {
       background: linear-gradient(180deg, #111 0%, #0b0b0b 100%);
       border: 1px solid #1f1f1f; border-radius: 24px; padding: 42px;
-      display: flex; gap: 40px; align-items: flex-start;
+      display: flex; gap: 44px; align-items: flex-start;
     }
+    .about-photo-wrap { flex: 0 0 40%; max-width: 40%; }
     .about-photo {
-      width: 240px; min-width: 240px; height: 300px;
+      width: 100%; aspect-ratio: 3 / 4;
       border-radius: 18px; object-fit: cover; object-position: center top;
-      border: 1px solid rgba(243,198,35,0.2);
-      box-shadow: 0 8px 32px rgba(243,198,35,0.08);
+      border: 1px solid #2a2a2a; display: block;
+      box-shadow: 0 0 0 1px rgba(243,198,35,0.10),
+                  0 0 28px rgba(243,198,35,0.06),
+                  0 12px 48px rgba(0,0,0,0.7);
     }
+    .about-text { flex: 1; }
     .about-text h3 {
       font-size: 0.75rem; font-weight: 700; color: var(--gold-muted);
       text-transform: uppercase; letter-spacing: 2px; margin: 0 0 10px;
     }
-    .about-text h4 { font-size: 1.75rem; font-weight: 900; margin: 0 0 16px; line-height: 1.2; }
-    .about-text p { 
-      color: #d6d6d6; font-size: 1.15rem; line-height: 1.8; 
-      margin: 0 0 24px; max-width: 620px; 
+    .about-text h4 { font-size: 1.75rem; font-weight: 900; margin: 0 0 20px; line-height: 1.2; }
+    .about-text p {
+      color: #d6d6d6; font-size: 1.05rem; line-height: 1.8;
+      margin: 0 0 14px; max-width: 620px;
     }
+    .about-text p:last-of-type { margin-bottom: 32px; }
     .authority-credentials { display: flex; gap: 28px; flex-wrap: wrap; }
     .credential .number { font-size: 1.5rem; font-weight: 900; color: var(--gold); line-height: 1; }
     .credential .label { font-size: 0.75rem; color: var(--text-muted); margin-top: 4px; line-height: 1.4; }
@@ -213,8 +218,9 @@
       .hero { padding: 24px 0 64px; }
       .btn-voltar { left: 16px; top: 40px; font-size: 0.8rem; }
       p, .hero .subheadline, .section-subtitle { font-size: 16px; }
-      .about-box { flex-direction: column; align-items: center; text-align: center; padding: 28px; gap: 24px; }
-      .about-photo { width: 100%; max-width: 280px; height: 340px; }
+      .about-box { flex-direction: column; align-items: center; text-align: center; padding: 28px; gap: 28px; }
+      .about-photo-wrap { flex: none; max-width: 260px; width: 100%; }
+      .about-text p { font-size: 0.95rem; }
       .authority-credentials { justify-content: center; }
       .cta-final h2 { font-size: 1.4rem; }
       .cta-final h3 { font-size: 1.75rem; }
@@ -238,7 +244,7 @@
     <div class="container">
       <div class="hero-content">
         <h1>Você já entendeu o que precisa fazer.<br>O problema é que seu padrão emocional continua vencendo.</h1>
-        <p class="subheadline">Processo de Reorganização Interna para destravar execução, recuperar clareza e sustentar ação real.</p>
+        <p class="subheadline">Processo terapêutico individual para reorganizar padrões emocionais, destravar execução e recuperar clareza interna.</p>
 
         <div class="price-card">
           <span class="price-label">Investimento</span>
@@ -247,7 +253,7 @@
           <div class="cta-wrapper">
             <a href="https://pay.kiwify.com.br/LnNZaUG" class="cta-button">QUERO COMEÇAR MEU PROCESSO</a>
           </div>
-          <p class="scarcity">Para manter profundidade terapêutica e acompanhamento individual real, atendo no máximo 8 pessoas por mês.</p>
+          <p class="scarcity">Para manter profundidade terapêutica e acompanhamento individual real, atendimeto limitado à 8 pessoas por mês.</p>
           <div class="guarantee-badge">
             <span class="shield">🛡️</span>
             <p><strong>Garantia de 7 dias + Sessão 1</strong><br>Se não sentir clareza na primeira sessão, devolvo tudo.</p>
@@ -276,15 +282,15 @@
   <section class="section">
     <div class="container">
       <h2 class="section-title">O que acontece em cada encontro:</h2>
-      <p class="section-subtitle">Processo de Reorganização Interna<br>5 encontros individuais</p>
+      <p class="section-subtitle">5 etapas guiadas, com execução prática e sem enrolação.</p>
 
       <div class="session-list">
 
         <div class="session-card">
           <div class="session-number">01</div>
           <div class="session-content">
-            <h3>Encontro Diagnóstico: Mapeamento de Sabotagem</h3>
-            <p><strong>45 minutos.</strong> Vamos usar meu protocolo terapêutico pra identificar os padrões que sustentam sua autossabotagem — com precisão, sem achismo.</p>
+            <h3>Sessão Diagnóstico: Mapeamento de Sabotagem</h3>
+            <p><strong>45 minutos.</strong> Utilzando o protocolo terapêutico pra identificação dos padrões que sustentam sua autossabotagem — com precisão, sem achismo.</p>
             <div class="session-result">Você sai com clareza real sobre os padrões invisíveis que sustentam sua autossabotagem.</div>
           </div>
         </div>
@@ -292,7 +298,7 @@
         <div class="session-card">
           <div class="session-number">02</div>
           <div class="session-content">
-            <h3>Encontro Reprogramação: Reestruturação Interna</h3>
+            <h3>Sessão Reprogramação: Reestruturação Interna</h3>
             <p><strong>60 minutos.</strong> Aplicação de Reprocessamento + Neurociência + PNL para reestruturar padrões emocionais profundos. Foco em alteração de resposta emocional, percepção interna e reconstrução de segurança emocional.</p>
             <div class="session-result">Você sai com a resposta emocional alterada — o gatilho ainda pode aparecer, mas a reação automática muda.</div>
           </div>
@@ -301,8 +307,8 @@
         <div class="session-card">
           <div class="session-number">03</div>
           <div class="session-content">
-            <h3>Encontro Instalação: Estrutura Personalizada</h3>
-            <p><strong>45 minutos.</strong> Estruturamos os 3 pilares do seu processo: mental, emocional e execução — baseados na sua rotina, seus sabotadores e seu padrão de funcionamento.</p>
+            <h3>Sessão Instalação: Estrutura Personalizada</h3>
+            <p><strong>45 minutos.</strong> Estruturação dos 3 pilares do seu processo: mental, emocional e execução — baseados na sua rotina, seus sabotadores e seu padrão de funcionamento.</p>
             <div class="session-result">Você sai com um protocolo montado pra você — não genérico, não copiado de ninguém.</div>
           </div>
         </div>
@@ -310,7 +316,7 @@
         <div class="session-card">
           <div class="session-number">04</div>
           <div class="session-content">
-            <h3>Encontro Execução: Consolidação do Novo Padrão</h3>
+            <h3>Sessão Execução: Consolidação do Novo Padrão</h3>
             <p><strong>45 minutos.</strong> Plano de integração prática com estrutura de sustentação comportamental e protocolo de consistência.</p>
             <div class="session-result">Você sai com clareza, estrutura e os próximos 30 dias mapeados. Sem depender de motivação.</div>
           </div>
@@ -319,8 +325,8 @@
         <div class="session-card featured">
           <div class="session-number">05</div>
           <div class="session-content">
-            <h3>Encontro Sustentação: Prevenção de Recaídas</h3>
-            <p><strong>60 minutos.</strong> Instalamos o Protocolo SOS de 5 minutos + o hábito-âncora que ajuda você a interromper recaídas emocionais antes que elas dominem sua rotina.</p>
+            <h3>Sessão Sustentação: Prevenção de Recaídas</h3>
+            <p><strong>60 minutos.</strong> Instalação do Protocolo SOS de 5 minutos + o hábito-âncora que ajuda você a interromper recaídas emocionais antes que elas dominem sua rotina.</p>
             <div class="session-result">Você sai sabendo exatamente o que fazer quando a trava aparecer de novo. Autonomia real.</div>
           </div>
         </div>
@@ -332,7 +338,7 @@
   <!-- PARA QUEM É -->
   <section class="section">
     <div class="container">
-      <h2 class="section-title">O Processo de Reorganização é pra você se:</h2>
+      <h2 class="section-title">As 5 Sessões são pra você se:</h2>
       <ul class="checklist">
         <li>Já fez curso e não aplicou nada sozinho</li>
         <li>Precisa de alguém pra te cobrar e direcionar</li>
@@ -347,7 +353,9 @@
     <div class="container">
 
       <div class="about-box">
-        <img src="reginaldo-02.png" alt="Reginaldo Hsiao" class="about-photo">
+        <div class="about-photo-wrap">
+          <img src="reginaldo-02.png" alt="Reginaldo Hsiao" class="about-photo">
+        </div>
         <div class="about-text">
           <h3>Quem conduz o processo</h3>
           <h4>Reginaldo Hsiao</h4>
@@ -357,15 +365,15 @@
           <div class="authority-credentials">
             <div class="credential">
               <div class="number">+1.500h</div>
-              <div class="label">em atendimentos e<br>reprocessamento emocional</div>
+              <div class="label">em atendimentos e reprocessamento emocional</div>
             </div>
             <div class="credential">
               <div class="number">18 anos</div>
-              <div class="label">integrando comportamento,<br>vendas e estratégia</div>
+              <div class="label">integrando comportamento, vendas e estratégia</div>
             </div>
             <div class="credential">
-              <div class="number">Processo individual</div>
-              <div class="label">com acompanhamento<br>direto</div>
+              <div class="number">Processo</div>
+              <div class="label">individual com acompanhamento direto</div>
             </div>
           </div>
         </div>
@@ -400,7 +408,7 @@
         </div>
         <div class="faq-item">
           <h4>Como funciona o agendamento?</h4>
-          <p>Após a confirmação, você recebe acesso direto ao agendamento individual. Os 5 encontros são distribuídos em 4 a 6 semanas, no seu ritmo.</p>
+          <p>Após a confirmação, você recebe acesso direto ao agendamento individual. As 5 sessões são distribuídas em 4 a 6 semanas, no seu ritmo.</p>
         </div>
         <div class="faq-item">
           <h4>É terapia ou mentoria?</h4>
@@ -414,13 +422,13 @@
   <section class="cta-final">
     <div class="container">
       <h2>Ou você continua tentando sozinho por mais 1 ano...</h2>
-      <h3>Ou resolve em 5 encontros comigo agora.</h3>
+      <h3>Ou resolve em 5 sessões comigo agora.</h3>
       <div class="price-card">
         <span class="price-label">Investimento</span>
         <div class="price">R$ 897</div>
         <div class="price-installments">ou 12x de R$ 89,70</div>
         <div class="cta-wrapper">
-          <a href="https://pay.kiwify.com.br/LnNZaUG" class="cta-button">AGENDAR MEUS 5 ENCONTROS</a>
+          <a href="https://pay.kiwify.com.br/LnNZaUG" class="cta-button">AGENDAR MINHAS 5 SESSÕES</a>
         </div>
         <p class="scarcity">Para manter profundidade terapêutica e acompanhamento individual real, atendo no máximo 8 pessoas por mês.</p>
         <div class="guarantee-badge">
