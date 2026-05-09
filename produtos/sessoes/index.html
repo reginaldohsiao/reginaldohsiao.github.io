@@ -29,401 +29,178 @@
     .container { max-width: 800px; margin: 0 auto; padding: 0 24px; }
 
     /* HEADER */
-    .header {
-      padding: 48px 0 40px;
-      text-align: center;
-      position: relative;
-    }
-    .logo {
-      height: 110px;
-      display: block;
-      margin: 0 auto 16px;
-    }
+    .header { padding: 48px 0 40px; text-align: center; position: relative; }
+    .logo { height: 110px; display: block; margin: 0 auto 16px; }
     .logo-text {
-      font-size: 0.625rem;
-      font-weight: 500;
-      color: var(--gold-muted);
-      opacity: 0.9;
-      text-transform: uppercase;
-      letter-spacing: 2.5px;
-      display: block;
+      font-size: 0.625rem; font-weight: 500; color: var(--gold-muted);
+      opacity: 0.9; text-transform: uppercase; letter-spacing: 2.5px; display: block;
     }
     .btn-voltar {
-      position: absolute;
-      left: 24px;
-      top: 48px;
-      font-size: 0.875rem;
-      color: var(--text-muted);
-      text-decoration: none;
+      position: absolute; left: 24px; top: 48px;
+      font-size: 0.875rem; color: var(--text-muted); text-decoration: none;
     }
     .btn-voltar:hover { color: var(--gold); }
 
     /* HERO */
-    .hero {
-      text-align: center;
-      padding: 32px 0 90px;
-      border-bottom: 1px solid var(--border);
-    }
+    .hero { text-align: center; padding: 32px 0 90px; border-bottom: 1px solid var(--border); }
+    .hero-content { max-width: 760px; margin: auto; }
     .hero h1 {
-      font-size: 42px;
-      font-weight: 900;
-      letter-spacing: -1.5px;
-      line-height: 1.1;
-      margin: 0 0 24px;
+      font-size: 42px; font-weight: 900; letter-spacing: -1.5px;
+      line-height: 1.15; margin: 0 0 24px;
     }
     .hero .subheadline {
-      font-size: 18px;
-      color: var(--text-muted);
-      max-width: 560px;
-      margin: 0 auto 48px;
-      line-height: 1.8;
+      font-size: 18px; color: var(--text-muted); max-width: 580px;
+      margin: 0 auto 48px; line-height: 1.8;
     }
 
     /* PRICE CARD */
     .price-card {
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: 20px;
-      padding: 34px;
-      max-width: 480px;
-      margin: 0 auto;
+      background: var(--card); border: 1px solid var(--border);
+      border-radius: 20px; padding: 40px 36px; max-width: 460px;
+      margin: 0 auto; text-align: center;
     }
-    .price-tag {
-      font-size: 0.875rem;
-      font-weight: 500;
-      color: var(--text-muted);
-      text-transform: uppercase;
-      letter-spacing: 1px;
+    .price-label {
+      font-size: 13px; letter-spacing: 3px; text-transform: uppercase;
+      color: #8a8a8a; margin-bottom: 18px; display: block;
     }
-    .price-value {
-      font-size: 56px;
-      font-weight: 800;
-      color: var(--gold);
-      line-height: 1;
-      margin: 12px 0;
+    .price {
+      font-size: 78px; font-weight: 800; letter-spacing: -3px;
+      color: var(--gold); line-height: 1; margin-bottom: 10px;
     }
-    .price-installments {
-      font-size: 1rem;
-      color: var(--text-muted);
-      margin: 0 0 24px;
+    .price-installments { font-size: 1rem; color: var(--text-muted); margin-bottom: 28px; }
+    .cta-wrapper { display: flex; justify-content: center; }
+    .cta-button {
+      width: auto; display: inline-block; background: #f3c623; color: #000;
+      font-size: 15px; font-weight: 700; letter-spacing: 0.6px;
+      min-height: 64px; padding: 20px 34px; border-radius: 18px;
+      text-decoration: none; text-align: center; transition: 0.3s; line-height: 1.3;
     }
+    .cta-button:hover { transform: translateY(-2px); box-shadow: 0 8px 32px rgba(243,198,35,0.18); }
+    .scarcity { margin: 18px 0 0; font-size: 0.8rem; color: var(--gold); line-height: 1.6; }
 
-    /* BOTÃO */
-    .btn {
-      display: block;
-      background: #f3c623;
-      color: #000;
-      font-size: 16px;
-      font-weight: 700;
-      letter-spacing: 0.4px;
-      padding: 18px 28px;
-      border-radius: 14px;
-      text-decoration: none;
-      text-align: center;
-      transition: 0.3s;
-    }
-    .btn:hover { transform: translateY(-2px); }
-
-    .scarcity {
-      margin: 16px 0 0;
-      font-size: 0.875rem;
-      color: var(--gold);
-      line-height: 1.6;
-    }
-
-    /* GARANTIA BADGE — logo abaixo do botão */
+    /* GARANTIA BADGE */
     .guarantee-badge {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 10px;
-      margin-top: 20px;
-      padding: 14px 20px;
-      background: rgba(243, 198, 35, 0.07);
-      border: 1px solid rgba(243, 198, 35, 0.25);
+      display: flex; align-items: center; justify-content: center; gap: 10px;
+      margin-top: 20px; padding: 14px 20px;
+      background: rgba(243,198,35,0.07); border: 1px solid rgba(243,198,35,0.25);
       border-radius: 12px;
     }
-    .guarantee-badge .shield {
-      font-size: 1.4rem;
-      line-height: 1;
-    }
-    .guarantee-badge p {
-      font-size: 0.875rem;
-      color: var(--text-muted);
-      margin: 0;
-      text-align: left;
-      line-height: 1.5;
-    }
-    .guarantee-badge p strong {
-      color: var(--gold);
-      font-weight: 700;
-    }
+    .guarantee-badge .shield { font-size: 1.4rem; line-height: 1; }
+    .guarantee-badge p { font-size: 0.875rem; color: var(--text-muted); margin: 0; text-align: left; line-height: 1.5; }
+    .guarantee-badge p strong { color: var(--gold); font-weight: 700; }
 
     /* SEÇÕES */
-    .section {
-      padding: 90px 24px;
-      border-bottom: 1px solid var(--border);
-    }
+    .section { padding: 90px 24px; border-bottom: 1px solid var(--border); }
     .section:last-of-type { border-bottom: none; }
     .section-title {
-      font-size: 42px;
-      font-weight: 900;
-      text-align: center;
-      line-height: 1.1;
-      margin: 0 0 24px;
-      letter-spacing: -1px;
+      font-size: 42px; font-weight: 900; text-align: center;
+      line-height: 1.1; margin: 0 0 24px; letter-spacing: -1px;
     }
     .section-subtitle {
-      font-size: 18px;
-      color: var(--text-muted);
-      text-align: center;
-      max-width: 600px;
-      margin: 0 auto 48px;
-      line-height: 1.8;
+      font-size: 18px; color: var(--text-muted); text-align: center;
+      max-width: 600px; margin: 0 auto 48px; line-height: 1.8;
     }
 
-    /* BULLETS DOR */
-    .problem-list {
-      display: flex;
-      flex-direction: column;
-      gap: 14px;
-      max-width: 560px;
-      margin: 0 auto;
+    /* PAIN ITEMS */
+    .problem-list { display: flex; flex-direction: column; gap: 14px; max-width: 560px; margin: 0 auto; }
+    .pain-item {
+      background: #111; border: 1px solid #1f1f1f; border-radius: 18px;
+      padding: 18px 22px; font-size: 18px; color: var(--text-muted);
+      line-height: 1.8; transition: .3s;
     }
-    .problem-item {
-      border: 1px solid #1f1f1f;
-      background: #0f0f0f;
-      padding: 16px;
-      border-radius: 14px;
-      font-size: 18px;
-      color: var(--text-muted);
-      line-height: 1.8;
-    }
+    .pain-item:hover { border-color: #2f2f2f; transform: translateY(-2px); }
     .pain-box {
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: 16px;
-      padding: 28px;
-      margin-top: 28px;
-      text-align: center;
+      background: var(--card); border: 1px solid var(--border);
+      border-radius: 16px; padding: 28px; margin-top: 28px; text-align: center;
     }
-    .pain-box p {
-      color: var(--text-muted);
-      margin: 0;
-      font-size: 18px;
-      line-height: 1.8;
-    }
+    .pain-box p { color: var(--text-muted); margin: 0; font-size: 18px; line-height: 1.8; }
     .pain-box strong { color: var(--text); font-weight: 700; }
 
     /* SESSÕES */
-    .session-list {
-      display: flex;
-      flex-direction: column;
-      gap: 16px;
-    }
+    .session-list { display: flex; flex-direction: column; gap: 16px; }
     .session-card {
-      padding: 34px;
-      border-radius: 18px;
-      border: 1px solid #1f1f1f;
-      background: var(--card);
-      margin-bottom: 24px;
-      display: flex;
-      gap: 24px;
-      align-items: flex-start;
+      padding: 34px; border-radius: 18px; border: 1px solid #1f1f1f;
+      background: var(--card); margin-bottom: 24px; display: flex;
+      gap: 24px; align-items: flex-start;
     }
     .session-card:last-child { margin-bottom: 0; }
-    .session-card.featured {
-      border: 2px solid var(--gold);
-      background: linear-gradient(180deg, #111 0%, #0a0a0a 100%);
-    }
-    .session-number {
-      font-size: 2rem;
-      font-weight: 900;
-      color: var(--gold);
-      line-height: 1;
-    }
-    .session-content h3 {
-      font-size: 1.25rem;
-      font-weight: 700;
-      margin: 0 0 12px;
-      line-height: 1.4;
-    }
-    .session-content p {
-      color: var(--text-muted);
-      font-size: 16px;
-      margin: 0;
-      line-height: 1.8;
-    }
+    .session-card.featured { border: 2px solid var(--gold); background: linear-gradient(180deg,#111 0%,#0a0a0a 100%); }
+    .session-number { font-size: 2rem; font-weight: 900; color: var(--gold); line-height: 1; min-width: 40px; }
+    .session-content h3 { font-size: 1.25rem; font-weight: 700; margin: 0 0 12px; line-height: 1.4; }
+    .session-content p { color: var(--text-muted); font-size: 16px; margin: 0; line-height: 1.9; }
     .session-content strong { color: var(--text); }
-
-    /* resultado da sessão */
     .session-result {
-      margin-top: 12px;
-      padding: 10px 14px;
-      background: rgba(243, 198, 35, 0.06);
-      border-left: 3px solid var(--gold);
-      border-radius: 0 8px 8px 0;
-      font-size: 0.875rem;
-      color: var(--gold);
-      line-height: 1.6;
+      margin-top: 12px; padding: 10px 14px;
+      background: rgba(243,198,35,0.06); border-left: 3px solid var(--gold);
+      border-radius: 0 8px 8px 0; font-size: 0.875rem; color: var(--gold); line-height: 1.6;
     }
 
-    .checklist {
-      list-style: none;
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-      max-width: 560px;
-      margin: 0 auto;
-    }
+    /* CHECKLIST */
+    .checklist { list-style: none; display: flex; flex-direction: column; gap: 12px; max-width: 560px; margin: 0 auto; }
     .checklist li {
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      padding: 16px 20px;
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      font-size: 18px;
-      line-height: 1.8;
+      background: var(--card); border: 1px solid var(--border); border-radius: 12px;
+      padding: 16px 20px; display: flex; align-items: center; gap: 12px;
+      font-size: 18px; line-height: 1.8;
     }
-    .checklist li::before {
-      content: '✓';
-      color: var(--gold);
-      font-weight: 700;
-      font-size: 1.25rem;
-    }
+    .checklist li::before { content: '✓'; color: var(--gold); font-weight: 700; font-size: 1.25rem; }
 
-    /* AUTORIDADE */
-    .authority-box {
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: 16px;
-      padding: 40px;
-      text-align: center;
+    /* ABOUT BOX PREMIUM */
+    .about-box {
+      background: linear-gradient(180deg, #111 0%, #0b0b0b 100%);
+      border: 1px solid #1f1f1f; border-radius: 24px; padding: 42px;
+      display: flex; gap: 40px; align-items: flex-start;
     }
-    .authority-box h3 {
-      font-size: 1.25rem;
-      font-weight: 700;
-      color: var(--gold-muted);
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      margin: 0 0 16px;
+    .about-photo {
+      width: 160px; min-width: 160px; height: 160px;
+      border-radius: 50%; object-fit: cover; object-position: center top;
+      border: 2px solid var(--gold-muted);
     }
-    .authority-box h4 {
-      font-size: 1.75rem;
-      font-weight: 900;
-      margin: 0 0 16px;
+    .about-text h3 {
+      font-size: 0.75rem; font-weight: 700; color: var(--gold-muted);
+      text-transform: uppercase; letter-spacing: 2px; margin: 0 0 10px;
     }
-    .authority-box p {
-      color: var(--text-muted);
-      max-width: 600px;
-      margin: 0 auto;
-      font-size: 18px;
-      line-height: 1.8;
-    }
-    .authority-credentials {
-      display: flex;
-      justify-content: center;
-      gap: 32px;
-      margin-top: 28px;
-      flex-wrap: wrap;
-    }
-    .credential {
-      text-align: center;
-    }
-    .credential .number {
-      font-size: 2rem;
-      font-weight: 900;
-      color: var(--gold);
-      line-height: 1;
-    }
-    .credential .label {
-      font-size: 0.8rem;
-      color: var(--text-muted);
-      margin-top: 4px;
-      line-height: 1.4;
-    }
+    .about-text h4 { font-size: 1.75rem; font-weight: 900; margin: 0 0 16px; line-height: 1.2; }
+    .about-text p { color: var(--text-muted); font-size: 16px; line-height: 1.9; margin: 0 0 24px; }
+    .authority-credentials { display: flex; gap: 28px; flex-wrap: wrap; }
+    .credential .number { font-size: 1.5rem; font-weight: 900; color: var(--gold); line-height: 1; }
+    .credential .label { font-size: 0.75rem; color: var(--text-muted); margin-top: 4px; line-height: 1.4; }
 
     /* GARANTIA SECTION */
     .guarantee-box {
-      background: var(--card);
-      border: 2px solid rgba(243, 198, 35, 0.3);
-      border-radius: 16px;
-      padding: 40px;
-      text-align: center;
+      background: var(--card); border: 2px solid rgba(243,198,35,0.3);
+      border-radius: 16px; padding: 48px; margin-top: 60px; text-align: center;
     }
-    .guarantee-icon {
-      font-size: 3rem;
-      margin-bottom: 16px;
-      display: block;
-    }
-    .guarantee-box h3 {
-      font-size: 1.5rem;
-      font-weight: 900;
-      margin: 0 0 16px;
-    }
-    .guarantee-box p {
-      color: var(--text-muted);
-      max-width: 500px;
-      margin: 0 auto 16px;
-      font-size: 18px;
-      line-height: 1.8;
-    }
+    .guarantee-icon { font-size: 3rem; margin-bottom: 16px; display: block; }
+    .guarantee-box h3 { font-size: 1.5rem; font-weight: 900; margin: 0 0 16px; }
+    .guarantee-box p { color: var(--text-muted); max-width: 500px; margin: 0 auto 16px; font-size: 18px; line-height: 1.8; }
     .guarantee-box p:last-child { margin: 0 auto; }
     .guarantee-box strong { color: var(--gold); }
 
     /* FAQ */
-    .faq-list {
-      display: flex;
-      flex-direction: column;
-      gap: 16px;
-      max-width: 700px;
-      margin: 0 auto;
-    }
-    .faq-item {
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: 14px;
-      padding: 24px;
-    }
-    .faq-item h4 {
-      font-size: 1.125rem;
-      font-weight: 700;
-      margin: 0 0 8px;
-      color: var(--text);
-    }
-    .faq-item p {
-      font-size: 16px;
-      color: var(--text-muted);
-      margin: 0;
-      line-height: 1.8;
-    }
+    .faq-list { display: flex; flex-direction: column; gap: 16px; max-width: 700px; margin: 0 auto; }
+    .faq-item { background: var(--card); border: 1px solid var(--border); border-radius: 14px; padding: 24px; }
+    .faq-item h4 { font-size: 1.125rem; font-weight: 700; margin: 0 0 8px; color: var(--text); }
+    .faq-item p { font-size: 16px; color: var(--text-muted); margin: 0; line-height: 1.8; }
 
     /* CTA FINAL */
-    .cta-final {
-      padding: 90px 24px;
-      text-align: center;
-    }
-    .cta-final h2 {
-      font-size: 1.75rem;
-      color: var(--text-muted);
-      font-weight: 500;
-      margin: 0;
-      line-height: 1.4;
-    }
-    .cta-final h3 {
-      font-size: 2.25rem;
-      font-weight: 900;
-      color: var(--gold);
-      margin: 12px 0 40px;
-      line-height: 1.2;
-    }
+    .cta-final { padding: 90px 24px; text-align: center; }
+    .cta-final h2 { font-size: 1.75rem; color: var(--text-muted); font-weight: 500; margin: 0; line-height: 1.4; }
+    .cta-final h3 { font-size: 2.25rem; font-weight: 900; color: var(--gold); margin: 12px 0 40px; line-height: 1.2; }
 
+    /* TRANSIÇÃO PRÓXIMO PRODUTO */
+    .next-product { border-top: 1px solid var(--border); padding: 60px 24px; text-align: center; }
+    .next-product p { font-size: 1rem; color: var(--text-muted); margin: 0 0 12px; line-height: 1.8; }
+    .next-product a {
+      font-size: 1.125rem; font-weight: 700; color: var(--gold); text-decoration: none;
+      border-bottom: 1px solid rgba(243,198,35,0.3); padding-bottom: 2px; transition: 0.2s;
+    }
+    .next-product a:hover { border-color: var(--gold); }
+
+    /* MOBILE */
     @media (max-width: 768px) {
-      .hero h1 { font-size: 2.25rem; }
-      .price-value { font-size: 48px; }
-      .section-title { font-size: 32px; }
+      .hero h1 { font-size: 2rem; }
+      .price { font-size: 52px; letter-spacing: -2px; }
+      .section-title { font-size: 28px; }
       .session-card { flex-direction: column; gap: 16px; padding: 24px; }
       .logo { height: 80px; }
       .logo-text { font-size: 0.55rem; letter-spacing: 2px; }
@@ -432,9 +209,12 @@
       .hero { padding: 24px 0 64px; }
       .btn-voltar { left: 16px; top: 40px; font-size: 0.8rem; }
       p, .hero .subheadline, .section-subtitle { font-size: 16px; }
-      .authority-credentials { gap: 20px; }
+      .about-box { flex-direction: column; align-items: center; text-align: center; padding: 28px; gap: 24px; }
+      .authority-credentials { justify-content: center; }
       .cta-final h2 { font-size: 1.4rem; }
       .cta-final h3 { font-size: 1.75rem; }
+      .guarantee-box { padding: 32px 24px; margin-top: 40px; }
+      .cta-button { font-size: 14px; padding: 18px 28px; min-height: 56px; }
     }
   </style>
 </head>
@@ -448,32 +228,38 @@
     </div>
   </header>
 
+  <!-- HERO -->
   <section class="hero">
     <div class="container">
-      <h1>Você sabe o que fazer.<br>Mas alguma coisa dentro de você impede a execução.</h1>
-      <p class="subheadline">Acompanhamento terapêutico individual para destravar execução, reorganizar sua mente e interromper padrões de autossabotagem.</p>
+      <div class="hero-content">
+        <h1>Você já entendeu o que precisa fazer.<br>O problema é que seu padrão emocional continua vencendo.</h1>
+        <p class="subheadline">Processo terapêutico individual para reorganizar padrões emocionais, destravar execução e recuperar clareza interna.</p>
 
-      <div class="price-card">
-        <span class="price-tag">Investimento</span>
-        <div class="price-value">R$ 897</div>
-        <div class="price-installments">ou 12x de R$ 89,70</div>
-        <a href="https://pay.kiwify.com.br/LnNZaUG" class="btn">QUERO COMEÇAR MEU PROCESSO</a>
-        <p class="scarcity">Atendo no máximo 8 pessoas por mês para manter profundidade e acompanhamento individual real.</p>
-        <div class="guarantee-badge">
-          <span class="shield">🛡️</span>
-          <p><strong>Garantia de 7 dias + Sessão 1</strong><br>Se não sentir clareza na primeira sessão, devolvo tudo.</p>
+        <div class="price-card">
+          <span class="price-label">Investimento</span>
+          <div class="price">R$ 897</div>
+          <div class="price-installments">ou 12x de R$ 89,70</div>
+          <div class="cta-wrapper">
+            <a href="https://pay.kiwify.com.br/LnNZaUG" class="cta-button">QUERO COMEÇAR MEU PROCESSO</a>
+          </div>
+          <p class="scarcity">Para manter profundidade terapêutica e acompanhamento individual real, atendo no máximo 8 pessoas por mês.</p>
+          <div class="guarantee-badge">
+            <span class="shield">🛡️</span>
+            <p><strong>Garantia de 7 dias + Sessão 1</strong><br>Se não sentir clareza na primeira sessão, devolvo tudo.</p>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
+  <!-- DOR -->
   <section class="section">
     <div class="container">
       <h2 class="section-title">Você já tentou de tudo sozinho...</h2>
       <div class="problem-list">
-        <div class="problem-item">Curso demais, execução de menos</div>
-        <div class="problem-item">Terapia sem direção prática</div>
-        <div class="problem-item">Muito entendimento e pouca mudança</div>
+        <div class="pain-item">Curso demais, execução de menos</div>
+        <div class="pain-item">Terapia sem direção prática</div>
+        <div class="pain-item">Muito entendimento e pouca mudança</div>
       </div>
       <div class="pain-box">
         <p><strong>Chega de conteúdo genérico. Você precisa de direção pessoal.</strong></p>
@@ -481,18 +267,20 @@
     </div>
   </section>
 
+  <!-- SESSÕES -->
   <section class="section">
     <div class="container">
       <h2 class="section-title">O que acontece em cada encontro:</h2>
       <p class="section-subtitle">5 etapas guiadas, com execução prática e sem enrolação.</p>
 
       <div class="session-list">
+
         <div class="session-card">
           <div class="session-number">01</div>
           <div class="session-content">
             <h3>Sessão Diagnóstico: Mapeamento de Sabotagem</h3>
-            <p><strong>45 minutos.</strong> Vamos usar meu protocolo terapêutico pra identificar os padrões que sustentam sua autossabotagem.</p>
-            <div class="session-result">Você sai com clareza brutal do seu padrão invisível — com nome, situação e gatilho identificados.</div>
+            <p><strong>45 minutos.</strong> Vamos usar meu protocolo terapêutico pra identificar os padrões que sustentam sua autossabotagem — com precisão, sem achismo.</p>
+            <div class="session-result">Você sai com clareza real sobre os padrões invisíveis que sustentam sua autossabotagem.</div>
           </div>
         </div>
 
@@ -500,7 +288,7 @@
           <div class="session-number">02</div>
           <div class="session-content">
             <h3>Sessão Reprogramação: Reestruturação Interna</h3>
-            <p><strong>60 minutos.</strong> Aplicação de Reprocessamento + Neurociência + PNL para reestruturar padrões emocionais e crenças que sustentam o bloqueio.</p>
+            <p><strong>60 minutos.</strong> Aplicação de Reprocessamento + Neurociência + PNL para reestruturar padrões emocionais profundos. Foco em alteração de resposta emocional, percepção interna e reconstrução de segurança emocional.</p>
             <div class="session-result">Você sai com a resposta emocional alterada — o gatilho ainda pode aparecer, mas a reação automática muda.</div>
           </div>
         </div>
@@ -508,8 +296,8 @@
         <div class="session-card">
           <div class="session-number">03</div>
           <div class="session-content">
-            <h3>Sessão Instalação: Tríade Personalizada</h3>
-            <p><strong>45 minutos.</strong> Estruturamos sua Tríade de Desbloqueio baseada no seu emocional, rotina, sabotadores e padrão de funcionamento.</p>
+            <h3>Sessão Instalação: Estrutura Personalizada</h3>
+            <p><strong>45 minutos.</strong> Estruturamos os 3 pilares do seu processo: mental, emocional e execução — baseados na sua rotina, seus sabotadores e seu padrão de funcionamento.</p>
             <div class="session-result">Você sai com um protocolo montado pra você — não genérico, não copiado de ninguém.</div>
           </div>
         </div>
@@ -531,10 +319,12 @@
             <div class="session-result">Você sai sabendo exatamente o que fazer quando a trava aparecer de novo. Autonomia real.</div>
           </div>
         </div>
+
       </div>
     </div>
   </section>
 
+  <!-- PARA QUEM É -->
   <section class="section">
     <div class="container">
       <h2 class="section-title">As 5 Sessões são pra você se:</h2>
@@ -547,75 +337,85 @@
     </div>
   </section>
 
+  <!-- AUTORIDADE + GARANTIA -->
   <section class="section">
     <div class="container">
-      <div class="authority-box">
-        <h3>Quem conduz o processo</h3>
-        <h4>Reginaldo Hsiao</h4>
-        <p>Mentor e terapeuta especializado em autossabotagem, desbloqueio emocional e reorganização comportamental. Integra ferramentas terapêuticas, reprocessamento emocional, neurociência aplicada e estratégias práticas de execução para pessoas que sabem muito, mas não conseguem sustentar ação.</p>
-        <div class="authority-credentials">
-          <div class="credential">
-            <div class="number">+1.400h</div>
-            <div class="label">de experiência clínica</div>
-          </div>
-          <div class="credential">
-            <div class="number">18 anos</div>
-            <div class="label">em vendas e comportamento</div>
-          </div>
-          <div class="credential">
-            <div class="number">100%</div>
-            <div class="label">online e individual</div>
+
+      <div class="about-box">
+        <img src="reginaldo.jpg" alt="Reginaldo Hsiao" class="about-photo">
+        <div class="about-text">
+          <h3>Quem conduz o processo</h3>
+          <h4>Reginaldo Hsiao</h4>
+          <p>Mentor e terapeuta especializado em autossabotagem, desbloqueio emocional e reorganização comportamental. Integra ferramentas terapêuticas, reprocessamento emocional, neurociência aplicada e estratégias práticas de execução para pessoas que sabem muito, mas não conseguem sustentar ação.</p>
+          <div class="authority-credentials">
+            <div class="credential">
+              <div class="number">+1.400h</div>
+              <div class="label">de experiência clínica</div>
+            </div>
+            <div class="credential">
+              <div class="number">18 anos</div>
+              <div class="label">em vendas e comportamento</div>
+            </div>
+            <div class="credential">
+              <div class="number">100%</div>
+              <div class="label">online e individual</div>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-  </section>
 
-  <section class="section">
-    <div class="container">
       <div class="guarantee-box">
         <span class="guarantee-icon">🛡️</span>
         <h3>Garantia de 7 Dias + Sessão 1</h3>
         <p>Você precisa sentir clareza e direção logo na primeira sessão. Caso contrário, devolvo seu investimento integralmente. Sem questionamento, sem burocracia.</p>
         <p><strong>O risco é todo meu. O resultado é todo seu.</strong></p>
       </div>
+
     </div>
   </section>
 
+  <!-- FAQ -->
   <section class="section">
     <div class="container">
       <h2 class="section-title">Perguntas frequentes</h2>
       <div class="faq-list">
         <div class="faq-item">
+          <h4>As sessões são online?</h4>
+          <p>Sim. Todas acontecem ao vivo e individualmente, via Google Meet, com gravação disponível pra você revisar quando quiser.</p>
+        </div>
+        <div class="faq-item">
+          <h4>Preciso expor toda minha vida?</h4>
+          <p>Não. O foco é identificar padrões específicos que mantêm você travado — sem análise infinita do passado.</p>
+        </div>
+        <div class="faq-item">
+          <h4>Isso substitui terapia tradicional?</h4>
+          <p>Não necessariamente. O processo é focado em desbloqueio emocional e reorganização comportamental, com ferramentas práticas de execução.</p>
+        </div>
+        <div class="faq-item">
+          <h4>Como funciona o agendamento?</h4>
+          <p>Após a confirmação, você recebe acesso direto ao agendamento individual. As 5 sessões são distribuídas em 4 a 6 semanas, no seu ritmo.</p>
+        </div>
+        <div class="faq-item">
           <h4>É terapia ou mentoria?</h4>
           <p>É um processo terapêutico estruturado com ferramentas práticas de execução. Foco em desbloqueio emocional e mudança de padrão comportamental.</p>
-        </div>
-        <div class="faq-item">
-          <h4>As sessões são online?</h4>
-          <p>Sim. Todas as 5 sessões são individuais e online via Google Meet, com gravação disponível pra você revisar.</p>
-        </div>
-        <div class="faq-item">
-          <h4>Preciso falar da minha vida inteira?</h4>
-          <p>Não. O foco é cirúrgico: identificamos o padrão de sabotagem atual e trabalhamos na reestruturação prática. Sem análise infinita do passado.</p>
-        </div>
-        <div class="faq-item">
-          <h4>Quanto tempo dura o processo?</h4>
-          <p>São 5 sessões distribuídas em 4 a 6 semanas, dependendo da sua disponibilidade. Você sai com plano de 30 dias na sessão 04.</p>
         </div>
       </div>
     </div>
   </section>
 
+  <!-- CTA FINAL -->
   <section class="cta-final">
     <div class="container">
       <h2>Ou você continua tentando sozinho por mais 1 ano...</h2>
       <h3>Ou resolve em 5 sessões comigo agora.</h3>
       <div class="price-card">
-        <span class="price-tag">Investimento</span>
-        <div class="price-value">R$ 897</div>
+        <span class="price-label">Investimento</span>
+        <div class="price">R$ 897</div>
         <div class="price-installments">ou 12x de R$ 89,70</div>
-        <a href="https://pay.kiwify.com.br/LnNZaUG" class="btn">AGENDAR MINHAS 5 SESSÕES</a>
-        <p class="scarcity">Atendo no máximo 8 pessoas por mês para manter profundidade e acompanhamento individual real.</p>
+        <div class="cta-wrapper">
+          <a href="https://pay.kiwify.com.br/LnNZaUG" class="cta-button">AGENDAR MINHAS 5 SESSÕES</a>
+        </div>
+        <p class="scarcity">Para manter profundidade terapêutica e acompanhamento individual real, atendo no máximo 8 pessoas por mês.</p>
         <div class="guarantee-badge">
           <span class="shield">🛡️</span>
           <p><strong>Garantia de 7 dias + Sessão 1</strong><br>Se não sentir clareza na primeira sessão, devolvo tudo.</p>
@@ -623,6 +423,14 @@
       </div>
     </div>
   </section>
+
+  <!-- TRANSIÇÃO PRÓXIMO PRODUTO -->
+  <div class="next-product">
+    <div class="container">
+      <p>Prefere começar por algo mais direto e acessível?</p>
+      <a href="https://reginaldohsiao.github.io/produtos/reset/">Conheça o Reset da Autossabotagem →</a>
+    </div>
+  </div>
 
 </body>
 </html>
