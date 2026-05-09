@@ -147,10 +147,10 @@
     /* ABOUT BOX PREMIUM */
     .about-box {
       background: linear-gradient(180deg, #111 0%, #0b0b0b 100%);
-      border: 1px solid #1f1f1f; border-radius: 24px; padding: 42px;
-      display: flex; gap: 44px; align-items: flex-start;
+      border: 1px solid #1f1f1f; border-radius: 24px; padding: 52px 42px;
+      display: flex; flex-direction: column; align-items: center; text-align: center; gap: 36px;
     }
-    .about-photo-wrap { flex: 0 0 40%; max-width: 40%; }
+    .about-photo-wrap { width: 280px; max-width: 100%; }
     .about-photo {
       width: 100%; aspect-ratio: 3 / 4;
       border-radius: 18px; object-fit: cover; object-position: center top;
@@ -159,7 +159,7 @@
                   0 0 28px rgba(243,198,35,0.06),
                   0 12px 48px rgba(0,0,0,0.7);
     }
-    .about-text { flex: 1; }
+    .about-text { width: 100%; max-width: 620px; }
     .about-text h3 {
       font-size: 0.75rem; font-weight: 700; color: var(--gold-muted);
       text-transform: uppercase; letter-spacing: 2px; margin: 0 0 10px;
@@ -167,12 +167,13 @@
     .about-text h4 { font-size: 1.75rem; font-weight: 900; margin: 0 0 20px; line-height: 1.2; }
     .about-text p {
       color: #d6d6d6; font-size: 1.05rem; line-height: 1.8;
-      margin: 0 0 14px; max-width: 620px;
+      margin: 0 auto 14px; max-width: 560px;
     }
-    .about-text p:last-of-type { margin-bottom: 32px; }
-    .authority-credentials { display: flex; gap: 28px; flex-wrap: wrap; }
+    .about-text p:last-of-type { margin-bottom: 36px; }
+    .authority-credentials { display: flex; gap: 28px; flex-wrap: wrap; justify-content: center; }
+    .credential { text-align: center; }
     .credential .number { font-size: 1.5rem; font-weight: 900; color: var(--gold); line-height: 1; }
-    .credential .label { font-size: 0.75rem; color: var(--text-muted); margin-top: 4px; line-height: 1.4; }
+    .credential .label { font-size: 0.75rem; color: var(--text-muted); margin-top: 4px; line-height: 1.4; max-width: 140px; margin-left: auto; margin-right: auto; }
 
     /* GARANTIA SECTION */
     .guarantee-box {
@@ -218,10 +219,9 @@
       .hero { padding: 24px 0 64px; }
       .btn-voltar { left: 16px; top: 40px; font-size: 0.8rem; }
       p, .hero .subheadline, .section-subtitle { font-size: 16px; }
-      .about-box { flex-direction: column; align-items: center; text-align: center; padding: 28px; gap: 28px; }
-      .about-photo-wrap { flex: none; max-width: 260px; width: 100%; }
+      .about-box { padding: 32px 24px; gap: 24px; }
+      .about-photo-wrap { width: 220px; }
       .about-text p { font-size: 0.95rem; }
-      .authority-credentials { justify-content: center; }
       .cta-final h2 { font-size: 1.4rem; }
       .cta-final h3 { font-size: 1.75rem; }
       .guarantee-box { padding: 32px 24px; margin-top: 40px; }
@@ -253,7 +253,7 @@
           <div class="cta-wrapper">
             <a href="https://pay.kiwify.com.br/LnNZaUG" class="cta-button">QUERO COMEÇAR MEU PROCESSO</a>
           </div>
-          <p class="scarcity">Para manter profundidade terapêutica e acompanhamento individual real, atendimeto limitado à 8 pessoas por mês.</p>
+          <p class="scarcity">Para manter profundidade terapêutica e acompanhamento individual real, atendo no máximo 8 pessoas por mês.</p>
           <div class="guarantee-badge">
             <span class="shield">🛡️</span>
             <p><strong>Garantia de 7 dias + Sessão 1</strong><br>Se não sentir clareza na primeira sessão, devolvo tudo.</p>
@@ -290,7 +290,7 @@
           <div class="session-number">01</div>
           <div class="session-content">
             <h3>Sessão Diagnóstico: Mapeamento de Sabotagem</h3>
-            <p><strong>45 minutos.</strong> Utilzando o protocolo terapêutico pra identificação dos padrões que sustentam sua autossabotagem — com precisão, sem achismo.</p>
+            <p><strong>45 minutos.</strong> Vamos usar meu protocolo terapêutico pra identificar os padrões que sustentam sua autossabotagem — com precisão, sem achismo.</p>
             <div class="session-result">Você sai com clareza real sobre os padrões invisíveis que sustentam sua autossabotagem.</div>
           </div>
         </div>
@@ -308,7 +308,7 @@
           <div class="session-number">03</div>
           <div class="session-content">
             <h3>Sessão Instalação: Estrutura Personalizada</h3>
-            <p><strong>45 minutos.</strong> Estruturação dos 3 pilares do seu processo: mental, emocional e execução — baseados na sua rotina, seus sabotadores e seu padrão de funcionamento.</p>
+            <p><strong>45 minutos.</strong> Estruturamos os 3 pilares do seu processo: mental, emocional e execução — baseados na sua rotina, seus sabotadores e seu padrão de funcionamento.</p>
             <div class="session-result">Você sai com um protocolo montado pra você — não genérico, não copiado de ninguém.</div>
           </div>
         </div>
@@ -326,7 +326,7 @@
           <div class="session-number">05</div>
           <div class="session-content">
             <h3>Sessão Sustentação: Prevenção de Recaídas</h3>
-            <p><strong>60 minutos.</strong> Instalação do Protocolo SOS de 5 minutos + o hábito-âncora que ajuda você a interromper recaídas emocionais antes que elas dominem sua rotina.</p>
+            <p><strong>60 minutos.</strong> Instalamos o Protocolo SOS de 5 minutos + o hábito-âncora que ajuda você a interromper recaídas emocionais antes que elas dominem sua rotina.</p>
             <div class="session-result">Você sai sabendo exatamente o que fazer quando a trava aparecer de novo. Autonomia real.</div>
           </div>
         </div>
