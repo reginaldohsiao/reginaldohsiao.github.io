@@ -1,418 +1,1088 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Tríade do Desbloqueio | Reginaldo Hsiao</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&display=swap" rel="stylesheet">
-  <style>
-    :root {
-      --bg: #000000;
-      --card: #0f0f0f;
-      --border: #1f1f1f;
-      --text: #ffffff;
-      --text-muted: #bdbdbd;
-      --gold: #f3c623;
-      --gold-dark: #eab308;
-      --gold-muted: #a1824a;
-    }
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body {
-      background: var(--bg);
-      color: var(--text);
-      font-family: 'Inter', sans-serif;
-      line-height: 1.8;
-      -webkit-font-smoothing: antialiased;
-    }
-    .container { max-width: 800px; margin: 0 auto; padding: 0 24px; }
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    /* HEADER */
-    .header { padding: 48px 0 40px; text-align: center; position: relative; }
-    .logo { height: 110px; display: block; margin: 0 auto 16px; }
-    .logo-text {
-      font-size: 0.625rem; font-weight: 500; color: var(--gold-muted);
-      opacity: 0.9; text-transform: uppercase; letter-spacing: 2.5px; display: block;
-    }
-    .btn-voltar {
-      position: absolute; left: 24px; top: 48px;
-      font-size: 0.875rem; color: var(--text-muted); text-decoration: none;
-    }
-    .btn-voltar:hover { color: var(--gold); }
+<title>Tríade do Desbloqueio | Reginaldo Hsiao</title>
 
-    /* HERO */
-    .hero { text-align: center; padding: 32px 0 90px; border-bottom: 1px solid var(--border); }
-    .hero-content { max-width: 760px; margin: auto; }
-    .hero h1 {
-      font-size: 42px; font-weight: 900; letter-spacing: -1.5px;
-      line-height: 1.15; margin: 0 0 24px;
-    }
-    .hero .subheadline {
-      font-size: 18px; color: var(--text-muted); max-width: 580px;
-      margin: 0 auto 32px; line-height: 1.8;
-    }
-    .hero .subheadline strong { color: var(--text); font-weight: 700; }
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-    /* PRICE CARD */
-    .price-card {
-      background: var(--card); border: 1px solid var(--border);
-      border-radius: 20px; padding: 40px 36px; max-width: 460px;
-      margin: 0 auto; text-align: center;
-    }
-    .price-label {
-      font-size: 13px; letter-spacing: 3px; text-transform: uppercase;
-      color: #8a8a8a; margin-bottom: 18px; display: block;
-    }
-    .price {
-      font-size: 64px; font-weight: 800; letter-spacing: -3px;
-      color: var(--gold); line-height: 1; margin-bottom: 10px;
-    }
-    .price-installments { font-size: 1rem; color: var(--text-muted); margin-bottom: 28px; }
-    .cta-wrapper { display: flex; justify-content: center; }
-    .cta-button {
-      width: auto; display: inline-block; background: #f3c623; color: #000;
-      font-size: 15px; font-weight: 700; letter-spacing: 0.6px;
-      min-height: 64px; padding: 20px 34px; border-radius: 18px;
-      text-decoration: none; text-align: center; transition: 0.3s; line-height: 1.3;
-      border: none; cursor: pointer; font-family: 'Inter', sans-serif;
-    }
-    .cta-button:hover { transform: translateY(-2px); box-shadow: 0 8px 32px rgba(243,198,35,0.18); }
-    .scarcity { margin: 18px 0 0; font-size: 0.8rem; color: var(--gold); line-height: 1.6; }
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 
-    /* GARANTIA BADGE */
-    .guarantee-badge {
-      display: flex; align-items: center; justify-content: center; gap: 10px;
-      margin-top: 20px; padding: 14px 20px;
-      background: rgba(243,198,35,0.07); border: 1px solid rgba(243,198,35,0.25);
-      border-radius: 12px;
-    }
-    .guarantee-badge .shield { font-size: 1.4rem; line-height: 1; }
-    .guarantee-badge p { font-size: 0.875rem; color: var(--text-muted); margin: 0; text-align: left; line-height: 1.5; }
-    .guarantee-badge p strong { color: var(--gold); font-weight: 700; }
+<style>
 
-    /* SEÇÕES */
-    .section { padding: 90px 24px; border-bottom: 1px solid var(--border); }
-    .section:last-of-type { border-bottom: none; }
-    .section-title {
-      font-size: 42px; font-weight: 900; text-align: center;
-      line-height: 1.1; margin: 0 0 24px; letter-spacing: -1px;
-    }
-    .section-subtitle {
-      font-size: 18px; color: var(--text-muted); text-align: center;
-      max-width: 600px; margin: 0 auto 48px; line-height: 1.8;
-    }
+:root{
+  --bg:#000;
+  --card:#0b0b0b;
+  --card2:#101010;
+  --border:#1f1f1f;
+  --text:#fff;
+  --muted:#bdbdbd;
+  --muted2:#8a8a8a;
+  --gold:#f3c623;
+  --gold-soft:#a1824a;
+}
 
-    /* ESPELHO — identificação */
-    .espelho-box {
-      background: #080808; border: 1px solid #232323;
-      border-left: 3px solid var(--gold); border-radius: 16px;
-      padding: 28px; margin-bottom: 40px;
-    }
-    .espelho-box h2 {
-      font-size: 1rem; font-weight: 700; margin-bottom: 16px; color: var(--text);
-    }
-    .espelho-item {
-      display: flex; align-items: flex-start; gap: 12px;
-      margin: 14px 0; color: #d1d1d1; line-height: 1.7; font-size: 17px;
-    }
-    .espelho-item::before {
-      content: "•"; color: var(--gold); font-weight: 700;
-      font-size: 20px; flex-shrink: 0; line-height: 1.2;
-    }
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
 
-    /* MECANISMO */
-    .mechanism-box {
-      background: var(--card); border: 1px solid var(--border);
-      border-radius: 16px; padding: 40px; margin-bottom: 0;
-    }
-    .mechanism-box h2 {
-      font-size: 28px; font-weight: 900; margin: 0 0 24px;
-      line-height: 1.2; letter-spacing: -0.5px;
-    }
-    .mechanism-box p {
-      color: var(--text-muted); font-size: 17px; line-height: 1.8;
-      margin: 0 0 14px; max-width: 620px;
-    }
-    .mechanism-box p:last-child { margin: 0; }
-    .mechanism-box p strong { color: var(--text); font-weight: 700; }
+html{
+  scroll-behavior:smooth;
+}
 
-    /* PILARES */
-    .pillar-intro {
-      font-size: 18px; color: var(--text-muted); line-height: 1.8;
-      margin: 0 0 40px; max-width: 600px;
-    }
-    .pilar {
-      background: #080808; border: 1px solid #232323;
-      border-left: 3px solid var(--gold); border-radius: 14px;
-      padding: 28px; margin-bottom: 16px;
-    }
-    .pilar:last-of-type { margin-bottom: 0; }
-    .pilar-num {
-      font-size: 11px; font-weight: 700; letter-spacing: 2px;
-      text-transform: uppercase; color: var(--gold-muted); margin-bottom: 8px;
-    }
-    .pilar-title {
-      font-size: 1.2rem; font-weight: 700; color: var(--text);
-      margin-bottom: 16px; line-height: 1.3;
-    }
-    .pilar-item {
-      color: #888; font-size: 15px; margin: 8px 0;
-      display: flex; align-items: flex-start; gap: 10px; line-height: 1.6;
-    }
-    .pilar-item::before { content: "•"; color: var(--gold); flex-shrink: 0; }
+body{
+  background:var(--bg);
+  color:var(--text);
+  font-family:'Inter',sans-serif;
+  -webkit-font-smoothing:antialiased;
+  line-height:1.7;
+}
 
-    /* ENTREGÁVEIS */
-    .deliverables {
-      display: flex; flex-direction: column; gap: 20px;
-    }
-    .deliverable-group {
-      background: var(--card); border: 1px solid var(--border);
-      border-radius: 14px; padding: 24px;
-    }
-    .deliverable-group h4 {
-      font-size: 0.7rem; font-weight: 700; color: var(--gold-muted);
-      text-transform: uppercase; letter-spacing: 2px; margin-bottom: 14px;
-    }
-    .deliverable-item {
-      display: flex; align-items: flex-start; gap: 12px;
-      color: var(--text-muted); font-size: 16px; line-height: 1.7;
-      margin: 8px 0;
-    }
-    .deliverable-item::before {
-      content: "→"; color: var(--gold); font-weight: 700; flex-shrink: 0;
-    }
+.container{
+  width:100%;
+  max-width:820px;
+  margin:0 auto;
+  padding:0 20px;
+}
 
-    /* DIFERENCIAL vs SESSOES */
-    .diff-box {
-      background: var(--card); border: 1px solid var(--border);
-      border-radius: 16px; padding: 32px; text-align: center;
-      margin-top: 0;
-    }
-    .diff-box p {
-      font-size: 16px; color: var(--text-muted); line-height: 1.8;
-      max-width: 520px; margin: 0 auto;
-    }
-    .diff-box strong { color: var(--text); font-weight: 700; }
+/* header */
 
-    /* GARANTIA SECTION */
-    .guarantee-box {
-      background: var(--card); border: 2px solid rgba(243,198,35,0.3);
-      border-radius: 16px; padding: 48px; text-align: center;
-    }
-    .guarantee-icon { font-size: 3rem; margin-bottom: 16px; display: block; }
-    .guarantee-box h3 { font-size: 1.5rem; font-weight: 900; margin: 0 0 16px; }
-    .guarantee-box p { color: var(--text-muted); max-width: 500px; margin: 0 auto 16px; font-size: 18px; line-height: 1.8; }
-    .guarantee-box p:last-child { margin: 0 auto; }
-    .guarantee-box strong { color: var(--gold); }
+.header{
+  padding:42px 0 24px;
+  text-align:center;
+  position:relative;
+}
 
-    /* CTA FINAL */
-    .cta-final { padding: 90px 24px; text-align: center; }
-    .cta-final h2 { font-size: 1.75rem; color: var(--text-muted); font-weight: 500; margin: 0; line-height: 1.4; }
-    .cta-final h3 { font-size: 2.25rem; font-weight: 900; color: var(--gold); margin: 12px 0 40px; line-height: 1.2; }
+.back{
+  position:absolute;
+  left:20px;
+  top:42px;
+  color:#7b7b7b;
+  text-decoration:none;
+  font-size:14px;
+  transition:.2s;
+}
 
-    /* TRANSIÇÃO PRÓXIMO PRODUTO */
-    .next-product { border-top: 1px solid var(--border); padding: 60px 24px; text-align: center; }
-    .next-product p { font-size: 1rem; color: var(--text-muted); margin: 0 0 12px; line-height: 1.8; }
-    .next-product a {
-      font-size: 1.125rem; font-weight: 700; color: var(--gold); text-decoration: none;
-      border-bottom: 1px solid rgba(243,198,35,0.3); padding-bottom: 2px; transition: 0.2s;
-    }
-    .next-product a:hover { border-color: var(--gold); }
+.back:hover{
+  color:var(--gold);
+}
 
-    /* MOBILE */
-    @media (max-width: 768px) {
-      .hero h1 { font-size: 2rem; }
-      .price { font-size: 48px; letter-spacing: -2px; }
-      .section-title { font-size: 28px; }
-      .logo { height: 80px; }
-      .logo-text { font-size: 0.55rem; letter-spacing: 2px; }
-      .header { padding: 40px 0 32px; }
-      .section { padding: 60px 18px; }
-      .hero { padding: 24px 0 64px; }
-      .btn-voltar { left: 16px; top: 40px; font-size: 0.8rem; }
-      p, .hero .subheadline, .section-subtitle { font-size: 16px; }
-      .mechanism-box { padding: 28px 22px; }
-      .mechanism-box h2 { font-size: 22px; }
-      .espelho-item { font-size: 16px; }
-      .cta-final h2 { font-size: 1.4rem; }
-      .cta-final h3 { font-size: 1.75rem; }
-      .guarantee-box { padding: 32px 24px; }
-      .cta-button { font-size: 14px; padding: 18px 28px; min-height: 56px; }
-    }
-  </style>
-  <script>
-    function track(e){ window.dataLayer = window.dataLayer||[]; dataLayer.push({event:e}); }
-    function checkout(){ track('click_checkout_triade'); window.location.href='https://pay.kiwify.com.br/ESmxn90'; }
-  </script>
+.logo{
+  width:110px;
+  height:110px;
+  object-fit:contain;
+  margin:0 auto 12px;
+  display:block;
+}
+
+.logo-text{
+  font-size:10px;
+  letter-spacing:3px;
+  text-transform:uppercase;
+  color:var(--gold-soft);
+}
+
+/* hero */
+
+.hero{
+  padding:24px 0 72px;
+  text-align:center;
+}
+
+.hero h1{
+  font-size:58px;
+  line-height:1.02;
+  letter-spacing:-3px;
+  font-weight:900;
+  margin-bottom:28px;
+}
+
+.hero-sub{
+  max-width:650px;
+  margin:0 auto 42px;
+  color:var(--muted);
+  font-size:20px;
+  line-height:1.8;
+}
+
+.hero-sub strong{
+  color:#fff;
+  font-weight:800;
+}
+
+.frase-impacto{
+  display:block;
+  text-align:center;
+  margin-top:12px;
+  font-weight:800;
+  color:#fff;
+}
+
+/* price */
+
+.price-card{
+  width:100%;
+  max-width:470px;
+  margin:0 auto;
+  background:linear-gradient(180deg,#0d0d0d 0%, #070707 100%);
+  border:1px solid var(--border);
+  border-radius:24px;
+  padding:38px 32px;
+  box-shadow:0 0 0 1px rgba(255,255,255,0.02);
+}
+
+.price-label{
+  font-size:11px;
+  letter-spacing:4px;
+  text-transform:uppercase;
+  color:#777;
+  margin-bottom:16px;
+}
+
+.price{
+  font-size:74px;
+  line-height:1;
+  font-weight:900;
+  letter-spacing:-4px;
+  color:var(--gold);
+  margin-bottom:14px;
+}
+
+.price-installments{
+  color:var(--muted);
+  font-size:16px;
+  margin-bottom:30px;
+}
+
+.cta{
+  width:100%;
+  min-height:64px;
+  border:none;
+  border-radius:18px;
+  background:var(--gold);
+  color:#000;
+  font-size:16px;
+  font-weight:800;
+  cursor:pointer;
+  transition:.25s;
+  font-family:'Inter',sans-serif;
+}
+
+.cta:hover{
+  transform:translateY(-2px);
+  box-shadow:0 10px 30px rgba(243,198,35,0.18);
+}
+
+.instant{
+  margin-top:16px;
+  font-size:12px;
+  color:var(--gold);
+}
+
+.guarantee{
+  margin-top:22px;
+  border:1px solid rgba(243,198,35,.25);
+  background:rgba(243,198,35,.05);
+  border-radius:16px;
+  padding:16px;
+  display:flex;
+  gap:12px;
+  align-items:flex-start;
+  text-align:left;
+}
+
+.guarantee-icon{
+  font-size:18px;
+  line-height:1;
+}
+
+.guarantee p{
+  font-size:13px;
+  color:var(--muted);
+  line-height:1.5;
+}
+
+.guarantee strong{
+  color:var(--gold);
+}
+
+/* sections */
+
+.section{
+  padding:88px 0;
+  border-top:1px solid #111;
+}
+
+.section-title{
+  font-size:42px;
+  line-height:1.1;
+  letter-spacing:-1px;
+  font-weight:900;
+  margin-bottom:18px;
+  text-align:center;
+}
+
+.section-sub{
+  font-size:18px;
+  color:var(--muted);
+  text-align:center;
+  max-width:640px;
+  margin:0 auto 42px;
+}
+
+/* espelho */
+
+.espelho-box{
+  background:#0a0a0a;
+  border:1px solid #202020;
+  border-left:3px solid var(--gold);
+  border-radius:18px;
+  padding:30px;
+}
+
+.espelho-box h3{
+  font-size:18px;
+  margin-bottom:18px;
+}
+
+.espelho-item{
+  display:flex;
+  gap:12px;
+  align-items:flex-start;
+  color:#d0d0d0;
+  margin:16px 0;
+  font-size:17px;
+  line-height:1.7;
+}
+
+.espelho-item::before{
+  content:"•";
+  color:var(--gold);
+  font-size:22px;
+  font-weight:800;
+  line-height:1;
+}
+
+/* mechanism */
+
+.mechanism{
+  margin-top:34px;
+  background:linear-gradient(180deg,#111 0%, #0a0a0a 100%);
+  border:1px solid #202020;
+  border-radius:20px;
+  padding:36px;
+}
+
+.mechanism h3{
+  font-size:30px;
+  line-height:1.2;
+  margin-bottom:20px;
+  font-weight:900;
+}
+
+.mechanism p{
+  color:var(--muted);
+  font-size:17px;
+  line-height:1.8;
+  margin-bottom:12px;
+}
+
+.mechanism p:last-child{
+  margin-bottom:0;
+}
+
+.mechanism strong{
+  color:#fff;
+}
+
+/* pilares */
+
+.pilar{
+  background:#0a0a0a;
+  border:1px solid #202020;
+  border-left:3px solid var(--gold);
+  border-radius:18px;
+  padding:30px;
+  margin-bottom:18px;
+}
+
+.pilar-num{
+  color:var(--gold-soft);
+  text-transform:uppercase;
+  letter-spacing:2px;
+  font-size:11px;
+  margin-bottom:10px;
+  font-weight:700;
+}
+
+.pilar-title{
+  font-size:24px;
+  line-height:1.3;
+  margin-bottom:18px;
+  font-weight:800;
+}
+
+.pilar-item{
+  display:flex;
+  gap:10px;
+  align-items:flex-start;
+  color:var(--muted);
+  margin:12px 0;
+  line-height:1.7;
+}
+
+.pilar-item::before{
+  content:"→";
+  color:var(--gold);
+  font-weight:800;
+}
+
+/* entregáveis */
+
+.deliverables{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:18px;
+}
+
+.deliver{
+  background:#0b0b0b;
+  border:1px solid #1d1d1d;
+  border-radius:18px;
+  padding:24px;
+}
+
+.deliver h4{
+  color:var(--gold-soft);
+  font-size:11px;
+  letter-spacing:2px;
+  text-transform:uppercase;
+  margin-bottom:16px;
+}
+
+.deliver-item{
+  color:var(--muted);
+  margin:10px 0;
+  display:flex;
+  gap:10px;
+  line-height:1.7;
+}
+
+.deliver-item::before{
+  content:"•";
+  color:var(--gold);
+}
+
+/* foto */
+
+.about-card{
+  background:linear-gradient(180deg,#0c0c0c 0%, #080808 100%);
+  border:1px solid #202020;
+  border-radius:28px;
+  padding:36px;
+  text-align:center;
+  max-width:760px;
+  margin:0 auto;
+}
+
+.about-photo{
+  width:220px;
+  height:300px;
+  object-fit:cover;
+  object-position:center top;
+  border-radius:20px;
+  border:1px solid rgba(243,198,35,.25);
+  margin:0 auto 24px;
+  display:block;
+  box-shadow:0 0 30px rgba(243,198,35,.08);
+}
+
+.about-tag{
+  color:var(--gold-soft);
+  text-transform:uppercase;
+  letter-spacing:3px;
+  font-size:10px;
+  margin-bottom:10px;
+}
+
+.about-card h3{
+  font-size:38px;
+  line-height:1.1;
+  margin-bottom:18px;
+  font-weight:900;
+}
+
+.about-card p{
+  color:var(--muted);
+  max-width:620px;
+  margin:0 auto 18px;
+  font-size:17px;
+  line-height:1.9;
+}
+
+.stats{
+  display:flex;
+  justify-content:center;
+  gap:42px;
+  margin-top:34px;
+  flex-wrap:wrap;
+}
+
+.stat{
+  text-align:center;
+}
+
+.stat strong{
+  display:block;
+  color:var(--gold);
+  font-size:34px;
+  line-height:1;
+  margin-bottom:6px;
+  font-weight:900;
+}
+
+.stat span{
+  color:var(--muted);
+  font-size:13px;
+  line-height:1.4;
+  display:block;
+}
+
+/* final cta */
+
+.final{
+  text-align:center;
+}
+
+.final h2{
+  font-size:36px;
+  line-height:1.3;
+  color:var(--muted);
+  font-weight:500;
+}
+
+.final h3{
+  font-size:52px;
+  line-height:1.1;
+  color:var(--gold);
+  font-weight:900;
+  margin:12px 0 40px;
+  letter-spacing:-2px;
+}
+
+/* next */
+
+.next{
+  border-top:1px solid #111;
+  padding:54px 20px 70px;
+  text-align:center;
+}
+
+.next p{
+  color:var(--muted);
+  margin-bottom:12px;
+}
+
+.next a{
+  color:var(--gold);
+  text-decoration:none;
+  font-weight:700;
+}
+
+/* mobile */
+
+@media(max-width:768px){
+
+  .hero h1{
+    font-size:46px;
+    letter-spacing:-2px;
+  }
+
+  .hero-sub{
+    font-size:17px;
+  }
+
+  .section-title{
+    font-size:34px;
+  }
+
+  .price{
+    font-size:58px;
+  }
+
+  .deliverables{
+    grid-template-columns:1fr;
+  }
+
+  .about-card h3{
+    font-size:30px;
+  }
+
+  .final h2{
+    font-size:28px;
+  }
+
+  .final h3{
+    font-size:40px;
+  }
+
+}
+
+@media(max-width:560px){
+
+  .container{
+    padding:0 16px;
+  }
+
+  .header{
+    padding-top:34px;
+  }
+
+  .back{
+    top:34px;
+    left:16px;
+  }
+
+  .logo{
+    width:84px;
+    height:84px;
+  }
+
+  .hero{
+    padding:18px 0 56px;
+  }
+
+  .hero h1{
+    font-size:40px;
+    line-height:1.04;
+  }
+
+  .hero-sub{
+    font-size:16px;
+    line-height:1.8;
+    margin-bottom:34px;
+  }
+
+  .price-card{
+    padding:30px 22px;
+    border-radius:22px;
+  }
+
+  .price{
+    font-size:52px;
+  }
+
+  .cta{
+    font-size:15px;
+  }
+
+  .section{
+    padding:68px 0;
+  }
+
+  .section-title{
+    font-size:28px;
+  }
+
+  .section-sub{
+    font-size:16px;
+  }
+
+  .mechanism{
+    padding:28px 22px;
+  }
+
+  .mechanism h3{
+    font-size:24px;
+  }
+
+  .espelho-box,
+  .pilar{
+    padding:24px;
+  }
+
+  .about-card{
+    padding:28px 22px;
+  }
+
+  .about-photo{
+    width:100%;
+    max-width:250px;
+    height:320px;
+  }
+
+  .stats{
+    gap:28px;
+  }
+
+  .stat strong{
+    font-size:28px;
+  }
+
+  .final h2{
+    font-size:24px;
+  }
+
+  .final h3{
+    font-size:34px;
+  }
+
+}
+
+</style>
+
+<script>
+function track(eventName){
+  window.dataLayer = window.dataLayer || [];
+  dataLayer.push({event:eventName});
+}
+
+function checkout(){
+  track('click_checkout_triade');
+  window.location.href='https://pay.kiwify.com.br/ESmxn90';
+}
+</script>
+
 </head>
+
 <body>
 
-  <header class="header">
-    <div class="container">
-      <a href="https://reginaldohsiao.github.io/produtos/" class="btn-voltar">← Voltar</a>
-      <img src="../logo.png" alt="Reginaldo Hsiao" class="logo">
-      <span class="logo-text">REGINALDO HSIAO | MENTOR & TERAPEUTA</span>
-    </div>
-  </header>
+<header class="header">
 
-  <!-- HERO -->
-  <section class="hero">
-    <div class="container">
-      <div class="hero-content">
-        <h1>Você sabe o que fazer.<br>Mas não consegue fazer.</h1>
-        <p class="subheadline">
-          Você já entendeu seus padrões.<strong>Mas continua repetindo eles.</strong><br><br>
-          A mente sabe. O corpo ainda reage igual.<strong>frustração com você mesmo.</strong>
-        </p>
+<div class="container">
 
-        <div class="price-card">
-          <span class="price-label">Investimento</span>
-          <div class="price">R$ 497</div>
-          <div class="price-installments">à vista ou 12x de R$ 51,23</div>
-          <div class="cta-wrapper">
-            <button class="cta-button" onclick="checkout()">Quero quebrar esse ciclo</button>
-          </div>
-          <p class="scarcity">Acesso imediato após a confirmação.</p>
-          <div class="guarantee-badge">
-            <span class="shield">🛡️</span>
-            <p><strong>Garantia de 7 dias incondicional</strong><br>Se não sentir diferença, reembolso de 100%. Sem questionamento.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
+<a href="https://reginaldohsiao.github.io/produtos/" class="back">← Voltar</a>
 
-  <!-- ESPELHO -->
-  <section class="section">
-    <div class="container">
-      <div class="espelho-box">
-        <h2>Se você se identifica com isso:</h2>
-        <div class="espelho-item">Começa projetos cheio de energia, mas abandona no meio do caminho</div>
-        <div class="espelho-item">Sabe exatamente o que precisa mudar, mas repete os mesmos erros há anos</div>
-        <div class="espelho-item">Sente um freio invisível toda vez que está perto de conseguir algo grande</div>
-        <div class="espelho-item">Tem clareza mental, mas suas emoções te derrubam quando mais precisa de força</div>
-        <div class="espelho-item">Vive com a sensação de estar "patinando" enquanto a vida passa</div>
-      </div>
+<img src="../logo.png" alt="Reginaldo Hsiao" class="logo">
 
-      <!-- MECANISMO -->
-      <div class="mechanism-box">
-        <h2>O problema não é falta de informação.</h2>
-        <p>Você provavelmente já sabe muita coisa.</p>
-        <p>Já estudou. Já tentou mudar. Já entendeu seus padrões.</p>
-        <p>Mas <strong>entendimento sozinho não reorganiza comportamento.</strong></p>
-        <p>O corpo continua repetindo respostas antigas enquanto a mente tenta mudar, o sistema emocional continua operando no automático.</p>
-        <p>É por isso que tanta gente consciente continua travada.</p>
-      </div>
-    </div>
-  </section>
+<div class="logo-text">
+REGINALDO HSIAO | MENTOR & TERAPEUTA
+</div>
 
-  <!-- SOLUÇÃO -->
-  <section class="section">
-    <div class="container">
-      <h2 class="section-title">A Tríade do Desbloqueio</h2>
-      <p class="section-subtitle">Foi criada para reorganizar os padrões que mantêm você travado entre entender e agir.</p>
-      <p class="pillar-intro">Não é motivação. É uma estrutura prática para reorganizar pensamento, emoção e execução.</p>
+</div>
 
-      <div class="pilar">
-        <div class="pilar-num">Pilar 1</div>
-        <div class="pilar-title">Mental — parar de se autossabotar</div>
-        <div class="pilar-item">Identificar as crenças que te travam sem você perceber</div>
-        <div class="pilar-item">Reprogramar o diálogo interno de autocrítica</div>
-        <div class="pilar-item">Instalar um novo padrão de decisão</div>
-      </div>
+</header>
 
-      <div class="pilar">
-        <div class="pilar-num">Pilar 2</div>
-        <div class="pilar-title">Emocional — não travar na hora de agir</div>
-        <div class="pilar-item">Áudios de regulação para momentos de ansiedade e trava</div>
-        <div class="pilar-item">Técnicas integradas de Reprocessamento, PNL e Neurociência</div>
-        <div class="pilar-item">Protocolo pra desligar a autossabotagem na hora que ela aparece</div>
-      </div>
+<!-- hero -->
 
-      <div class="pilar">
-        <div class="pilar-num">Pilar 3</div>
-        <div class="pilar-title">Execução — manter consistência sem depender de motivação</div>
-        <div class="pilar-item">Plano prático de 30 dias pra sair da inércia</div>
-        <div class="pilar-item">Ferramentas pra manter consistência sem depender de motivação</div>
-        <div class="pilar-item">Sistema SOS pra momentos de recaída</div>
-      </div>
-    </div>
-  </section>
+<section class="hero">
 
-  <!-- ENTREGÁVEIS -->
-  <section class="section">
-    <div class="container">
-      <h2 class="section-title">O que você recebe para sair da trava</h2>
-      <p class="section-subtitle">Cada elemento tem uma função estrutural dentro do método.</p>
+<div class="container">
 
-      <div class="deliverables">
-        <div class="deliverable-group">
-          <h4>Conteúdo central</h4>
-          <div class="deliverable-item">9 módulos da Tríade do Desbloqueio — direto ao ponto, sem enrolação</div>
-        </div>
-        <div class="deliverable-group">
-          <h4>Regulação emocional</h4>
-          <div class="deliverable-item">6 áudios terapêuticos de reorganização emocional — pra ouvir quando travar</div>
-        </div>
-        <div class="deliverable-group">
-          <h4>Aplicação prática</h4>
-          <div class="deliverable-item">Workbook dos 3 pilares com exercícios práticos</div>
-          <div class="deliverable-item">Planilha de acompanhamento de 30 dias</div>
-        </div>
-        <div class="deliverable-group">
-          <h4>Sustentação</h4>
-          <div class="deliverable-item">Protocolo SOS anti-recaída para emergência emocional</div>
-          <div class="deliverable-item">Aula bônus de instalação de hábitos via PNL</div>
-        </div>
-      </div>
+<h1>
+Você sabe o que fazer.<br>
+Mas não consegue fazer.
+</h1>
 
-      <div class="diff-box" style="margin-top:32px;">
-        <p><strong>Se o Reset identifica e desativa o padrão, a Tríade reconstrói tudo do zero.</strong> São profundidades diferentes para momentos diferentes.</p>
-      </div>
-    </div>
-  </section>
+<p class="hero-sub">
+Você já estudou, entendeu seus padrões e tentou mudar.<br>
+<strong>Mas quando chega a hora de agir, trava.</strong>
 
-  <!-- GARANTIA -->
-  <section class="section">
-    <div class="container">
-      <div class="guarantee-box">
-        <span class="guarantee-icon">🛡️</span>
-        <h3>Garantia de 7 dias incondicional</h3>
-        <p>Se em 7 dias você não sentir que está num caminho diferente, reembolso de 100% do seu investimento. Sem questionamento, sem burocracia.</p>
-        <p><strong>O risco é todo meu. O resultado é todo seu.</strong></p>
-      </div>
-    </div>
-  </section>
+<span class="frase-impacto">
+A mente sabe. O corpo ainda reage igual.<br>
+frustração com você mesmo.
+</span>
+</p>
 
-  <!-- CTA FINAL -->
-  <section class="cta-final">
-    <div class="container">
-      <h2>Você pode continuar entendendo seus padrões.</h2>
-      <h3>Ou finalmente mudar eles.</h3>
-      <div class="price-card">
-        <span class="price-label">Investimento</span>
-        <div class="price">R$ 497</div>
-        <div class="price-installments">à vista ou 12x de R$ 51,23</div>
-        <div class="cta-wrapper">
-          <button class="cta-button" onclick="checkout()">Quero a Tríade do Desbloqueio</button>
-        </div>
-        <p class="scarcity">Acesso imediato após a confirmação.</p>
-        <div class="guarantee-badge">
-          <span class="shield">🛡️</span>
-          <p><strong>Garantia de 7 dias incondicional</strong><br>Se não sentir diferença, reembolso de 100%. Sem questionamento.</p>
-        </div>
-      </div>
-    </div>
-  </section>
+<div class="price-card">
 
-  <!-- TRANSIÇÃO PRÓXIMO PRODUTO -->
-  <div class="next-product">
-    <div class="container">
-      <p>Quer um processo individual com acompanhamento direto?</p>
-      <a href="https://reginaldohsiao.github.io/produtos/sessoes/">Conheça o Processo de Reorganização Interna →</a>
-    </div>
-  </div>
+<div class="price-label">Investimento</div>
+
+<div class="price">R$ 497</div>
+
+<div class="price-installments">
+à vista ou 12x de R$ 51,23
+</div>
+
+<button class="cta" onclick="checkout()">
+Quero quebrar esse ciclo
+</button>
+
+<div class="instant">
+Acesso imediato após a confirmação.
+</div>
+
+<div class="guarantee">
+
+<div class="guarantee-icon">🛡️</div>
+
+<p>
+<strong>Garantia de 7 dias incondicional</strong><br>
+Se não sentir diferença, reembolso de 100%. Sem questionamento.
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- espelho -->
+
+<section class="section">
+
+<div class="container">
+
+<div class="espelho-box">
+
+<h3>Se você se identifica com isso:</h3>
+
+<div class="espelho-item">
+A procrastinação te vence quando você mais precisa agir
+</div>
+
+<div class="espelho-item">
+Começa projetos cheio de energia, mas abandona no meio do caminho
+</div>
+
+<div class="espelho-item">
+Sabe exatamente o que precisa mudar, mas repete os mesmos erros há anos
+</div>
+
+<div class="espelho-item">
+Sente um freio invisível toda vez que está perto de conseguir algo grande
+</div>
+
+<div class="espelho-item">
+Tem clareza mental, mas suas emoções te derrubam quando mais precisa de força
+</div>
+
+<div class="espelho-item">
+Vive com a sensação de estar “patinando” enquanto a vida passa
+</div>
+
+</div>
+
+<div class="mechanism">
+
+<h3>
+O problema não é falta de informação.
+</h3>
+
+<p>
+Você provavelmente já sabe muita coisa.
+</p>
+
+<p>
+Já estudou. Já tentou mudar. Já entendeu seus padrões.
+</p>
+
+<p>
+<strong>
+Mas entendimento sozinho não reorganiza comportamento.
+</strong>
+</p>
+
+<p>
+O corpo continua repetindo respostas antigas enquanto a mente tenta mudar.
+</p>
+
+<p>
+É por isso que tanta gente consciente continua travada.
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- solução -->
+
+<section class="section">
+
+<div class="container">
+
+<h2 class="section-title">
+A Tríade do Desbloqueio
+</h2>
+
+<p class="section-sub">
+Foi criada para reorganizar os padrões que mantêm você travado entre entender e agir.
+</p>
+
+<div class="pilar">
+
+<div class="pilar-num">
+Pilar 1
+</div>
+
+<div class="pilar-title">
+Mental — Clareza e decisão
+</div>
+
+<div class="pilar-item">
+Identificar as crenças que te travam sem você perceber
+</div>
+
+<div class="pilar-item">
+Reprogramar o diálogo interno de autocrítica
+</div>
+
+<div class="pilar-item">
+Instalar um novo padrão de decisão
+</div>
+
+</div>
+
+<div class="pilar">
+
+<div class="pilar-num">
+Pilar 2
+</div>
+
+<div class="pilar-title">
+Emocional — Regulação e estabilidade
+</div>
+
+<div class="pilar-item">
+Áudios de regulação para momentos de ansiedade e trava
+</div>
+
+<div class="pilar-item">
+Técnicas integradas de Reprocessamento, PNL e Neurociência
+</div>
+
+<div class="pilar-item">
+Protocolo pra desligar a autossabotagem na hora que ela aparece
+</div>
+
+</div>
+
+<div class="pilar">
+
+<div class="pilar-num">
+Pilar 3
+</div>
+
+<div class="pilar-title">
+Execução — Sustentar ação real
+</div>
+
+<div class="pilar-item">
+Plano prático de 30 dias pra sair da inércia
+</div>
+
+<div class="pilar-item">
+Ferramentas pra manter consistência sem depender de motivação
+</div>
+
+<div class="pilar-item">
+Sistema SOS pra momentos de recaída
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- entregáveis -->
+
+<section class="section">
+
+<div class="container">
+
+<h2 class="section-title">
+O que sustenta a mudança
+</h2>
+
+<p class="section-sub">
+Cada elemento possui uma função prática dentro do processo.
+</p>
+
+<div class="deliverables">
+
+<div class="deliver">
+
+<h4>Conteúdo central</h4>
+
+<div class="deliver-item">
+9 módulos da Tríade do Desbloqueio
+</div>
+
+<div class="deliver-item">
+Aulas objetivas e aplicáveis
+</div>
+
+</div>
+
+<div class="deliver">
+
+<h4>Regulação emocional</h4>
+
+<div class="deliver-item">
+6 áudios terapêuticos de reorganização emocional
+</div>
+
+<div class="deliver-item">
+Protocolos para ansiedade e trava emocional
+</div>
+
+</div>
+
+<div class="deliver">
+
+<h4>Aplicação prática</h4>
+
+<div class="deliver-item">
+Workbook dos 3 pilares
+</div>
+
+<div class="deliver-item">
+Planilha prática de acompanhamento de 30 dias
+</div>
+
+</div>
+
+<div class="deliver">
+
+<h4>Sustentação</h4>
+
+<div class="deliver-item">
+Protocolo SOS anti-recaída
+</div>
+
+<div class="deliver-item">
+Bônus: instalação de hábitos via PNL
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- autoridade -->
+
+<section class="section">
+
+<div class="container">
+
+<div class="about-card">
+
+<img src="reginaldo-02.png" alt="Reginaldo Hsiao" class="about-photo">
+
+<div class="about-tag">
+Quem conduz o processo
+</div>
+
+<h3>
+Reginaldo Hsiao
+</h3>
+
+<p>
+Especialista em reorganização emocional e desbloqueio comportamental.
+</p>
+
+<p>
+Meu trabalho integra reprocessamento emocional, neurociência aplicada e direcionamento estratégico para pessoas que entendem muito, mas continuam travadas na execução.
+</p>
+
+<p>
+O foco não é apenas gerar consciência. É reorganizar padrões internos para sustentar ação real.
+</p>
+
+<div class="stats">
+
+<div class="stat">
+<strong>+1.500h</strong>
+<span>em atendimentos e reprocessamento emocional</span>
+</div>
+
+<div class="stat">
+<strong>18 anos</strong>
+<span>integrando comportamento, vendas e estratégia</span>
+</div>
+
+<div class="stat">
+<strong>Processo</strong>
+<span>individual com acompanhamento direto</span>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- final -->
+
+<section class="section final">
+
+<div class="container">
+
+<h2>
+Você pode continuar entendendo seus padrões.
+</h2>
+
+<h3>
+Ou começar a reorganizar eles na prática.
+</h3>
+
+<div class="price-card">
+
+<div class="price-label">Investimento</div>
+
+<div class="price">R$ 497</div>
+
+<div class="price-installments">
+à vista ou 12x de R$ 51,23
+</div>
+
+<button class="cta" onclick="checkout()">
+Quero a Tríade do Desbloqueio
+</button>
+
+<div class="instant">
+Acesso imediato após a confirmação.
+</div>
+
+<div class="guarantee">
+
+<div class="guarantee-icon">🛡️</div>
+
+<p>
+<strong>Garantia de 7 dias incondicional</strong><br>
+Se não sentir diferença, reembolso de 100%. Sem questionamento.
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- próximo -->
+
+<div class="next">
+
+<div class="container">
+
+<p>
+Quer um processo individual com acompanhamento direto?
+</p>
+
+<a href="https://reginaldohsiao.github.io/produtos/sessoes/">
+Conheça o Processo de Reorganização Interna →
+</a>
+
+</div>
+
+</div>
 
 </body>
 </html>
