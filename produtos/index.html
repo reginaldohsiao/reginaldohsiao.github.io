@@ -94,9 +94,7 @@ h1{
   line-height:1.4;
 }
 
-.option:last-child{
-  margin-bottom:0;
-}
+.option:last-child{ margin-bottom:0; }
 
 .option:before{
   content:"•";
@@ -104,6 +102,142 @@ h1{
   margin-right:8px;
 }
 
+/* ── MAPA DA TRAVA — card destaque ── */
+.card-diagnostico {
+  border:1px solid rgba(201,168,76,0.45);
+  border-radius:18px;
+  padding:22px 20px 20px;
+  background:linear-gradient(160deg,#110f05 0%,#060504 100%);
+  margin-bottom:8px;
+  position:relative;
+  overflow:hidden;
+  opacity:0;
+  animation:fadeUp 1s .4s forwards;
+  cursor:pointer;
+  transition:all .3s ease;
+}
+
+.card-diagnostico::before {
+  content:'';
+  position:absolute;
+  top:0; left:0; right:0;
+  height:2px;
+  background:linear-gradient(90deg, transparent, #C9A84C, transparent);
+}
+
+.card-diagnostico:hover {
+  transform:translateY(-3px);
+  border-color:rgba(201,168,76,0.7);
+  box-shadow:0 8px 32px rgba(201,168,76,0.08);
+}
+
+.diag-badge {
+  display:inline-block;
+  font-size:9px;
+  letter-spacing:0.15em;
+  text-transform:uppercase;
+  color:#C9A84C;
+  border:1px solid rgba(201,168,76,0.35);
+  padding:3px 12px;
+  border-radius:20px;
+  margin-bottom:12px;
+  font-family:Inter,sans-serif;
+}
+
+.diag-title {
+  font-size:20px;
+  font-weight:700;
+  color:#fff;
+  margin-bottom:4px;
+  line-height:1.2;
+}
+
+.diag-title em {
+  font-style:italic;
+  color:#C9A84C;
+}
+
+.diag-sub {
+  color:#888;
+  font-size:13px;
+  margin-bottom:16px;
+  line-height:1.5;
+}
+
+.diag-items {
+  display:flex;
+  flex-wrap:wrap;
+  gap:6px;
+  margin-bottom:18px;
+}
+
+.diag-item {
+  font-size:11px;
+  color:#A09070;
+  background:rgba(201,168,76,0.07);
+  border:1px solid rgba(201,168,76,0.15);
+  border-radius:20px;
+  padding:4px 10px;
+  letter-spacing:0.02em;
+}
+
+.btn-diagnostico {
+  display:block;
+  text-align:center;
+  padding:14px;
+  border-radius:12px;
+  background:#F2C94C;
+  color:#000;
+  text-decoration:none;
+  font-weight:700;
+  font-size:14px;
+  cursor:pointer;
+  transition:all .2s;
+  border:none;
+  width:100%;
+}
+
+.btn-diagnostico:hover {
+  background:#FFD760;
+  transform:scale(1.01);
+  color:#000;
+}
+
+.diag-footnote {
+  text-align:center;
+  font-size:11px;
+  color:#555;
+  margin-top:10px;
+  letter-spacing:0.03em;
+}
+
+/* ── DIVISOR ── */
+.divider-label {
+  text-align:center;
+  font-size:11px;
+  color:#444;
+  letter-spacing:0.12em;
+  text-transform:uppercase;
+  margin:16px 0 10px;
+  position:relative;
+  opacity:0;
+  animation:fadeUp 1s .5s forwards;
+}
+
+.divider-label::before,
+.divider-label::after {
+  content:'';
+  position:absolute;
+  top:50%;
+  width:calc(50% - 80px);
+  height:1px;
+  background:#1a1a1a;
+}
+
+.divider-label::before { left:0; }
+.divider-label::after  { right:0; }
+
+/* ── GRID PRODUTOS ── */
 .grid{
   display:grid;
   gap:8px;
@@ -116,11 +250,11 @@ h1{
   background:#050505;
   transition:all .3s ease;
   opacity:0;
-  animation:fadeUp 1s .45s forwards;
+  animation:fadeUp 1s .6s forwards;
 }
 
-.card:nth-child(2){animation-delay:.55s}
-.card:nth-child(3){animation-delay:.65s}
+.card:nth-child(2){animation-delay:.7s}
+.card:nth-child(3){animation-delay:.8s}
 
 .card:hover{
   transform:translateY(-3px);
@@ -175,11 +309,18 @@ h1{
   .router{margin-bottom:10px;padding:14px 16px 12px}
   .router strong{margin-bottom:8px;font-size:14px}
   .option{margin:5px 0;font-size:13px}
+  .card-diagnostico{padding:18px 16px 16px}
+  .diag-title{font-size:18px}
+  .diag-sub{font-size:12px;margin-bottom:12px}
+  .diag-items{gap:5px}
+  .diag-item{font-size:10px}
   .grid{gap:8px}
   .card{padding:18px;border-radius:16px}
   .card .title{font-size:18px}
   .card .sub{margin-bottom:12px;font-size:12px}
   .btn{padding:13px;font-size:14px}
+  .divider-label::before,
+  .divider-label::after { width:calc(50% - 70px); }
 }
 </style>
 
@@ -199,6 +340,7 @@ function go(path, event){
 <body>
 <div class="wrap">
 
+  <!-- BRAND -->
   <div class="brand">
     <div class="logo">
       <img src="logo.png" alt="RH - Reginaldo Hsiao">
@@ -209,6 +351,7 @@ function go(path, event){
   <h1>Você não está travado por falta de esforço</h1>
   <p class="subtitle">Escolha o ponto onde você está hoje</p>
 
+  <!-- ROUTER -->
   <div class="router">
     <strong>Qual dessas situações é mais você?</strong>
     <div class="option">Sei o que fazer, mas não executo</div>
@@ -216,6 +359,25 @@ function go(path, event){
     <div class="option">Isso se repete há anos</div>
   </div>
 
+  <!-- MAPA DA TRAVA — destaque como porta de entrada -->
+  <div class="card-diagnostico" onclick="go('/diagnostico/','click_diagnostico')">
+    <div class="diag-badge">por onde começar</div>
+    <div class="diag-title">Mapa da <em>Trava</em></div>
+    <div class="diag-sub">Descubra em 5 minutos qual padrão emocional está impedindo sua execução. O diagnóstico é gratuito. O mapa completo com PDF e direcionamento custa R$&nbsp;47.</div>
+    <div class="diag-items">
+      <span class="diag-item">diagnóstico gratuito</span>
+      <span class="diag-item">5 minutos</span>
+      <span class="diag-item">mapa completo por R$ 47</span>
+      <span class="diag-item">resultado personalizado</span>
+    </div>
+    <button class="btn-diagnostico">Fazer meu diagnóstico</button>
+    <p class="diag-footnote">Diagnóstico Emocional · Reginaldo Hsiao</p>
+  </div>
+
+  <!-- DIVISOR -->
+  <div class="divider-label">ou escolha diretamente</div>
+
+  <!-- GRID PRODUTOS -->
   <div class="grid">
     <div class="card">
       <div class="title">Quero destravar minha execução</div>
