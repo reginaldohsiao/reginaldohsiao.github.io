@@ -149,6 +149,7 @@ a:hover { color: var(--gold-light); }
 .screen { display: none; }
 .screen.active { display: block; animation: fadeIn 0.3s ease; }
 @keyframes fadeIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes pulse { 0%, 100% { opacity: 0.4; transform: translateY(0); } 50% { opacity: 1; transform: translateY(4px); } }
 
 /* FORM CARD */
 .form-card {
@@ -261,13 +262,13 @@ a:hover { color: var(--gold-light); }
    RESULTADO — ESTADO BLOQUEADO
 ═══════════════════════════════════════════════ */
 .result-top {
-  text-align: center; padding: 0.5rem 0 1.5rem;
+  text-align: center; padding: 0.25rem 0 0.75rem;
 }
 .result-badge {
   display: inline-block; font-size: 10px; letter-spacing: 0.15em;
   text-transform: uppercase; color: var(--gold);
   border: 1px solid rgba(201,168,76,0.3); padding: 5px 16px;
-  border-radius: 20px; margin-bottom: 1.5rem;
+  border-radius: 20px; margin-bottom: 0.75rem;
 }
 .result-title {
   font-family: var(--serif); font-size: clamp(1.8rem, 5vw, 2.6rem);
@@ -283,19 +284,20 @@ a:hover { color: var(--gold-light); }
   position: relative;
   overflow: hidden;
   border-radius: var(--radius-lg);
+  margin-bottom: 0;
 }
 .locked-content::after {
   content: '';
   position: absolute;
   bottom: 0; left: 0; right: 0;
-  height: 180px;
-  background: linear-gradient(to bottom, transparent, var(--dark) 75%);
+  height: 80px;
+  background: linear-gradient(to bottom, transparent, var(--dark) 90%);
   pointer-events: none;
   z-index: 1;
 }
 .locked-blur {
-  filter: blur(3px);
-  opacity: 0.35;
+  filter: blur(2px);
+  opacity: 0.55;
   pointer-events: none;
   user-select: none;
 }
@@ -309,7 +311,7 @@ a:hover { color: var(--gold-light); }
   text-align: center;
   position: relative;
   overflow: hidden;
-  margin: 1.5rem 0;
+  margin: 0.5rem 0 1.5rem;
 }
 .paywall::before {
   content: '';
@@ -652,26 +654,30 @@ a:hover { color: var(--gold-light); }
 
     <!-- ESTADO BLOQUEADO -->
     <div id="result-locked">
-      <!-- Preview borrado do conteúdo -->
+      <!-- Preview borrado do conteúdo — texto real para dar peso visual -->
       <div class="locked-content">
         <div class="locked-blur">
-          <div class="result-card" style="margin-bottom:1rem;">
+          <div class="result-card" style="margin-bottom:0.75rem;">
             <div class="result-card-label">sua base emocional</div>
-            <div class="result-card-body" style="height:80px;background:rgba(255,255,255,0.03);border-radius:4px;"></div>
+            <div class="result-card-body">Há uma parte sua que encontrou nesse padrão uma forma de proteção. Não é fraqueza. É uma estratégia emocional que nasceu lá atrás e foi ficando. O problema é que ela também te isola das oportunidades e dos resultados que você poderia ter.</div>
           </div>
-          <div class="result-card" style="margin-bottom:1rem;">
+          <div class="result-card" style="margin-bottom:0.75rem;">
             <div class="result-card-label">como isso se manifesta hoje</div>
-            <div class="result-card-body" style="height:60px;background:rgba(255,255,255,0.03);border-radius:4px;"></div>
+            <div class="result-card-body">Na prática, isso aparece nas decisões que você adia, nas oportunidades que você vê passar e na sensação constante de que algo invisível te puxa pra trás exatamente quando você está prestes a avançar.</div>
           </div>
           <div class="result-card">
             <div class="result-card-label">o que está travando sua evolução</div>
             <ul class="dor-list">
-              <li class="dor-item"><span class="dor-icon"></span><span style="height:14px;width:80%;background:rgba(255,255,255,0.05);border-radius:4px;display:block;"></span></li>
-              <li class="dor-item"><span class="dor-icon"></span><span style="height:14px;width:65%;background:rgba(255,255,255,0.05);border-radius:4px;display:block;"></span></li>
-              <li class="dor-item"><span class="dor-icon"></span><span style="height:14px;width:72%;background:rgba(255,255,255,0.05);border-radius:4px;display:block;"></span></li>
+              <li class="dor-item"><span class="dor-icon"></span>Você trava nos momentos que mais importam</li>
+              <li class="dor-item"><span class="dor-icon"></span>A autocrítica trabalha contra você sem parar</li>
+              <li class="dor-item"><span class="dor-icon"></span>Você sente que poderia estar muito mais avançado</li>
             </ul>
           </div>
         </div>
+      </div>
+      <!-- Seta indicando continuidade -->
+      <div style="text-align:center;margin:-0.25rem 0 0;padding-bottom:0.5rem;">
+        <span style="font-size:18px;color:rgba(201,168,76,0.5);display:block;animation:pulse 1.8s ease-in-out infinite;">↓</span>
       </div>
 
       <!-- MURO -->
