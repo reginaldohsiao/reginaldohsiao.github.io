@@ -124,19 +124,20 @@ body{
 .authority{
   background:linear-gradient(180deg,#111 0%,#0b0b0b 100%);
   border:1px solid var(--border); border-radius:24px;
-  padding:34px; display:flex; gap:34px; align-items:flex-start;
+  padding:40px 34px; text-align:center;
 }
 .authority-photo{
-  width:240px; min-width:240px; height:320px; border-radius:18px;
+  width:200px; height:260px; border-radius:18px;
   object-fit:cover; object-position:center top;
   border:1px solid rgba(243,198,35,.15);
+  margin:0 auto 24px; display:block;
 }
 .authority-tag{ font-size:11px; letter-spacing:2px; text-transform:uppercase; color:var(--gold-soft); margin-bottom:10px; font-weight:700; }
 .authority h3{ font-size:34px; line-height:1.1; margin-bottom:18px; font-weight:900; }
-.authority p{ color:#d0d0d0; line-height:1.9; font-size:17px; margin-bottom:16px; }
+.authority p{ color:#d0d0d0; line-height:1.9; font-size:17px; margin-bottom:16px; max-width:560px; margin-left:auto; margin-right:auto; }
 .authority p:last-child{ margin-bottom:0; }
 
-/* NÚMEROS DE AUTORIDADE — faltavam no HTML original */
+/* NÚMEROS DE AUTORIDADE */
 .authority-numbers{
   display:flex;
   gap:24px;
@@ -144,8 +145,9 @@ body{
   padding-top:22px;
   border-top:1px solid rgba(255,255,255,0.07);
   flex-wrap:wrap;
+  justify-content:center;
 }
-.authority-number{ flex:1; min-width:80px; }
+.authority-number{ flex:0 0 auto; min-width:100px; text-align:center; }
 .authority-number-value{
   font-size:26px;
   font-weight:900;
@@ -210,8 +212,8 @@ body{
   .section-sub{ font-size:16px; }
   .mechanism{ padding:28px 24px; }
   .mechanism h3{ font-size:24px; }
-  .authority{ flex-direction:column; padding:28px; gap:24px; }
-  .authority-photo{ width:100%; max-width:280px; height:340px; margin:0 auto; }
+  .authority{ padding:28px 20px; }
+  .authority-photo{ width:160px; height:210px; }
   .authority h3{ font-size:28px; }
   .authority p{ font-size:16px; }
   .authority-numbers{ gap:16px; }
