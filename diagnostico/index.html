@@ -567,7 +567,7 @@ a:hover { color: var(--gold-light); }
       <div class="progress-bar"><div class="progress-fill" id="progress-fill" style="width:0%"></div></div>
     </div>
     <div class="quiz-alert" id="quiz-alert">Responda todas as perguntas antes de continuar. As que faltam estão marcadas abaixo.</div>
-    <div class="instructions">
+    <div class="instructions" id="quiz-instructions">
       <p style="font-size:14px;color:var(--text-muted);line-height:1.75;margin-bottom:0.85rem;font-style:italic;">Antes de começar, preciso entender como você funciona. Não existe resposta certa ou errada. Existe apenas o que é verdadeiro pra você agora.</p>
       <p class="intro-text">Isso não é um teste comum.<br>
       Enquanto responde, não tente acertar.<br>
@@ -1018,6 +1018,13 @@ function renderBlock() {
   }
 
   document.getElementById('quiz-body').innerHTML = html;
+
+  // Mostrar instruções só na parte 1
+  var instructions = document.getElementById('quiz-instructions');
+  if (instructions) {
+    instructions.style.display = currentBlock === 0 ? 'block' : 'none';
+  }
+
   updateNextBtn();
   window.scrollTo({ top: 0, behavior: 'smooth' });
 }
