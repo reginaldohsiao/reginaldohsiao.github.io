@@ -7,75 +7,76 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
 <style>
-/* --- BASE CSS --- */
+/* --- BASE & LAYOUT --- */
 *{margin:0;padding:0;box-sizing:border-box}
-html,body{width:100%}
-body{font-family:Inter,system-ui,sans-serif;background:#000;color:#fff;-webkit-font-smoothing:antialiased}
-.wrap{max-width:820px;margin:0 auto;padding:24px 20px 60px}
+html,body{width:100%; min-height: 100vh; background:#000; color:#fff; overflow-x: hidden;}
+body{font-family:Inter,system-ui,sans-serif; -webkit-font-smoothing:antialiased}
+.wrap{max-width:820px; margin:0 auto; padding:24px 20px 80px; position: relative; z-index: 1;}
 
-/* --- AJUSTE DE VISIBILIDADE CONDICIONAL --- */
-#successMessage, #kiwify-upsell-cancel-trigger-tkOdDXt, #ofertaEspecial, #subtituloCondicional {
+/* --- ELEMENTOS CONDICIONAIS (ESCONDIDOS POR PADRÃO) --- */
+#successMessage, #ofertaEspecial, #subtituloCondicional, #kiwify-upsell-cancel-trigger-tkOdDXt {
     display: none !important;
 }
 
-/* --- HEADER & NAVIGATION --- */
-.success-bar {background: #1a1a1a; color: #F2C94C; text-align: center; padding: 12px; font-size: 14px; border-bottom: 1px solid #F2C94C; margin-bottom: 20px; border-radius: 8px;}
-.back{color:#666;text-decoration:none;font-size:14px;display:inline-flex;align-items:center;gap:6px;margin-bottom:24px;transition:.2s}
+/* --- HEADER --- */
+.success-bar {background: #1a1a1a; color: #F2C94C; text-align: center; padding: 14px; font-size: 14px; border-bottom: 1px solid #F2C94C; margin-bottom: 25px; border-radius: 8px; font-weight: 500;}
+.back{color:#666; text-decoration:none; font-size:14px; display:inline-flex; align-items:center; gap:6px; margin-bottom:30px; transition:.2s}
 .back:hover{color:#C9A961}
-.logo{width:110px;height:110px;margin:0 auto 14px;display:block;background:transparent}
-.logo img{width:100%;height:100%;object-fit:contain}
-.tagline{color:#C9A961;font-size:10px;font-weight:400;text-align:center;margin-bottom:24px;letter-spacing:3px;text-transform:uppercase;opacity:.65;}
+.logo{width:110px; height:110px; margin:0 auto 15px; display:block}
+.logo img{width:100%; height:100%; object-fit:contain}
+.tagline{color:#C9A961; font-size:10px; font-weight:400; text-align:center; margin-bottom:25px; letter-spacing:3px; text-transform:uppercase; opacity:0.7}
 
-/* --- TYPOGRAPHY --- */
-h1{font-size:36px;font-weight:800;line-height:1.15;margin-bottom:12px;text-align:center}
-.subtitle{color:#999;font-size:18px;text-align:center;margin-bottom:32px}
+/* --- TEXTOS --- */
+h1{font-size:38px; font-weight:800; line-height:1.1; margin-bottom:15px; text-align:center; letter-spacing: -0.02em}
+.subtitle{color:#999; font-size:19px; text-align:center; margin-bottom:35px; line-height: 1.5}
 
-/* --- PRICE BOX --- */
-.price-box{background:linear-gradient(180deg,#050505 0%,#000 100%);border:1px solid #1a1a1a;border-radius:20px;padding:28px;text-align:center;margin-bottom:32px}
-.price{font-size:42px;font-weight:800;color:#F2C94C;margin-bottom:8px}
-.price-sub{color:#666;font-size:14px;margin-bottom:20px}
-.kiwify-btn {display:block;width:100%;padding:18px;border-radius:14px;background:#F2C94C;color:#000;text-decoration:none;font-weight:800;font-size:18px;cursor:pointer;transition:all .2s;border:none; margin-top: 10px; text-align: center;}
-.kiwify-btn:hover{background:#FFD760;transform:scale(1.02)}
-.kiwify-decline {margin-top:1.5rem;cursor:pointer;font-size:14px;text-decoration:underline;color:#666;display:block;text-align: center;}
-.garantia{font-size:12px;color:#666;margin-top:12px}
+/* --- BOX DE PREÇO --- */
+.price-box{background:linear-gradient(180deg,#080808 0%,#000 100%); border:1px solid #1a1a1a; border-radius:24px; padding:35px 25px; text-align:center; margin-bottom:40px}
+.price{font-size:48px; font-weight:800; color:#F2C94C; margin-bottom:10px}
+.price-sub{color:#666; font-size:14px; margin-bottom:25px}
 
-/* --- SECTIONS & CONTENT --- */
-.section{border:1px solid #1a1a1a;border-radius:16px;padding:24px;margin-bottom:16px;background:#050505}
-.section h2{font-size:12px;color:#C9A961;letter-spacing:2px;text-transform:uppercase;font-weight:600;margin-bottom:16px}
-.section h3{font-size:22px;font-weight:700;margin-bottom:12px}
-.section p{color:#BDBDBD;line-height:1.6;margin-bottom:12px}
-.list-item{display:flex;align-items:flex-start;gap:12px;margin:12px 0;color:#BDBDBD}
-.list-item:before{content:"→";color:#F2C94C;font-weight:700;flex-shrink:0}
-.modulo{background:#0A0A0A;border:1px solid #1a1a1a;border-radius:12px;padding:16px;margin:12px 0}
-.modulo strong{display:block;color:#fff;margin-bottom:4px}
-.modulo span{color:#888;font-size:14px}
+/* --- BOTÕES --- */
+.kiwify-btn {display:block; width:100%; padding:20px; border-radius:16px; background:#F2C94C; color:#000; text-decoration:none; font-weight:800; font-size:18px; cursor:pointer; transition:all .3s; border:none; text-transform: uppercase; letter-spacing: 0.5px}
+.kiwify-btn:hover{background:#FFD760; transform:translateY(-2px); box-shadow: 0 10px 20px rgba(242,201,76,0.15)}
+.kiwify-decline {margin-top:25px; cursor:pointer; font-size:14px; text-decoration:underline; color:#555; display:block; transition: .2s}
+.kiwify-decline:hover{color:#888}
+.garantia{font-size:12px; color:#444; margin-top:15px; font-weight: 500}
 
-/* --- CTA FINAL --- */
-.cta-final{background:linear-gradient(180deg,#050505 0%,#000 100%);border:1px solid #F2C94C;border-radius:20px;padding:32px 24px;text-align:center;margin-top:32px}
-.cta-final h3{font-size:24px;margin-bottom:20px}
+/* --- CONTEÚDO --- */
+.section{border:1px solid #1a1a1a; border-radius:20px; padding:30px; margin-bottom:20px; background:#050505}
+.section h2{font-size:11px; color:#C9A961; letter-spacing:2.5px; text-transform:uppercase; font-weight:700; margin-bottom:18px; opacity: 0.8}
+.section h3{font-size:24px; font-weight:700; margin-bottom:15px; color: #fff}
+.section p{color:#A0A0A0; line-height:1.6; margin-bottom:15px; font-size: 16px}
+.list-item{display:flex; align-items:flex-start; gap:14px; margin:15px 0; color:#BDBDBD; line-height: 1.5}
+.list-item:before{content:"→"; color:#F2C94C; font-weight:700; flex-shrink:0}
 
-/* --- RESPONSIVE --- */
+.modulo{background:#0D0D0D; border:1px solid #1a1a1a; border-radius:14px; padding:20px; margin:15px 0; transition: .2s}
+.modulo:hover{border-color: #333}
+.modulo strong{display:block; color:#fff; margin-bottom:6px; font-size: 17px}
+.modulo span{color:#777; font-size:14px}
+
+.cta-final{background:linear-gradient(180deg,#080808 0%,#000 100%); border:1px solid #F2C94C; border-radius:24px; padding:40px 25px; text-align:center; margin-top:40px}
+.cta-final h3{font-size:26px; margin-bottom:25px; line-height: 1.3}
+
+/* --- RESPONSIVIDADE --- */
 @media(max-width:600px){
-    h1{font-size:28px;line-height:1.2}
-    .wrap{padding:16px 14px 32px}
-    .back{margin-bottom:16px}
-    .logo{width:80px;height:80px;margin:0 auto 10px}
-    .tagline{font-size:9px;letter-spacing:2.5px}
-    .subtitle{margin-bottom:24px;font-size:16px}
-    .price{font-size:36px}
-    .section{padding:20px}
+    h1{font-size:30px}
+    .subtitle{font-size:17px}
+    .price{font-size:40px}
+    .wrap{padding:20px 15px 50px}
+    .section{padding:25px}
 }
 </style>
 </head>
 
 <body>
 <div class="wrap">
-  <div id="successMessage" class="success-bar">✓ Pagamento do Mapa da Trava aprovado! O acesso foi enviado ao seu e-mail.</div>
+  <div id="successMessage" class="success-bar">✓ Pagamento do Mapa da Trava aprovado! Acesso enviado ao e-mail.</div>
 
   <a href="https://reginaldohsiao.com.br/produtos/" class="back">← Ver todos os produtos</a>
   
   <div class="logo">
-    <img src="logo.png" alt="RH - Reginaldo Hsiao">
+    <img src="logo.png" alt="Reginaldo Hsiao">
   </div>
   
   <p class="tagline">Reginaldo Hsiao | Mentor & Terapeuta</p>
@@ -87,55 +88,45 @@ h1{font-size:36px;font-weight:800;line-height:1.15;margin-bottom:12px;text-align
   <div class="price-box">
     <div class="price">R$ 197</div>
     
-    <div id="ofertaEspecial" style="display: none; color: #F2C94C; font-size: 14px; font-weight: 600; margin-bottom: 20px; line-height: 1.4; max-width: 450px; margin-left: auto; margin-right: auto;">
+    <div id="ofertaEspecial" style="display: none; color: #F2C94C; font-size: 15px; font-weight: 600; margin-bottom: 25px; line-height: 1.5; max-width: 480px; margin-left: auto; margin-right: auto;">
       Como você já tem o diagnóstico, esta é a única oportunidade de levar o Reset com 50% de desconto imediato.
     </div>
 
     <div id="ofertaPadrao" class="price-sub">Oferta exclusiva de próximo passo</div>
     
     <div id="kiwify-upsell-tkOdDXt" data-upsell-url="https://reginaldohsiao.com.br/produtos/triade/" data-downsell-url="https://reginaldohsiao.com.br/produtos/">
-      <button id="kiwify-upsell-trigger-tkOdDXt" class="kiwify-btn">SIM, QUERO RESETAR MEUS PADRÕES!</button>
+      <button id="kiwify-upsell-trigger-tkOdDXt" class="kiwify-btn">Sim, quero resetar meus padrões!</button>
       <div id="kiwify-upsell-cancel-trigger-tkOdDXt" class="kiwify-decline">Não, prefiro continuar apenas com o diagnóstico por enquanto.</div>
     </div>
     
-    <div class="garantia">7 dias de garantia incondicional</div>
+    <div class="garantia">Garantia incondicional de 7 dias</div>
   </div>
 
   <div class="section">
     <h2>O que está por trás disso</h2>
-    <p>O que você viu no diagnóstico não é falta de esforço.</p>
-    <p>É um padrão emocional automático que se repete há anos. E que não muda só com consciência.</p>
+    <p>O que você viu no diagnóstico não é falta de esforço. É um padrão emocional automático que se repete há anos.</p>
     <p><strong>Se dependesse só de entender, você já teria resolvido.</strong></p>
   </div>
 
   <div class="section">
-    <h2>O que é o Reset da Autossabotagem</h2>
+    <h2>O que é o Reset</h2>
     <h3>Um processo guiado, direto ao ponto.</h3>
     <div class="list-item">Identificar a raiz real do seu bloqueio</div>
     <div class="list-item">Desativar o padrão que te trava</div>
     <div class="list-item">Reprogramar sua resposta emocional</div>
-    <div class="list-item">Voltar a agir com clareza e direção</div>
   </div>
 
   <div class="section">
     <h2>Como funciona</h2>
-    <h3>5 etapas guiadas, sem enrolação</h3>
     <div class="modulo"><strong>Aula 1: O Padrão Invisível</strong><span>Identificar qual sabotador comanda suas decisões</span></div>
-    <div class="modulo"><strong>Aula 2: Desativando o Sabotador</strong><span>Técnica prática pra quebrar o ciclo automático</span></div>
+    <div class="modulo"><strong>Aula 2: Desativando o Sabotador</strong><span>Técnica prática para quebrar o ciclo automático</span></div>
     <div class="modulo"><strong>Aula 3: Reprogramação Emocional</strong><span>Instalar um novo padrão de resposta no corpo</span></div>
-    <div class="modulo"><strong>Aula 4: Plano de Execução 7 Dias</strong><span>Colocar em prática sem recair nos primeiros dias</span></div>
-    <div class="list-item">Material de apoio em PDF com exercícios práticos</div>
-    <div class="list-item">Bônus: Protocolo SOS 5min pra destravar na hora</div>
+    <div class="list-item">Material de apoio em PDF incluso</div>
   </div>
 
   <div class="cta-final">
-    <h3>Ou você continua operando do mesmo jeito.<br>Ou resolve o padrão agora.</h3>
-    
-    <div id="kiwify-upsell-tkOdDXt" data-upsell-url="https://reginaldohsiao.com.br/produtos/triade/" data-downsell-url="https://reginaldohsiao.com.br/produtos/">
-      <button id="kiwify-upsell-trigger-tkOdDXt" class="kiwify-btn">QUERO FAZER O RESET AGORA</button>
-    </div>
-    
-    <div class="garantia">Acesso imediato e seguro</div>
+    <h3>Resolva o padrão agora.</h3>
+    <button onclick="document.getElementById('kiwify-upsell-trigger-tkOdDXt').click()" class="kiwify-btn">Quero fazer o Reset agora</button>
   </div>
 </div>
 
@@ -148,15 +139,14 @@ h1{font-size:36px;font-weight:800;line-height:1.15;margin-bottom:12px;text-align
             document.getElementById('successMessage').style.setProperty('display', 'block', 'important');
             document.getElementById('subtituloCondicional').style.setProperty('display', 'block', 'important');
             document.getElementById('ofertaEspecial').style.setProperty('display', 'block', 'important');
+            document.getElementById('kiwify-upsell-cancel-trigger-tkOdDXt').style.setProperty('display', 'block', 'important');
             document.getElementById('subtituloPadrao').style.display = 'none';
             document.getElementById('ofertaPadrao').style.display = 'none';
-            const declineLink = document.getElementById('kiwify-upsell-cancel-trigger-tkOdDXt');
-            if(declineLink) declineLink.style.setProperty('display', 'block', 'important');
         } else {
-            document.getElementById('subtituloCondicional').style.display = 'none';
             document.getElementById('subtituloPadrao').style.display = 'block';
-            document.getElementById('ofertaEspecial').style.display = 'none';
             document.getElementById('ofertaPadrao').style.display = 'block';
+            document.getElementById('subtituloCondicional').style.display = 'none';
+            document.getElementById('ofertaEspecial').style.display = 'none';
         }
     })();
 </script>
