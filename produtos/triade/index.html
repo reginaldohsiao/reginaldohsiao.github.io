@@ -124,7 +124,7 @@ body{
 .authority{
   background:linear-gradient(180deg,#111 0%,#0b0b0b 100%);
   border:1px solid var(--border); border-radius:24px;
-  padding:40px 34px; text-align:center;
+  padding:40px 34px 50px; text-align:center;
 }
 .authority-photo{
   width:200px; height:260px; border-radius:18px;
@@ -139,28 +139,20 @@ body{
 
 /* NÚMEROS DE AUTORIDADE */
 .authority-numbers{
-  display:flex;
-  gap:24px;
-  margin-top:24px;
-  padding-top:22px;
-  border-top:1px solid rgba(255,255,255,0.07);
-  flex-wrap:wrap;
-  justify-content:center;
+  display:flex; gap:32px; margin-top:32px; padding-top:28px;
+  border-top:1px solid rgba(255,255,255,0.07); flex-wrap:wrap; justify-content:center;
 }
-.authority-number{ flex:0 0 auto; min-width:100px; text-align:center; }
-.authority-number-value{
-  font-size:26px;
-  font-weight:900;
-  color:var(--gold);
-  letter-spacing:-1px;
-  line-height:1;
-  margin-bottom:6px;
+.authority-number{ flex:1; min-width:140px; text-align:center; }
+.authority-number-value{ font-size:28px; font-weight:900; color:var(--gold); letter-spacing:-1px; line-height:1; margin-bottom:8px; }
+.authority-number-label{ font-size:12px; color:var(--muted2); line-height:1.5; }
+
+/* DESTAQUE PROTOCOLO */
+.protocol-highlight{
+  margin-top:32px; padding:24px; background:rgba(243,198,35,0.03); 
+  border:1px dashed rgba(243,198,35,0.2); border-radius:16px;
 }
-.authority-number-label{
-  font-size:11px;
-  color:var(--muted2);
-  line-height:1.5;
-}
+.protocol-title{ font-size:22px; font-weight:900; color:var(--gold); margin-bottom:8px; }
+.protocol-desc{ font-size:14px; color:var(--muted); line-height:1.6; }
 
 /* GUARANTEE BOX */
 .guarantee-box{
@@ -212,12 +204,13 @@ body{
   .section-sub{ font-size:16px; }
   .mechanism{ padding:28px 24px; }
   .mechanism h3{ font-size:24px; }
-  .authority{ padding:28px 20px; }
+  .authority{ padding:32px 20px 42px; }
   .authority-photo{ width:160px; height:210px; }
   .authority h3{ font-size:28px; }
   .authority p{ font-size:16px; }
-  .authority-numbers{ gap:16px; }
-  .authority-number-value{ font-size:22px; }
+  .authority-numbers{ gap:20px; }
+  .authority-number-value{ font-size:24px; }
+  .protocol-title{ font-size:19px; }
   .guarantee-box{ padding:36px 24px; }
   .guarantee-box h3{ font-size:28px; }
   .final-cta{ padding:70px 0; }
@@ -375,7 +368,6 @@ function checkout(){
         <p>Meu trabalho integra reprocessamento emocional, neurociência aplicada e direcionamento estratégico para pessoas que entendem muito, mas continuam travadas na execução.</p>
         <p>O foco não é apenas gerar consciência. É reorganizar padrões internos para sustentar ação real.</p>
 
-        <!-- NÚMEROS DE AUTORIDADE — adicionados -->
         <div class="authority-numbers">
           <div class="authority-number">
             <div class="authority-number-value">+1.500h</div>
@@ -383,12 +375,13 @@ function checkout(){
           </div>
           <div class="authority-number">
             <div class="authority-number-value">18 anos</div>
-            <div class="authority-number-label">Integrando comportamento, negociações estratégicas</div>
+            <div class="authority-number-label">Integrando comportamento e negociações estratégicas</div>
           </div>
-          <div class="authority-number">
-            <div class="authority-number-value">Protocolo de Autoliderança</div>
-            <div class="authority-number-label">O passo a passo definitivo para você dominar sua própria jornada, no seu tempo e com total autonomia</div>
-          </div>
+        </div>
+
+        <div class="protocol-highlight">
+            <div class="protocol-title">Protocolo de Autoliderança</div>
+            <div class="protocol-desc">O passo a passo definitivo para você dominar sua própria jornada, no seu tempo e com total autonomia.</div>
         </div>
 
       </div>
