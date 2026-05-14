@@ -13,7 +13,7 @@ body{font-family:Inter,system-ui,sans-serif;background:#000;color:#fff;-webkit-f
 .wrap{max-width:820px;margin:0 auto;padding:24px 20px 60px}
 
 /* --- AJUSTE DE VISIBILIDADE CONDICIONAL --- */
-#successMessage, #kiwify-upsell-cancel-trigger-tkOdDXt, #ofertaEspecial {
+#successMessage, #kiwify-upsell-cancel-trigger-tkOdDXt, #ofertaEspecial, #subtituloCondicional {
     display: none !important;
 }
 /* ------------------------------------------ */
@@ -53,10 +53,16 @@ h1{font-size:36px;font-weight:800;line-height:1.15;margin-bottom:12px;text-align
   <div id="successMessage" class="success-bar">✓ Pagamento do Mapa da Trava aprovado! O acesso foi enviado ao seu e-mail.</div>
 
   <a href="https://reginaldohsiao.com.br/produtos/" class="back">← Ver todos os produtos</a>
-  <div class="logo"><img src="https://reginaldohsiao.com.br/logo.png" alt="RH - Reginaldo Hsiao"></div>
+  
+  <div class="logo">
+    <img src="https://reginaldohsiao.com.br/logo.png" alt="RH - Reginaldo Hsiao">
+  </div>
+  
   <p class="tagline">Reginaldo Hsiao | Mentor & Terapeuta</p>
   <h1>Reset da Autossabotagem</h1>
-  <p class="subtitle">O diagnóstico você já tem. Agora, vamos desativar a causa.</p>
+  
+  <p id="subtituloCondicional" class="subtitle">O diagnóstico você já tem. Agora, vamos desativar a causa.</p>
+  <p id="subtituloPadrao" class="subtitle">Desative os padrões ocultos que travam seus resultados.</p>
 
   <div class="price-box">
     <div class="price">R$ 197</div>
@@ -69,7 +75,7 @@ h1{font-size:36px;font-weight:800;line-height:1.15;margin-bottom:12px;text-align
     
     <div id="kiwify-upsell-tkOdDXt" data-upsell-url="https://reginaldohsiao.com.br/produtos/triade/" data-downsell-url="https://reginaldohsiao.com.br/produtos/">
       <button id="kiwify-upsell-trigger-tkOdDXt" class="kiwify-btn">SIM, QUERO RESETAR MEUS PADRÕES!</button>
-      <div id="kiwify-upsell-cancel-trigger-tkOdDXt" class="kiwify-decline">Não, prefiro lidar com a autossabotagem sozinho e ficar apenas com o diagnóstico.</div>
+      <div id="kiwify-upsell-cancel-trigger-tkOdDXt" class="kiwify-decline">Não, prefiro continuar apenas com o diagnóstico por enquanto.</div>
     </div>
     
     <div class="garantia">7 dias de garantia incondicional</div>
@@ -116,20 +122,26 @@ h1{font-size:36px;font-weight:800;line-height:1.15;margin-bottom:12px;text-align
 <script>
     (function() {
         const urlParams = new URLSearchParams(window.location.search);
-        // Verifica se veio de uma compra aprovada ou checkout de upsell
+        // Verifica se veio de uma compra aprovada na Kiwify
         const jaComprou = urlParams.has('status') || urlParams.has('purchase_id');
 
         if (jaComprou) {
-            // MOSTRA barra de sucesso e oferta especial de 50%
+            // MOSTRA barra de sucesso, subtítulo condicional e oferta de 50%
             document.getElementById('successMessage').style.setProperty('display', 'block', 'important');
+            document.getElementById('subtituloCondicional').style.setProperty('display', 'block', 'important');
             document.getElementById('ofertaEspecial').style.setProperty('display', 'block', 'important');
+            
+            // ESCONDE versões padrão
+            document.getElementById('subtituloPadrao').style.display = 'none';
             document.getElementById('ofertaPadrao').style.display = 'none';
             
             // Mostra o link de recusa do Upsell
             const declineLink = document.getElementById('kiwify-upsell-cancel-trigger-tkOdDXt');
             if(declineLink) declineLink.style.setProperty('display', 'block', 'important');
         } else {
-            // PÚBLICO GERAL: Mostra apenas a oferta padrão
+            // PÚBLICO GERAL: Mostra apenas o padrão
+            document.getElementById('subtituloCondicional').style.display = 'none';
+            document.getElementById('subtituloPadrao').style.display = 'block';
             document.getElementById('ofertaEspecial').style.display = 'none';
             document.getElementById('ofertaPadrao').style.display = 'block';
         }
