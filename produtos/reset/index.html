@@ -79,10 +79,8 @@ h1{font-size:36px; font-weight:800; line-height:1.15; margin-bottom:12px; text-a
     </div>
     <div id="ofertaPadrao" class="price-sub">Oferta exclusiva de próximo passo</div>
     
-    <div id="kiwify-upsell-tkOdDXt" data-upsell-url="https://reginaldohsiao.com.br/produtos/triade/" data-downsell-url="https://reginaldohsiao.com.br/produtos/">
-      <button id="kiwify-upsell-trigger-tkOdDXt" class="kiwify-btn">SIM, QUERO RESETAR MEUS PADRÕES!</button>
-      <div id="kiwify-upsell-cancel-trigger-tkOdDXt" class="kiwify-decline">Não, prefiro continuar apenas com o diagnóstico por enquanto.</div>
-    </div>
+    <div id="bloco-kiwify-compra">
+      </div>
     
     <div class="garantia">7 dias de garantia incondicional</div>
   </div>
@@ -116,7 +114,7 @@ h1{font-size:36px; font-weight:800; line-height:1.15; margin-bottom:12px; text-a
 
   <div class="cta-final">
     <h3>Ou você continua operando do mesmo jeito.<br>Ou resolve o padrão agora.</h3>
-    <button onclick="document.getElementById('kiwify-upsell-trigger-tkOdDXt').click()" class="kiwify-btn">QUERO FAZER O RESET AGORA</button>
+    <div id="bloco-kiwify-final"></div>
     <div class="garantia">Acesso imediato e seguro</div>
   </div>
 </div>
@@ -125,22 +123,44 @@ h1{font-size:36px; font-weight:800; line-height:1.15; margin-bottom:12px; text-a
     (function() {
         const urlParams = new URLSearchParams(window.location.search);
         const jaComprou = urlParams.has('status') || urlParams.has('purchase_id');
+        const containerPrincipal = document.getElementById('bloco-kiwify-compra');
+        const containerFinal = document.getElementById('bloco-kiwify-final');
+
+        // URL DO SEU CHECKOUT NORMAL (Crie no Kiwify e cole aqui)
+        const linkCheckoutDireto = "https://pay.kiwify.com.br/SEU_LINK_AQUI"; 
 
         if (jaComprou) {
+            // USUÁRIO VEIO DA COMPRA: Mostra Upsell (Um clique)
             document.getElementById('successMessage').style.setProperty('display', 'block', 'important');
             document.getElementById('subtituloCondicional').style.setProperty('display', 'block', 'important');
             document.getElementById('ofertaEspecial').style.setProperty('display', 'block', 'important');
-            document.getElementById('kiwify-upsell-cancel-trigger-tkOdDXt').style.setProperty('display', 'block', 'important');
             document.getElementById('subtituloPadrao').style.display = 'none';
             document.getElementById('ofertaPadrao').style.display = 'none';
+
+            const htmlUpsell = `
+                <div id="kiwify-upsell-tkOdDXt" data-upsell-url="https://reginaldohsiao.com.br/produtos/triade/" data-downsell-url="https://reginaldohsiao.com.br/produtos/">
+                    <button id="kiwify-upsell-trigger-tkOdDXt" class="kiwify-btn">SIM, QUERO RESETAR MEUS PADRÕES!</button>
+                    <div id="kiwify-upsell-cancel-trigger-tkOdDXt" class="kiwify-decline" style="display:block !important">Não, prefiro continuar apenas com o diagnóstico por enquanto.</div>
+                </div>`;
+            
+            containerPrincipal.innerHTML = htmlUpsell;
+            containerFinal.innerHTML = `<button onclick="document.getElementById('kiwify-upsell-trigger-tkOdDXt').click()" class="kiwify-btn">QUERO FAZER O RESET AGORA</button>`;
+
+            // Carrega o script de Upsell apenas se necessário
+            let script = document.createElement('script');
+            script.src = "https://snippets.kiwify.com/upsell/upsell.min.js";
+            document.body.appendChild(script);
+
         } else {
+            // USUÁRIO VEIO DO WHATSAPP/INSTA: Checkout Direto
             document.getElementById('subtituloPadrao').style.display = 'block';
             document.getElementById('ofertaPadrao').style.display = 'block';
-            document.getElementById('subtituloCondicional').style.display = 'none';
-            document.getElementById('ofertaEspecial').style.display = 'none';
+            
+            const htmlDireto = `<a href="${linkCheckoutDireto}" class="kiwify-btn">QUERO FAZER O RESET AGORA</a>`;
+            containerPrincipal.innerHTML = htmlDireto;
+            containerFinal.innerHTML = htmlDireto;
         }
     })();
 </script>
-<script src="https://snippets.kiwify.com/upsell/upsell.min.js"></script>
 </body>
 </html>
