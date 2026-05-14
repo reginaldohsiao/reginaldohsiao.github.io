@@ -12,6 +12,7 @@ html,body{width:100%; background:#000; color:#fff; -webkit-font-smoothing:antial
 body{font-family:Inter,system-ui,sans-serif}
 .wrap{max-width:820px; margin:0 auto; padding:24px 20px 60px}
 
+/* Elementos condicionais escondidos por padrão */
 #successMessage, #ofertaEspecial, #subtituloCondicional { display: none !important; }
 
 .success-bar {background: #1a1a1a; color: #F2C94C; text-align: center; padding: 12px; font-size: 14px; border-bottom: 1px solid #F2C94C; margin-bottom: 20px; border-radius: 8px;}
@@ -104,8 +105,8 @@ h1{font-size:36px; font-weight:800; line-height:1.15; margin-bottom:12px; text-a
         const urlParams = new URLSearchParams(window.location.search);
         const veioDaCompra = urlParams.has('status') || urlParams.has('purchase_id');
         
-        // COLOCA O TEU LINK DO CHECKOUT AQUI EMBAIXO:
-        const linkCheckoutReal = "https://pay.kiwify.com.br/O_TEU_LINK_AQUI";
+        // Link real capturado do seu print da Kiwify
+        const linkCheckoutReal = "https://pay.kiwify.com.br/xU0P0I6";
 
         const btnPrincipal = document.getElementById('botao-container');
         const btnFinal = document.getElementById('botao-final-container');
