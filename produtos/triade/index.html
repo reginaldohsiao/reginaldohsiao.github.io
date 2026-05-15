@@ -30,7 +30,7 @@ body{
 }
 .container{ max-width:820px; margin:0 auto; padding:0 22px; }
 
-/* BARRA DE SUCESSO CONDICIONAL */
+/* BARRA DE SUCESSO CONDICIONAL VIA JS */
 .success-bar { background: #1a1a1a; color: var(--gold); text-align: center; padding: 14px; font-size: 14px; border-bottom: 1px solid var(--gold); font-weight: 500; }
 
 /* HEADER */
@@ -227,13 +227,20 @@ function track(eventName){
   window.dataLayer = window.dataLayer || [];
   dataLayer.push({event:eventName});
 }
+
+// Otimizado para CRO: Pequeno delay de segurança garante o envio do dado de traqueamento
 function checkout(){
   track('click_checkout_triade');
-  window.location.href='https://pay.kiwify.com.br/ESmxn90';
+  setTimeout(function(){
+    window.location.href='https://pay.kiwify.com.br/ESmxn90';
+  }, 150);
 }
+
 function checkoutUpgrade(){
   track('click_checkout_upgrade');
-  window.location.href='https://pay.kiwify.com.br/PGRSYvp';
+  setTimeout(function(){
+    window.location.href='https://pay.kiwify.com.br/PGRSYvp';
+  }, 150);
 }
 </script>
 </head>
@@ -283,7 +290,7 @@ function checkoutUpgrade(){
       <div class="espelho-item">Sabe exatamente o que precisa mudar, mas repete os mesmos erros há anos</div>
       <div class="espelho-item">Sente um freio invisível toda vez que está perto de conseguir algo grande</div>
       <div class="espelho-item">Tem clareza mental, mas suas emoções te derrubam quando mais precisa de força</div>
-      <div class="espelho-item">Vive com a sensação de estar "patinando" enquanto a vida passa</div>
+      <div class="espelho-item">Vive com a sensação of estar "patinando" enquanto a vida passa</div>
     </div>
   </div>
 </section>
