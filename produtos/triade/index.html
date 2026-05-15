@@ -22,8 +22,8 @@ body{ background:var(--bg); color:var(--text); font-family:'Inter',sans-serif; -
 .logo img{ width:100%; height:100%; object-fit:contain; }
 .tag{ font-size:10px; letter-spacing:2.5px; text-transform:uppercase; color:var(--gold-soft); opacity:.9; }
 
-/* CONDICIONAL */
-#successMessage, #ofertaCliente { display: none !important; }
+/* CONDICIONAL BAR */
+#successMessage { display: none !important; }
 .success-bar {background: #1a1a1a; color: var(--gold); text-align: center; padding: 14px; font-size: 14px; border-bottom: 1px solid var(--gold); margin-bottom: 25px; border-radius: 8px; font-weight: 500;}
 
 /* HERO */
@@ -38,25 +38,32 @@ body{ background:var(--bg); color:var(--text); font-family:'Inter',sans-serif; -
 .price-label{ font-size:11px; letter-spacing:3px; text-transform:uppercase; color:#7e7e7e; margin-bottom:14px; }
 .price{ font-size:74px; line-height:1; font-weight:900; letter-spacing:-4px; color:var(--gold); margin-bottom:10px; }
 .price-installments{ color:var(--muted); font-size:15px; margin-bottom:26px; }
-.cta{ width:100%; border:none; cursor:pointer; background:var(--gold); color:#000; font-weight:800; font-size:16px; border-radius:16px; min-height:64px; padding:18px 24px; transition:.2s; text-align:center; display:block; text-decoration:none; line-height:64px; }
+.cta{ width:100%; border:none; cursor:pointer; background:var(--gold); color:#000; font-weight:800; font-size:16px; border-radius:16px; min-height:64px; padding:18px 24px; transition:.2s; display:block; text-align:center; text-decoration:none; line-height:1.2; display:flex; align-items:center; justify-content:center; }
 .cta:hover{ transform:translateY(-2px); box-shadow:0 10px 30px rgba(243,198,35,.15); }
 .cta-sub{ margin-top:14px; font-size:13px; color:var(--gold-soft); }
+.guarantee{ margin-top:18px; background:rgba(243,198,35,.06); border:1px solid rgba(243,198,35,.18); border-radius:14px; padding:14px 16px; display:flex; gap:12px; align-items:flex-start; text-align:left; }
+.guarantee-icon{ font-size:18px; }
+.guarantee p{ color:var(--muted); font-size:13px; line-height:1.6; }
 
-/* SECTIONS CONTENT */
+/* SECTIONS */
 .section{ padding:82px 0; border-bottom:1px solid var(--border); }
-.section-title{ font-size:38px; line-height:1.1; letter-spacing:-1.5px; font-weight:900; margin-bottom:18px; text-align:center; }
+.section-title{ font-size:38px; line-height:1.1; font-weight:900; margin-bottom:18px; text-align:center; }
+.section-sub{ color:var(--muted); font-size:18px; line-height:1.8; max-width:650px; margin:0 auto 44px; text-align:center; }
 .espelho{ background:#0a0a0a; border:1px solid #242424; border-left:3px solid var(--gold); border-radius:18px; padding:30px; }
-.espelho-item{ display:flex; gap:12px; align-items:flex-start; color:#d0d0d0; line-height:1.8; margin:14px 0; font-size:16px; text-align:left; }
+.espelho-item{ display:flex; gap:12px; align-items:flex-start; color:#d0d0d0; line-height:1.8; margin:14px 0; font-size:16px; }
 .espelho-item::before{ content:"•"; color:var(--gold); font-size:20px; flex-shrink:0; }
 
 .mechanism{ background:linear-gradient(180deg,#111 0%,#0a0a0a 100%); border:1px solid var(--border); border-radius:20px; padding:40px; }
-.mechanism h3{ font-size:30px; font-weight:900; margin-bottom:22px; }
+.mechanism h3{ font-size:30px; line-height:1.2; font-weight:900; margin-bottom:22px; }
 .mechanism p{ color:var(--muted); line-height:1.9; font-size:17px; margin-bottom:14px; }
 
-.pilar{ background:#0a0a0a; border:1px solid #242424; border-left:3px solid var(--gold); border-radius:18px; padding:28px; margin-bottom:18px; text-align:left; }
+.pilar{ background:#0a0a0a; border:1px solid #242424; border-left:3px solid var(--gold); border-radius:18px; padding:28px; margin-bottom:18px; }
 .pilar-title{ font-size:22px; margin-bottom:18px; font-weight:800; }
 .pilar-item{ display:flex; gap:10px; align-items:flex-start; color:#b7b7b7; line-height:1.7; margin:10px 0; }
 .pilar-item::before{ content:"→"; color:var(--gold); flex-shrink:0; }
+
+.deliver-box{ background:var(--card); border:1px solid var(--border); border-radius:18px; padding:24px; margin-bottom:16px; }
+.deliver-label{ font-size:11px; text-transform:uppercase; color:var(--gold-soft); margin-bottom:16px; font-weight:700; }
 
 .authority{ background:linear-gradient(180deg,#111 0%,#0b0b0b 100%); border:1px solid var(--border); border-radius:24px; padding:40px 34px 50px; text-align:center; }
 .authority-photo{ width:200px; height:260px; border-radius:18px; object-fit:cover; border:1px solid rgba(243,198,35,.15); margin:0 auto 24px; display:block; }
@@ -69,7 +76,7 @@ body{ background:var(--bg); color:var(--text); font-family:'Inter',sans-serif; -
 .final-cta{ padding:90px 0; text-align:center; }
 .final-cta h3{ font-size:48px; color:var(--gold); margin-bottom:42px; font-weight:900; }
 
-@media(max-width:768px){ .hero h1{ font-size:34px; } .price{ font-size:54px; } .authority-photo{ width:160px; height:210px; } }
+@media(max-width:768px){ .hero h1{ font-size:34px; } .price{ font-size:54px; } }
 </style>
 </head>
 
@@ -88,15 +95,13 @@ body{ background:var(--bg); color:var(--text); font-family:'Inter',sans-serif; -
   <div class="container">
     <div class="hero-content">
       <h1>Você sabe o que fazer.<br>Mas não consegue fazer.</h1>
-      <p id="ofertaCliente" style="color: var(--gold); font-weight: 600; margin-bottom: 20px;">Você já deu o primeiro passo com o diagnóstico. Agora é hora de reorganizar a execução.</p>
-      <p class="hero-sub">Você já estudou e entendeu seus padrões. Mas na hora de agir, trava. <span class="highlight-break">FRUSTRAÇÃO COM VOCÊ MESMO.</span></p>
-      
+      <p class="hero-sub">Você já estudou, entendeu seus padrões e tentou mudar. Mas quando chega a hora de agir, trava. <span class="highlight-break">FRUSTRAÇÃO COM VOCÊ MESMO.</span></p>
       <div class="price-card">
         <div class="price-label">Investimento</div>
         <div class="price">R$ 497</div>
         <div class="price-installments">à vista ou 12x de R$ 51,23</div>
         <a id="btn-principal" href="https://pay.kiwify.com.br/ESmxn90" class="cta">Quero destravar minha execução</a>
-        <div class="cta-sub">Acesso imediato após a confirmação.</div>
+        <div class="guarantee"><div class="guarantee-icon">🛡️</div><p><strong>Garantia de 7 dias incondicional</strong><br>Se não sentir diferença, reembolso de 100%.</p></div>
       </div>
     </div>
   </div>
@@ -107,8 +112,9 @@ body{ background:var(--bg); color:var(--text); font-family:'Inter',sans-serif; -
     <div class="espelho">
       <h3>Se você se identifica com isso:</h3>
       <div class="espelho-item">A procrastinação te vence mesmo sabendo o que fazer</div>
-      <div class="espelho-item">Começa projetos com energia, mas abandona no meio</div>
-      <div class="espelho-item">Sente um freio invisível perto de conseguir algo grande</div>
+      <div class="espelho-item">Começa projetos cheio de energia, mas abandona no meio</div>
+      <div class="espelho-item">Sente um freio invisível toda vez que está perto de conseguir algo grande</div>
+      <div class="espelho-item">Vive com a sensação de estar "patinando" enquanto a vida passa</div>
     </div>
   </div>
 </section>
@@ -117,7 +123,9 @@ body{ background:var(--bg); color:var(--text); font-family:'Inter',sans-serif; -
   <div class="container">
     <div class="mechanism">
       <h3>O problema não é falta de informação.</h3>
-      <p>Entendimento sozinho não reorganiza comportamento. O corpo repete respostas antigas mesmo quando a mente entende o problema.</p>
+      <p>Você provavelmente já sabe muita coisa. Já estudou. Já tentou mudar.</p>
+      <p><strong>Mas entendimento sozinho não reorganiza comportamento.</strong></p>
+      <p>O corpo continua repetindo respostas antigas mesmo quando a mente já entendeu o problema.</p>
     </div>
   </div>
 </section>
@@ -126,14 +134,33 @@ body{ background:var(--bg); color:var(--text); font-family:'Inter',sans-serif; -
   <div class="container">
     <h2 class="section-title">A Tríade do Desbloqueio</h2>
     <div class="pilar">
-      <div class="pilar-title">Mental — Clareza e decisão</div>
-      <div class="pilar-item">Identificar as crenças que te travam</div>
-      <div class="pilar-item">Reprogramar o diálogo interno de autocrítica</div>
+      <div class="pilar-title">Pilar 1: Mental — Clareza e decisão</div>
+      <div class="pilar-item">Identificar as crenças que te travam sem você perceber</div>
+      <div class="pilar-item">Instalar um novo padrão de decisão</div>
     </div>
     <div class="pilar">
-      <div class="pilar-title">Emocional — Regulação e estabilidade</div>
-      <div class="pilar-item">Áudios para momentos de ansiedade e trava</div>
+      <div class="pilar-title">Pilar 2: Emocional — Regulação e estabilidade</div>
+      <div class="pilar-item">6 áudios terapêuticos de reorganização emocional</div>
       <div class="pilar-item">Protocolo para desligar a autossabotagem na hora</div>
+    </div>
+    <div class="pilar">
+      <div class="pilar-title">Pilar 3: Execução — Sustentar ação real</div>
+      <div class="pilar-item">Plano prático de 30 dias para sair da inércia</div>
+      <div class="pilar-item">Ferramentas para manter consistência sem depender de motivação</div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <h2 class="section-title">O que sustenta a mudança</h2>
+    <div class="deliver-box">
+      <div class="deliver-label">Conteúdo central</div>
+      <p>9 módulos liberados progressivamente para garantir aplicação real.</p>
+    </div>
+    <div class="deliver-box">
+      <div class="deliver-label">Aplicação prática</div>
+      <p>Workbook prático e Sistema SOS para momentos de recaída.</p>
     </div>
   </div>
 </section>
@@ -143,10 +170,10 @@ body{ background:var(--bg); color:var(--text); font-family:'Inter',sans-serif; -
     <div class="authority">
       <img src="reginaldo-02.png" alt="Reginaldo Hsiao" class="authority-photo">
       <h3>Reginaldo Hsiao</h3>
-      <p>Especialista em reorganização emocional. Meu foco não é apenas gerar consciência, é reorganizar padrões internos para sustentar ação real.</p>
+      <p>Especialista em reorganização emocional e desbloqueio comportamental.</p>
       <div class="authority-numbers">
-        <div class="authority-number-value">+1.500h</div>
-        <div class="authority-number-value">18 anos</div>
+        <div class="authority-number"><div class="authority-number-value">+1.500h</div><p>Em atendimentos</p></div>
+        <div class="authority-number"><div class="authority-number-value">18 anos</div><p>Integrando comportamento</p></div>
       </div>
     </div>
   </div>
@@ -156,14 +183,22 @@ body{ background:var(--bg); color:var(--text); font-family:'Inter',sans-serif; -
   <div class="container">
     <div class="guarantee-box">
       <h3>Garantia de 7 dias incondicional</h3>
-      <p>Se não sentir diferença, reembolso de 100%. <strong>Sem burocracia.</strong></p>
+      <p>Sem burocracia. Sem questionamento. Se não fizer sentido, 100% de reembolso.</p>
     </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <h2 class="section-title">Perguntas frequentes</h2>
+    <div class="faq-item"><h4>Isso é terapia?</h4><p>É um protocolo de reorganização com base terapêutica e foco em execução prática.</p></div>
+    <div class="faq-item"><h4>O acesso é imediato?</h4><p>Sim, os primeiros módulos e áudios são liberados logo após a confirmação.</p></div>
   </div>
 </section>
 
 <section class="final-cta">
   <div class="container">
-    <h3>Pronto para reorganizar na prática?</h3>
+    <h3>Pronto para começar?</h3>
     <a id="btn-final" href="https://pay.kiwify.com.br/ESmxn90" class="cta">Quero começar minha reorganização</a>
   </div>
 </section>
@@ -172,18 +207,13 @@ body{ background:var(--bg); color:var(--text); font-family:'Inter',sans-serif; -
     (function() {
         const urlParams = new URLSearchParams(window.location.search);
         const jaCliente = urlParams.has('status') || urlParams.has('purchase_id');
-        
-        // Links capturados dos seus prints
         const linkPadrao = "https://pay.kiwify.com.br/ESmxn90"; 
-        const linkOfertaEspecial = "https://pay.kiwify.com.br/PGRSYvp"; // Link à vista
+        const linkUpgrade = "https://pay.kiwify.com.br/PGRSYvp"; 
 
         if (jaCliente) {
             document.getElementById('successMessage').style.setProperty('display', 'block', 'important');
-            document.getElementById('ofertaCliente').style.setProperty('display', 'block', 'important');
-            
-            // Troca o destino dos botões para a oferta especial
-            document.getElementById('btn-principal').href = linkOfertaEspecial;
-            document.getElementById('btn-final').href = linkOfertaEspecial;
+            document.getElementById('btn-principal').href = linkUpgrade;
+            document.getElementById('btn-final').href = linkUpgrade;
         }
     })();
 </script>
