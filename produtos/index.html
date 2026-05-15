@@ -59,7 +59,6 @@ h1{
   margin-bottom:8px;
   opacity:0;
   animation:fadeUp 1s .15s forwards;
-  text-align: center;
 }
 
 .subtitle{
@@ -103,7 +102,6 @@ h1{
   margin-right:8px;
 }
 
-/* ── MAPA DA TRAVA — card destaque ── */
 .card-diagnostico {
   border:1px solid rgba(201,168,76,0.45);
   border-radius:18px;
@@ -212,7 +210,6 @@ h1{
   letter-spacing:0.03em;
 }
 
-/* ── DIVISOR ── */
 .divider-label {
   text-align:center;
   font-size:11px;
@@ -238,7 +235,6 @@ h1{
 .divider-label::before { left:0; }
 .divider-label::after  { right:0; }
 
-/* ── GRID PRODUTOS ── */
 .grid{
   display:grid;
   gap:8px;
@@ -326,14 +322,6 @@ h1{
 </style>
 
 <script>
-// AJUSTE 1: LIMPA URL SUJA DA KIWIFY
-(function(){
-  var params = new URLSearchParams(window.location.search);
-  if(params.has('code_senha') || params.has('utm_source') || params.has('fbclid') || params.has('utm_medium')){
-    window.history.replaceState({}, document.title, window.location.pathname);
-  }
-})();
-
 function track(eventName){
   console.log("Evento:", eventName);
   window.dataLayer = window.dataLayer || [];
@@ -349,11 +337,9 @@ function go(path, event){
 <body>
 <div class="wrap">
 
-  <!-- BRAND -->
   <div class="brand">
     <div class="logo">
-      <!-- AJUSTE 2: LOGO ABSOLUTO -->
-      <img src="https://reginaldohsiao.com.br/logo.png" alt="RH - Reginaldo Hsiao">
+      <img src="/hub/logo.png" alt="RH - Reginaldo Hsiao">
     </div>
     <div class="assinatura">Reginaldo Hsiao | Mentor & Terapeuta</div>
   </div>
@@ -361,7 +347,6 @@ function go(path, event){
   <h1>Você não está travado por falta de esforço</h1>
   <p class="subtitle">Escolha o ponto onde você está hoje</p>
 
-  <!-- ROUTER -->
   <div class="router">
     <strong>Qual dessas situações é mais você?</strong>
     <div class="option">Sei o que fazer, mas não executo</div>
@@ -369,7 +354,6 @@ function go(path, event){
     <div class="option">Isso se repete há anos</div>
   </div>
 
-  <!-- MAPA DA TRAVA — destaque como porta de entrada -->
   <div class="card-diagnostico" onclick="go('/diagnostico/','click_diagnostico')">
     <div class="diag-badge">por onde começar</div>
     <div class="diag-title">Mapa da <em>Trava</em></div>
@@ -384,27 +368,25 @@ function go(path, event){
     <p class="diag-footnote">Diagnóstico Emocional · Reginaldo Hsiao</p>
   </div>
 
-  <!-- DIVISOR -->
   <div class="divider-label">ou escolha diretamente</div>
 
-  <!-- GRID PRODUTOS -->
   <div class="grid">
     <div class="card">
       <div class="title">Quero destravar minha execução</div>
       <div class="sub">Reset da Autossabotagem</div>
-      <a class="btn" onclick="go('/produtos/reset/','click_reset')">Entrar</a>
+      <a class="btn" onclick="go('/reset/','click_reset')">Entrar</a>
     </div>
 
     <div class="card">
       <div class="title">Quero clareza e direção</div>
       <div class="sub">Tríade do Desbloqueio</div>
-      <a class="btn" onclick="go('/produtos/triade/','click_triade')">Entrar</a>
+      <a class="btn" onclick="go('/triade/','click_triade')">Entrar</a>
     </div>
 
     <div class="card">
       <div class="title">Quero resolver isso na raiz</div>
       <div class="sub">Processo Terapêutico</div>
-      <a class="btn" onclick="go('/produtos/sessoes/','click_sessoes')">Entrar</a>
+      <a class="btn" onclick="go('/sessoes/','click_sessoes')">Entrar</a>
     </div>
   </div>
 
