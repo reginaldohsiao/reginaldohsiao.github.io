@@ -326,69 +326,76 @@
     </div>
     
     <script>
-        // ==========================================
-        // CONFIGURAÇÃO - TROCA AQUI OS LINKS
-        // ==========================================
-        const LINK_ACADEMIA = 'https://reginaldohsiao.com.br/diagnostico/?acesso=1';
-        const LINKS_CHECKOUT = {
-            diagnostico: 'https://pay.kiwify.com.br/S2GtiZG',
-            reset: 'https://pay.kiwify.com.br/SEU-CHECKOUT-RESET',
-            triade: 'https://pay.kiwify.com.br/SEU-CHECKOUT-TRIADE',
-            sessoes: 'https://pay.kiwify.com.br/SEU-CHECKOUT-SESSOES'
-        };
-        // ==========================================
+    // ==========================================
+    // CONFIGURAÇÃO - TROCA AQUI OS LINKS
+    // ==========================================
+    const LINK_ACADEMIA = 'https://reginaldohsiao.com.br/diagnostico/?acesso=1';
+    const LINKS_CHECKOUT = {
+        diagnostico: 'https://pay.kiwify.com.br/S2GtiZG',
+        reset: 'https://pay.kiwify.com.br/SEU-CHECKOUT-RESET',
+        triade: 'https://pay.kiwify.com.br/SEU-CHECKOUT-TRIADE',
+        sessoes: 'https://pay.kiwify.com.br/SEU-CHECKOUT-SESSOES'
+    };
+    
+    const LINKS_ACESSO = {
+        diagnostico: '/diagnostico/',
+        reset: '/reset-autossabotagem.html',
+        triade: '/triade.html',
+        sessoes: '/sessoes.html'
+    };
+    // ==========================================
+    
+    // PEGA O PARÂMETRO DA URL
+    const urlParams = new URLSearchParams(window.location.search);
+    const comprado = urlParams.get('comprado') || '';
+    const produtosLiberados = comprado.split(',').filter(p => p.trim() !== '');
+    
+    // FUNÇÃO QUE DESBLOQUEIA O CARD - AGORA FALA A MESMA LÍNGUA DO SEU CSS
+    function desbloquearCard(produto, link) {
+        const card = document.getElementById(`card-${produto}`);
+        const status = document.getElementById(`status-${produto}`);
+        const btn = document.getElementById(`btn-${produto}`);
+        if (!card || !status || !btn) return;
         
-        // PEGA O PARÂMETRO DA URL
-        const urlParams = new URLSearchParams(window.location.search);
-        const comprado = urlParams.get('comprado') || '';
-        const produtosLiberados = comprado.split(',').filter(p => p.trim() !== '');
-        
-        // FUNÇÃO QUE DESBLOQUEIA O CARD
-        function desbloquearCard(produto, link) {
-            const card = document.getElementById(`card-${produto}`);
-            const status = document.getElementById(`status-${produto}`);
-            const btn = document.getElementById(`btn-${produto}`);
-            if (!card || !status || !btn) return;
-            
-            card.classList.remove('locked');
-            card.classList.add('unlocked');
-            status.classList.remove('locked');
-            status.classList.add('unlocked');
-            status.innerHTML = '✓ Desbloqueado';
-            btn.classList.remove('btn-locked');
-            btn.classList.add('btn-unlocked');
-            btn.innerHTML = 'Acessar Agora';
-            btn.href = link;
-        }
-        
-        // MAPA DA TRAVA - PROCURA POR "diagnostico" NA URL
-        if (produtosLiberados.includes('diagnostico')) {
-            desbloquearCard('diagnostico', LINK_ACADEMIA);
-        } else {
-            document.getElementById('btn-diagnostico').href = LINKS_CHECKOUT.diagnostico;
-        }
-        
-        // RESET
-        if (produtosLiberados.includes('reset')) {
-            desbloquearCard('reset', LINK_ACADEMIA);
-        } else {
-            document.getElementById('btn-reset').href = LINKS_CHECKOUT.reset;
-        }
-        
-        // TRÍADE
-        if (produtosLiberados.includes('triade')) {
-            desbloquearCard('triade', LINK_ACADEMIA);
-        } else {
-            document.getElementById('btn-triade').href = LINKS_CHECKOUT.triade;
-        }
-        
-        // SESSÕES
-        if (produtosLiberados.includes('sessoes')) {
-            desbloquearCard('sessoes', LINK_ACADEMIA);
-        } else {
-            document.getElementById('btn-sessoes').href = LINKS_CHECKOUT.sessoes;
-        }
-    </script>
+        // SEU CSS USA 'unlocked', NÃO 'liberado'
+        card.classList.add('unlocked');
+        status.classList.remove('locked');
+        status.classList.add('unlocked');
+        status.innerHTML = '✓ Liberado';
+        btn.classList.remove('btn-locked');
+        btn.classList.add('btn-unlocked');
+        btn.innerHTML = 'Acessar Agora';
+        btn.href = link;
+    }
+    
+    // MAPA DA TRAVA - PROCURA POR "diagnostico" NA URL
+    if (produtosLiberados.includes('diagnostico')) {
+        desbloquearCard('diagnostico', LINKS_ACESSO.diagnostico);
+    } else {
+        document.getElementById('btn-diagnostico').href = LINKS_CHECKOUT.diagnostico;
+    }
+    
+    // RESET
+    if (produtosLiberados.includes('reset')) {
+        desbloquearCard('reset', LINKS_ACESSO.reset);
+    } else {
+        document.getElementById('btn-reset').href = LINKS_CHECKOUT.reset;
+    }
+    
+    // TRÍADE
+    if (produtosLiberados.includes('triade')) {
+        desbloquearCard('triade', LINKS_ACESSO.triade);
+    } else {
+        document.getElementById('btn-triade').href = LINKS_CHECKOUT.triade;
+    }
+    
+    // SESSÕES
+    if (produtosLiberados.includes('sessoes')) {
+        desbloquearCard('sessoes', LINKS_ACESSO.sessoes);
+    } else {
+        document.getElementById('btn-sessoes').href = LINKS_CHECKOUT.sessoes;
+    }
+</script>
 </body>
 </html>
 
