@@ -274,7 +274,7 @@
     <div class="container">
         <div class="header">
             <div class="logo-wrapper">
-                <img src="https://reginaldohsiao.com.br/logo.png" alt="Reginaldo Hsiao" class="logo">
+                <img src="/logo.png" alt="Reginaldo Hsiao" class="logo">
             </div>
             <div class="brand-name">REGINALDO HSIAO</div>
             <div class="brand-title">MENTOR & TERAPEUTA</div>
@@ -286,7 +286,7 @@
             <div class="card" id="card-diagnostico">
                 <div class="card-header">
                     <div class="card-title">Mapa da<br>Trava</div>
-                    <div class="status" id="status-diagnostico">🔒 Bloqueado</div>
+                    <div class="status locked" id="status-diagnostico">🔒 Bloqueado</div>
                 </div>
                 <p class="card-desc">Descubra em 5 minutos qual padrão emocional está impedindo sua execução. O diagnóstico é gratuito. O mapa completo com PDF e direcionamento custa R$ 47.</p>
                 <a href="#" class="btn btn-locked" id="btn-diagnostico">Quero destravar minha execução</a>
@@ -295,7 +295,7 @@
             <div class="card" id="card-reset">
                 <div class="card-header">
                     <div class="card-title">Reset da<br>Autossabotagem</div>
-                    <div class="status" id="status-reset">🔒 Bloqueado</div>
+                    <div class="status locked" id="status-reset">🔒 Bloqueado</div>
                 </div>
                 <p class="card-desc">Protocolo intensivo pra resetar ansiedade, limpar traumas emocionais e voltar pro seu centro de poder. Elimine a autossabotagem pela raiz.</p>
                 <a href="#" class="btn btn-locked" id="btn-reset">Quero clareza e direção</a>
@@ -304,7 +304,7 @@
             <div class="card" id="card-triade">
                 <div class="card-header">
                     <div class="card-title">Tríade do<br>Desbloqueio</div>
-                    <div class="status" id="status-triade">🔒 Bloqueado</div>
+                    <div class="status locked" id="status-triade">🔒 Bloqueado</div>
                 </div>
                 <p class="card-desc">Método completo pra quebrar padrões de autossabotagem e reprogramar sua mente pra resultado. O protocolo que eu uso nos meus clientes de 6 dígitos.</p>
                 <a href="#" class="btn btn-locked" id="btn-triade">Quero resolver isso na raiz</a>
@@ -313,7 +313,7 @@
             <div class="card" id="card-sessoes">
                 <div class="card-header">
                     <div class="card-title">Processo<br>Terapêutico</div>
-                    <div class="status" id="status-sessoes">🔒 Bloqueado</div>
+                    <div class="status locked" id="status-sessoes">🔒 Bloqueado</div>
                 </div>
                 <p class="card-desc">Atendimento 1:1 comigo pra desbloquear pontos cegos, quebrar travas profundas e acelerar sua transformação em semanas ao invés de anos.</p>
                 <a href="#" class="btn btn-locked" id="btn-sessoes">Quero atendimento individual</a>
@@ -326,76 +326,72 @@
     </div>
     
     <script>
-    // ==========================================
-    // CONFIGURAÇÃO - TROCA AQUI OS LINKS
-    // ==========================================
-    const LINK_ACADEMIA = 'https://reginaldohsiao.com.br/diagnostico/?acesso=1';
-    const LINKS_CHECKOUT = {
-        diagnostico: 'https://pay.kiwify.com.br/S2GtiZG',
-        reset: 'https://pay.kiwify.com.br/SEU-CHECKOUT-RESET',
-        triade: 'https://pay.kiwify.com.br/SEU-CHECKOUT-TRIADE',
-        sessoes: 'https://pay.kiwify.com.br/SEU-CHECKOUT-SESSOES'
-    };
-    
-    const LINKS_ACESSO = {
-        diagnostico: '/diagnostico/',
-        reset: '/reset-autossabotagem.html',
-        triade: '/triade.html',
-        sessoes: '/sessoes.html'
-    };
-    // ==========================================
-    
-    // PEGA O PARÂMETRO DA URL
-    const urlParams = new URLSearchParams(window.location.search);
-    const comprado = urlParams.get('comprado') || '';
-    const produtosLiberados = comprado.split(',').filter(p => p.trim() !== '');
-    
-    // FUNÇÃO QUE DESBLOQUEIA O CARD - AGORA FALA A MESMA LÍNGUA DO SEU CSS
-    function desbloquearCard(produto, link) {
-        const card = document.getElementById(`card-${produto}`);
-        const status = document.getElementById(`status-${produto}`);
-        const btn = document.getElementById(`btn-${produto}`);
-        if (!card || !status || !btn) return;
+        // ==========================================
+        // CONFIGURAÇÃO - TROCA AQUI OS LINKS
+        // ==========================================
+        const LINKS_CHECKOUT = {
+            diagnostico: 'https://pay.kiwify.com.br/S2GtiZG',
+            reset: 'https://pay.kiwify.com.br/SEU-CHECKOUT-RESET',
+            triade: 'https://pay.kiwify.com.br/SEU-CHECKOUT-TRIADE',
+            sessoes: 'https://pay.kiwify.com.br/SEU-CHECKOUT-SESSOES'
+        };
         
-        // SEU CSS USA 'unlocked', NÃO 'liberado'
-        card.classList.add('unlocked');
-        status.classList.remove('locked');
-        status.classList.add('unlocked');
-        status.innerHTML = '✓ Liberado';
-        btn.classList.remove('btn-locked');
-        btn.classList.add('btn-unlocked');
-        btn.innerHTML = 'Acessar Agora';
-        btn.href = link;
-    }
-    
-    // MAPA DA TRAVA - PROCURA POR "diagnostico" NA URL
-    if (produtosLiberados.includes('diagnostico')) {
-        desbloquearCard('diagnostico', LINKS_ACESSO.diagnostico);
-    } else {
-        document.getElementById('btn-diagnostico').href = LINKS_CHECKOUT.diagnostico;
-    }
-    
-    // RESET
-    if (produtosLiberados.includes('reset')) {
-        desbloquearCard('reset', LINKS_ACESSO.reset);
-    } else {
-        document.getElementById('btn-reset').href = LINKS_CHECKOUT.reset;
-    }
-    
-    // TRÍADE
-    if (produtosLiberados.includes('triade')) {
-        desbloquearCard('triade', LINKS_ACESSO.triade);
-    } else {
-        document.getElementById('btn-triade').href = LINKS_CHECKOUT.triade;
-    }
-    
-    // SESSÕES
-    if (produtosLiberados.includes('sessoes')) {
-        desbloquearCard('sessoes', LINKS_ACESSO.sessoes);
-    } else {
-        document.getElementById('btn-sessoes').href = LINKS_CHECKOUT.sessoes;
-    }
-</script>
+        const LINKS_ACESSO = {
+            diagnostico: '/diagnostico/',
+            reset: '/reset-autossabotagem.html',
+            triade: '/triade.html',
+            sessoes: '/sessoes.html'
+        };
+
+        const DESCRICOES_LIBERADO = {
+            diagnostico: 'Parabéns! Seu Mapa da Trava está liberado. Clique em "Acessar Agora" e descubra qual padrão emocional está sabotando sua execução.',
+            reset: 'Acesso liberado! Seu protocolo Reset da Autossabotagem está pronto. Hora de limpar os traumas e voltar pro seu centro de poder.',
+            triade: 'Liberado! A Tríade do Desbloqueio completa está no ar. Reprograme sua mente pra resultado agora.',
+            sessoes: 'Seu Processo Terapêutico 1:1 está liberado. Vamos desbloquear seus pontos cegos juntos.'
+        };
+        // ==========================================
+        
+        const urlParams = new URLSearchParams(window.location.search);
+        const comprado = urlParams.get('comprado') || '';
+        const produtosLiberados = comprado.split(',').filter(p => p.trim() !== '');
+        
+        function desbloquearCard(produto) {
+            const card = document.getElementById(`card-${produto}`);
+            const status = document.getElementById(`status-${produto}`);
+            const btn = document.getElementById(`btn-${produto}`);
+            const desc = card.querySelector('.card-desc');
+            if (!card || !status || !btn) return;
+            
+            card.classList.add('unlocked');
+            status.classList.remove('locked');
+            status.classList.add('unlocked');
+            status.innerHTML = '✓ Liberado';
+            
+            btn.classList.remove('btn-locked');
+            btn.classList.add('btn-unlocked');
+            btn.innerHTML = 'Acessar Agora';
+            btn.href = LINKS_ACESSO[produto];
+            
+            if (desc && DESCRICOES_LIBERADO[produto]) {
+                desc.innerHTML = DESCRICOES_LIBERADO[produto];
+            }
+        }
+        
+        // LIBERA OS COMPRADOS - ACEITA 1 OU VÁRIOS SEPARADOS POR VÍRGULA
+        produtosLiberados.forEach(produto => {
+            if (LINKS_ACESSO[produto]) desbloquearCard(produto);
+        });
+        
+        // SETA OS CHECKOUTS DOS BLOQUEADOS
+        document.querySelectorAll('.btn-locked').forEach(btn => {
+            const produto = btn.id.replace('btn-', '');
+            if (LINKS_CHECKOUT[produto]) {
+                btn.onclick = (e) => {
+                    e.preventDefault();
+                    window.open(LINKS_CHECKOUT[produto], '_blank');
+                };
+            }
+        });
+    </script>
 </body>
 </html>
-
