@@ -57,6 +57,17 @@ h1 {
   margin-bottom: 60px;
   font-weight: 300;
 }
+.jornada-msg {
+  background: #141414;
+  border: 1px solid #f5c542;
+  border-radius: 12px;
+  padding: 20px;
+  margin-bottom: 40px;
+  font-size: 14px;
+  color: #f5c542;
+  font-weight: 500;
+  display: none;
+}
 .grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(480px, 1fr));
@@ -168,6 +179,8 @@ h1 {
   <h1>SEU HUB DE TRANSFORMAÇÃO</h1>
   <p class="subtitle">Seu progresso. Seu ritmo. Sua evolução.</p>
 
+  <div class="jornada-msg" id="jornada-msg"></div>
+
   <div class="grid">
     <!-- MAPA DA TRAVA -->
     <div class="card" id="card-mapa" data-link="https://pay.kiwify.com.br/S2GtiZG">
@@ -177,7 +190,7 @@ h1 {
       <a href="#" class="btn" id="btn-mapa">QUERO DESTRAVAR MINHA EXECUÇÃO</a>
     </div>
 
-    <!-- RESET DA AUTOSSABOTAGEM - LINK CORRIGIDO -->
+    <!-- RESET DA AUTOSSABOTAGEM -->
     <div class="card" id="card-reset" data-link="https://pay.kiwify.com.br/tkOdDXt">
       <span class="tag" id="tag-reset">BLOQUEADO</span>
       <h2>RESET DA AUTOSSABOTAGEM</h2>
@@ -207,37 +220,58 @@ h1 {
 
 <script>
 const urlParams = new URLSearchParams(window.location.search);
-const comprado = urlParams.get('comprado');
+const compradoParam = urlParams.get('comprado');
+
+// Aceita múltiplos produtos separados por vírgula:?comprado=mapa,reset,triade
+const produtosComprados = compradoParam? compradoParam.split(',') : [];
 
 const produtos = {
-  mapa: { card: 'card-mapa', tag: 'tag-mapa', btn: 'btn-mapa', linkProduto: '/mapa/' },
-  reset: { card: 'card-reset', tag: 'tag-reset', btn: 'btn-reset', linkProduto: '/reset/' },
-  triade: { card: 'card-triade', tag: 'tag-triade', btn: 'btn-triade', linkProduto: '/triade/' },
-  sessoes: { card: 'card-sessoes', tag: 'tag-sessoes', btn: 'btn-sessoes', linkProduto: '/sessoes/' }
+  mapa: { card: 'card-mapa', tag: 'tag-mapa', btn: 'btn-mapa', linkProduto: '/mapa/', nome: 'Mapa da Trava' },
+  reset: { card: 'card-reset', tag: 'tag-reset', btn: 'btn-reset', linkProduto: '/reset/', nome: 'Reset da Autossabotagem' },
+  triade: { card: 'card-triade', tag: 'tag-triade', btn: 'btn-triade', linkProduto: '/triade/', nome: 'Tríade do Desbloqueio' },
+  sessoes: { card: 'card-sessoes', tag: 'tag-sessoes', btn: 'btn-sessoes', linkProduto: '/sessoes/', nome: 'Processo Terapêutico' }
 };
 
-if (comprado && produtos[comprado]) {
-  const p = produtos[comprado];
-  document.getElementById(p.card).classList.add('desbloqueado');
-  document.getElementById(p.tag).classList.add('desbloqueado');
-  document.getElementById(p.tag).innerHTML = '✓ DESBLOQUEADO';
-  const btn = document.getElementById(p.btn);
-  btn.classList.add('btn-unlocked');
-  btn.innerHTML = 'ACESSAR AGORA';
-  btn.href = p.linkProduto;
-  document.getElementById(p.card).onclick = () => { window.location.href = p.linkProduto; };
+// Desbloqueia todos os produtos comprados
+produtosComprados.forEach(key => {
+  if (produtos[key]) {
+    const p = produtos[key];
+    document.getElementById(p.card).classList.add('desbloqueado');
+    document.getElementById(p.tag).classList.add('desbloqueado');
+    document.getElementById(p.tag).innerHTML = '✓ DESBLOQUEADO';
+    const btn = document.getElementById(p.btn);
+    btn.classList.add('btn-unlocked');
+    btn.innerHTML = 'ACESSAR AGORA';
+    btn.href = p.linkProduto;
+    document.getElementById(p.card).onclick = () => { window.location.href = p.linkProduto; };
+  }
+});
+
+// Mensagem de jornada personalizada
+if (produtosComprados.length > 0) {
+  const msgBox = document.getElementById('jornada-msg');
+  const nomesComprados = produtosComprados.map(key => produtos[key]?.nome).filter(Boolean);
+
+  if (produtosComprados.length === 4) {
+    msgBox.innerHTML = '🏆 PARABÉNS! Você tem acesso total à jornada completa de transformação. Use todos os protocolos com sabedoria.';
+  } else if (produtosComprados.length > 1) {
+    msgBox.innerHTML = `✓ Você já desbloqueou: ${nomesComprados.join(' + ')}. Continue sua jornada de evolução.`;
+  } else {
+    msgBox.innerHTML = `✓ Você já desbloqueou: ${nomesComprados[0]}. Próximo passo disponível abaixo.`;
+  }
+  msgBox.style.display = 'block';
 }
 
+// Aplica bloqueio nos produtos não comprados
 Object.keys(produtos).forEach(key => {
   const p = produtos[key];
   const card = document.getElementById(p.card);
-  const tag = document.getElementById(p.tag);
-  const btn = document.getElementById(p.btn);
 
   if (!card.classList.contains('desbloqueado')) {
     card.classList.add('bloqueado');
-    tag.classList.add('bloqueado');
-    tag.innerHTML = '🔒 BLOQUEADO';
+    document.getElementById(p.tag).classList.add('bloqueado');
+    document.getElementById(p.tag).innerHTML = '🔒 BLOQUEADO';
+    const btn = document.getElementById(p.btn);
     btn.classList.add('btn-locked');
     const salesLink = card.getAttribute('data-link');
     card.onclick = () => { window.location.href = salesLink; };
