@@ -19,9 +19,31 @@ body {
   margin: 0 auto;
   text-align: center;
 }
+.logo-wrap {
+  margin: 0 auto 48px;
+}
 .logo {
-  width: 60px;
-  margin: 0 auto 24px;
+  width: 70px;
+  height: auto;
+  margin: 0 auto 20px;
+  display: block;
+}
+.logo-nome {
+  font-family: 'Inter', sans-serif;
+  color: #c9a961; /* OURO ENVELHECIDO */
+  font-size: 14px;
+  letter-spacing: 5px;
+  font-weight: 500;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+.logo-text {
+  font-family: 'Inter', sans-serif;
+  color: #c9a961; /* OURO ENVELHECIDO */
+  font-size: 14px;
+  letter-spacing: 5px;
+  font-weight: 500;
+  text-transform: uppercase;
 }
 h1 {
   font-size: 32px;
@@ -124,17 +146,23 @@ h1 {
 @media (max-width: 520px) {
 .grid { grid-template-columns: 1fr; }
   h1 { font-size: 26px; }
+.logo-nome,.logo-text { font-size: 12px; letter-spacing: 4px; }
 }
 </style>
 </head>
 <body>
 <div class="container">
-  <img src="/logo.png" class="logo" alt="RH">
+  <div class="logo-wrap">
+    <img src="/logo.png" class="logo" alt="RH">
+    <div class="logo-nome">REGINALDO HSIAO</div>
+    <div class="logo-text">MENTOR & TERAPEUTA</div>
+  </div>
+
   <h1>SEU HUB DE TRANSFORMAÇÃO</h1>
   <p class="subtitle">Seu progresso. Seu ritmo. Sua evolução.</p>
 
   <div class="grid">
-    <!-- MAPA DA TRAVA - COLA O LINK DA KIWIFY AQUI -->
+    <!-- MAPA DA TRAVA -->
     <div class="card" id="card-mapa" data-link="https://pay.kiwify.com.br/S2GtiZG">
       <span class="tag" id="tag-mapa">BLOQUEADO</span>
       <h2>MAPA DA TRAVA</h2>
@@ -142,7 +170,7 @@ h1 {
       <a href="#" class="btn" id="btn-mapa">QUERO DESTRAVAR MINHA EXECUÇÃO</a>
     </div>
 
-    <!-- RESET DA AUTOSSABOTAGEM - COLA O LINK DA KIWIFY AQUI -->
+    <!-- RESET DA AUTOSSABOTAGEM -->
     <div class="card" id="card-reset" data-link="https://pay.kiwify.com.br/xUOPI6">
       <span class="tag" id="tag-reset">BLOQUEADO</span>
       <h2>RESET DA AUTOSSABOTAGEM</h2>
@@ -150,7 +178,7 @@ h1 {
       <a href="#" class="btn" id="btn-reset">QUERO CLAREZA E DIREÇÃO</a>
     </div>
 
-    <!-- TRÍADE DO DESBLOQUEIO - COLA O LINK DA KIWIFY AQUI -->
+    <!-- TRÍADE DO DESBLOQUEIO -->
     <div class="card" id="card-triade" data-link="https://pay.kiwify.com.br/ESmxn90">
       <span class="tag" id="tag-triade">BLOQUEADO</span>
       <h2>TRÍADE DO DESBLOQUEIO</h2>
@@ -158,7 +186,7 @@ h1 {
       <a href="#" class="btn" id="btn-triade">QUERO RESOLVER ISSO NA RAIZ</a>
     </div>
 
-    <!-- PROCESSO TERAPÊUTICO - COLA O LINK DA KIWIFY AQUI -->
+    <!-- PROCESSO TERAPÊUTICO -->
     <div class="card" id="card-sessoes" data-link="https://pay.kiwify.com.br/LnNZaUG">
       <span class="tag" id="tag-sessoes">BLOQUEADO</span>
       <h2>PROCESSO TERAPÊUTICO</h2>
@@ -173,10 +201,30 @@ const urlParams = new URLSearchParams(window.location.search);
 const comprado = urlParams.get('comprado');
 
 const produtos = {
-  mapa: { card: 'card-mapa', tag: 'tag-mapa', btn: 'btn-mapa', linkProduto: '/diagnostico/app/' },
-  reset: { card: 'card-reset', tag: 'tag-reset', btn: 'btn-reset', linkProduto: '/reset/app/' },
-  triade: { card: 'card-triade', tag: 'tag-triade', btn: 'btn-triade', linkProduto: '/triade/app/' },
-  sessoes: { card: 'card-sessoes', tag: 'tag-sessoes', btn: 'btn-sessoes', linkProduto: '/sessoes/app/' }
+  mapa: {
+    card: 'card-mapa',
+    tag: 'tag-mapa',
+    btn: 'btn-mapa',
+    linkProduto: '/mapa/' // ← JÁ APONTANDO PRA PASTA NOVA
+  },
+  reset: {
+    card: 'card-reset',
+    tag: 'tag-reset',
+    btn: 'btn-reset',
+    linkProduto: '/reset/'
+  },
+  triade: {
+    card: 'card-triade',
+    tag: 'tag-triade',
+    btn: 'btn-triade',
+    linkProduto: '/triade/'
+  },
+  sessoes: {
+    card: 'card-sessoes',
+    tag: 'tag-sessoes',
+    btn: 'btn-sessoes',
+    linkProduto: '/sessoes/'
+  }
 };
 
 if (comprado && produtos[comprado]) {
