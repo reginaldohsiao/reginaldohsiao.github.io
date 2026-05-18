@@ -30,7 +30,7 @@ body {
 }
 .logo-nome {
   font-family: 'Inter', sans-serif;
-  color: #c9a961; /* OURO ENVELHECIDO */
+  color: #c9a961;
   font-size: 14px;
   letter-spacing: 5px;
   font-weight: 500;
@@ -39,7 +39,7 @@ body {
 }
 .logo-text {
   font-family: 'Inter', sans-serif;
-  color: #c9a961; /* OURO ENVELHECIDO */
+  color: #c9a961;
   font-size: 14px;
   letter-spacing: 5px;
   font-weight: 500;
@@ -143,6 +143,13 @@ h1 {
   color: #555;
   pointer-events: none;
 }
+.footer-copy {
+  font-size: 11px;
+  color: #555;
+  margin-top: 80px;
+  letter-spacing: 0.5px;
+  font-weight: 300;
+}
 @media (max-width: 520px) {
 .grid { grid-template-columns: 1fr; }
   h1 { font-size: 26px; }
@@ -170,8 +177,8 @@ h1 {
       <a href="#" class="btn" id="btn-mapa">QUERO DESTRAVAR MINHA EXECUÇÃO</a>
     </div>
 
-    <!-- RESET DA AUTOSSABOTAGEM -->
-    <div class="card" id="card-reset" data-link="https://pay.kiwify.com.br/xUOPI6">
+    <!-- RESET DA AUTOSSABOTAGEM - LINK CORRIGIDO xU0PI6 -->
+    <div class="card" id="card-reset" data-link="https://pay.kiwify.com.br/xU0PI6">
       <span class="tag" id="tag-reset">BLOQUEADO</span>
       <h2>RESET DA AUTOSSABOTAGEM</h2>
       <p>Protocolo intensivo pra resetar ansiedade, limpar traumas emocionais e voltar pro seu centro de poder. Elimine a autossabotagem pela raiz.</p>
@@ -194,6 +201,8 @@ h1 {
       <a href="#" class="btn" id="btn-sessoes">QUERO ATENDIMENTO INDIVIDUAL</a>
     </div>
   </div>
+
+  <p class="footer-copy">© 2026 Reginaldo Hsiao. Todos os direitos reservados.</p>
 </div>
 
 <script>
@@ -201,30 +210,10 @@ const urlParams = new URLSearchParams(window.location.search);
 const comprado = urlParams.get('comprado');
 
 const produtos = {
-  mapa: {
-    card: 'card-mapa',
-    tag: 'tag-mapa',
-    btn: 'btn-mapa',
-    linkProduto: '/mapa/' // ← JÁ APONTANDO PRA PASTA NOVA
-  },
-  reset: {
-    card: 'card-reset',
-    tag: 'tag-reset',
-    btn: 'btn-reset',
-    linkProduto: '/reset/'
-  },
-  triade: {
-    card: 'card-triade',
-    tag: 'tag-triade',
-    btn: 'btn-triade',
-    linkProduto: '/triade/'
-  },
-  sessoes: {
-    card: 'card-sessoes',
-    tag: 'tag-sessoes',
-    btn: 'btn-sessoes',
-    linkProduto: '/sessoes/'
-  }
+  mapa: { card: 'card-mapa', tag: 'tag-mapa', btn: 'btn-mapa', linkProduto: '/mapa/' },
+  reset: { card: 'card-reset', tag: 'tag-reset', btn: 'btn-reset', linkProduto: '/reset/' },
+  triade: { card: 'card-triade', tag: 'tag-triade', btn: 'btn-triade', linkProduto: '/triade/' },
+  sessoes: { card: 'card-sessoes', tag: 'tag-sessoes', btn: 'btn-sessoes', linkProduto: '/sessoes/' }
 };
 
 if (comprado && produtos[comprado]) {
