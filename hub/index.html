@@ -222,14 +222,14 @@ h1 {
 const urlParams = new URLSearchParams(window.location.search);
 const compradoParam = urlParams.get('comprado');
 
-// Aceita múltiplos produtos separados por vírgula:?comprado=mapa,reset,triade
-const produtosComprados = compradoParam? compradoParam.split(',') : [];
+// Aceita múltiplos produtos separados por vírgula: ?comprado=mapa,reset,triade
+const produtosComprados = compradoParam ? compradoParam.split(',') : [];
 
 const produtos = {
-  mapa: { card: 'card-mapa', tag: 'tag-mapa', btn: 'btn-mapa', linkProduto: '/mapa/', nome: 'Mapa da Trava' },
-  reset: { card: 'card-reset', tag: 'tag-reset', btn: 'btn-reset', linkProduto: '/reset/', nome: 'Reset da Autossabotagem' },
-  triade: { card: 'card-triade', tag: 'tag-triade', btn: 'btn-triade', linkProduto: '/triade/', nome: 'Tríade do Desbloqueio' },
-  sessoes: { card: 'card-sessoes', tag: 'tag-sessoes', btn: 'btn-sessoes', linkProduto: '/sessoes/', nome: 'Processo Terapêutico' }
+  mapa:    { card: 'card-mapa',    tag: 'tag-mapa',    btn: 'btn-mapa',    linkProduto: '/diagnostico/mapa-da-trava/', nome: 'Mapa da Trava' },
+  reset:   { card: 'card-reset',   tag: 'tag-reset',   btn: 'btn-reset',   linkProduto: '/processo/reset/',            nome: 'Reset da Autossabotagem' },
+  triade:  { card: 'card-triade',  tag: 'tag-triade',  btn: 'btn-triade',  linkProduto: '/processo/triade/',           nome: 'Tríade do Desbloqueio' },
+  sessoes: { card: 'card-sessoes', tag: 'tag-sessoes', btn: 'btn-sessoes', linkProduto: '/processo/individual/',       nome: 'Processo Terapêutico' }
 };
 
 // Desbloqueia todos os produtos comprados
