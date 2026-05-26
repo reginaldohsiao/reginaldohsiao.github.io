@@ -261,22 +261,10 @@ main{ flex:1; }
 
 @media(max-width:768px){
   .container{ padding:0 16px; }
-  .header{ padding:20px 0 18px; }
-  .back{ 
-    position: static; 
-    display: block; 
-    text-align: left; 
-    margin-bottom: 12px;
-    padding-left: 0;
-    font-size: 13px; 
-  }
-  .logo{ width:75px; height:75px; margin:0 auto 10px; }
-  .tag{ 
-    font-size:9px; 
-    letter-spacing:1.8px; 
-    line-height:1.4;
-    white-space:nowrap;
-  }
+  .header{ padding:32px 0 22px; }
+  .back{ left:16px; top:34px; font-size:13px; }
+  .logo{ width:84px; height:84px; }
+  .tag{ font-size:9px; letter-spacing:2px; }
   .hero{ padding:0 0 58px; }
   .hero h1{ font-size:34px; line-height:1.12; margin-bottom:20px; }
   .hero-sub{ font-size:15px; line-height:1.7; margin-bottom:24px; }
@@ -300,6 +288,39 @@ main{ flex:1; }
   .final-cta{ padding:70px 0; }
   .final-cta h2{ font-size:24px; }
   .final-cta h3{ font-size:36px; margin-bottom:34px; }
+}
+
+.back-to-top {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  width: 48px;
+  height: 48px;
+  background: #f3c623;
+  color: #000;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  font-size: 20px;
+  font-weight: 700;
+  box-shadow: 0 4px 16px rgba(243,198,35,0.3);
+  transition: all .3s ease;
+  z-index: 999;
+  opacity: 0;
+  visibility: hidden;
+}
+.back-to-top.show {
+  opacity: 1;
+  visibility: visible;
+}
+.back-to-top:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(243,198,35,0.4);
+}
+@media(max-width:768px){
+  .back-to-top { bottom: 20px; right: 20px; width: 44px; height: 44px; }
 }
 </style>
 
@@ -589,33 +610,3 @@ function checkoutUpgrade(){
     bar.className = 'success-bar';
     bar.innerText = '✓ Identificamos sua evolução. Você está pronto para o próximo nível.';
     document.body.insertBefore(bar, document.body.firstChild);
-
-    const btnPrincipal = document.getElementById('btn-principal');
-    const btnFinal = document.getElementById('btn-final');
-    
-    if (btnPrincipal) btnPrincipal.setAttribute('onclick', 'checkoutUpgrade()');
-    if (btnFinal) btnFinal.setAttribute('onclick', 'checkoutUpgrade()');
-  }
-})();
-</script>
-<style>
-.back-to-top {
-  position: fixed;
-  bottom: 24px;
-  right: 24px;
-  width: 48px;
-  height: 48px;
-  background: #f3c623;
-  color: #000;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-decoration: none;
-  font-size: 20px;
-  font-weight: 700;
-  box-shadow: 0 4px 16px rgba(243,198,35,0.3);
-  transition: all .3s ease;
-  z-index: 999;
-  opacity: 0;
- 
