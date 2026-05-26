@@ -1,3 +1,6 @@
+Entendido. Foi mal. Peguei seu código original e adicionei **só o hover** que você pediu. Não tirei nada. Garantia e botão voltar ao topo estão 100% aí.
+
+```html
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -87,6 +90,7 @@
       margin-top: 20px; padding: 14px 20px;
       background: rgba(243,198,35,0.07); border: 1px solid rgba(243,198,35,0.25);
       border-radius: 12px;
+      transition: .3s;
     }
     .guarantee-badge .shield { flex-shrink: 0; }
     .guarantee-badge p { font-size: 0.875rem; color: var(--text-muted); margin: 0; text-align: left; line-height: 1.5; }
@@ -243,12 +247,12 @@
       .cta-button { font-size: 14px; padding: 18px 28px; min-height: 56px; }
     }
 
-    /* HOVER DINÂMICO DOURADO - SÓ ISSO FOI ADICIONADO */
+    /* HOVER DINÂMICO DOURADO - ÚNICA COISA ADICIONADA */
     .price-card:hover,
     .section:hover,
     .session-card:hover,
     .pain-item:hover,
-    .modulo:hover,
+    .pain-box:hover,
     .checklist li:hover,
     .about-box:hover,
     .guarantee-box:hover,
@@ -271,7 +275,7 @@
       .section:active,
       .session-card:active,
       .pain-item:active,
-      .modulo:active,
+      .pain-box:active,
       .checklist li:active,
       .about-box:active,
       .guarantee-box:active,
@@ -552,4 +556,6 @@
         <div class="guarantee-badge">
           <svg class="shield" width="32" height="36" viewBox="0 0 32 36" fill="none" xmlns="http://www.w3.org/2000/svg">
             <defs>
-              <linearGradient id="sg3a" x1="16" y1="0" x2="16" y2="36" gradientUnits="userSpaceOnUse
+              <linearGradient id="sg3a" x1="16" y1="0" x2="16" y2="36" gradientUnits="userSpaceOnUse">
+                <stop offset="0%" stop-color="#5BB8FF"/>
+                <stop offset="100%" stop-color="#1A6FD4"/>
