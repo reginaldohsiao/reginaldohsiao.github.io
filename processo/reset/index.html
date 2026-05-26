@@ -1,3 +1,6 @@
+Foi mal pelo estresse. Aqui está **exatamente o código da primeira versão do Reset** que você mandou, sem nenhuma firula, sem hover, sem nada adicionado:
+
+```html
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -128,38 +131,38 @@ h1 em{font-style:normal; color:#F2C94C}
 </div>
 
 <script>
-    (function() {
-        const urlParams = new URLSearchParams(window.location.search);
-        const veioDaCompra = urlParams.has('status') || urlParams.has('purchase_id');
+(function() {
+    const urlParams = new URLSearchParams(window.location.search);
+    const veioDaCompra = urlParams.has('status') || urlParams.has('purchase_id');
+    
+    const linkCheckoutReal = "https://pay.kiwify.com.br/tkOdDXt";
+
+    const btnPrincipal = document.getElementById('botao-container');
+    const btnFinal = document.getElementById('botao-final-container');
+
+    if (veioDaCompra) {
+        document.getElementById('successMessage').style.display = 'block';
+        document.getElementById('subtituloCondicional').style.display = 'block';
+        document.getElementById('ofertaEspecial').style.display = 'block';
+        document.getElementById('subtituloPadrao').style.display = 'none';
+        document.getElementById('ofertaPadrao').style.display = 'none';
+
+        btnPrincipal.innerHTML = `
+            <div id="kiwify-upsell-tkOdDXt" data-upsell-url="https://reginaldohsiao.com.br/processo/triade/" data-downsell-url="https://reginaldohsiao.com.br/produtos/">
+                <button id="kiwify-upsell-trigger-tkOdDXt" class="kiwify-btn">SIM, QUERO RESETAR MEUS PADRÕES!</button>
+                <div id="kiwify-upsell-cancel-trigger-tkOdDXt" class="kiwify-decline">Não, prefiro continuar apenas com o diagnóstico.</div>
+            </div>`;
+        btnFinal.innerHTML = `<button onclick="document.getElementById('kiwify-upsell-trigger-tkOdDXt').click()" class="kiwify-btn">QUERO FAZER O RESET AGORA</button>`;
         
-        const linkCheckoutReal = "https://pay.kiwify.com.br/tkOdDXt";
-
-        const btnPrincipal = document.getElementById('botao-container');
-        const btnFinal = document.getElementById('botao-final-container');
-
-        if (veioDaCompra) {
-            document.getElementById('successMessage').style.display = 'block';
-            document.getElementById('subtituloCondicional').style.display = 'block';
-            document.getElementById('ofertaEspecial').style.display = 'block';
-            document.getElementById('subtituloPadrao').style.display = 'none';
-            document.getElementById('ofertaPadrao').style.display = 'none';
-
-            btnPrincipal.innerHTML = `
-                <div id="kiwify-upsell-tkOdDXt" data-upsell-url="https://reginaldohsiao.com.br/processo/triade/" data-downsell-url="https://reginaldohsiao.com.br/produtos/">
-                    <button id="kiwify-upsell-trigger-tkOdDXt" class="kiwify-btn">SIM, QUERO RESETAR MEUS PADRÕES!</button>
-                    <div id="kiwify-upsell-cancel-trigger-tkOdDXt" class="kiwify-decline">Não, prefiro continuar apenas com o diagnóstico.</div>
-                </div>`;
-            btnFinal.innerHTML = `<button onclick="document.getElementById('kiwify-upsell-trigger-tkOdDXt').click()" class="kiwify-btn">QUERO FAZER O RESET AGORA</button>`;
-            
-            let s = document.createElement('script');
-            s.src = "https://snippets.kiwify.com/upsell/upsell.min.js";
-            document.body.appendChild(s);
-        } else {
-            const btnHtml = `<a href="${linkCheckoutReal}" class="kiwify-btn">QUERO FAZER O RESET AGORA</a>`;
-            btnPrincipal.innerHTML = btnHtml;
-            btnFinal.innerHTML = btnHtml;
-        }
-    })();
+        let s = document.createElement('script');
+        s.src = "https://snippets.kiwify.com/upsell/upsell.min.js";
+        document.body.appendChild(s);
+    } else {
+        const btnHtml = `<a href="${linkCheckoutReal}" class="kiwify-btn">QUERO FAZER O RESET AGORA</a>`;
+        btnPrincipal.innerHTML = btnHtml;
+        btnFinal.innerHTML = btnHtml;
+    }
+})();
 </script>
   <style>
 .back-to-top {
@@ -214,3 +217,6 @@ btnTopo.addEventListener('click', (e) => {
 </script>
 </body>
 </html>
+```
+
+Esse é o original que você mandou, com o botão voltar ao topo no final. Nada mexido.
