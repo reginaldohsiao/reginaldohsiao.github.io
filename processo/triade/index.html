@@ -1,226 +1,122 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Processo Tríade do Desbloqueio | Reginaldo Hsiao</title>
-  <meta name="description" content="Processo estruturado em 3 frentes: emocional, mental e comportamental. Para quem já tentou de tudo e continua travado. Com Reginaldo Hsiao.">
-  <link rel="canonical" href="https://reginaldohsiao.com.br/processo/triade/">
-  
-  <!-- Open Graph -->
-  <meta property="og:title" content="Processo Tríade do Desbloqueio | Reginaldo Hsiao">
-  <meta property="og:description" content="Não é terapia aberta. É um protocolo estruturado em 3 frentes: emocional, mental e comportamental.">
-  <meta property="og:url" content="https://reginaldohsiao.com.br/processo/triade/">
-  <meta property="og:type" content="website">
-  
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,600&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
-  
-  <!-- Google Analytics - TROCA PELO SEU ID -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-XXXXXXXXXX');
-  </script>
-  
-  <style>
-    :root {
-      --gold: #C9A84C; --gold-light: #E8CC7A; --dark: #0D0C0A; --dark-2: #161410; 
-      --dark-3: #1F1C18; --text-body: #C8BCA8; --text-light: #EDE5D4; --text-muted: #8C8070;
-      --serif: 'Cormorant Garamond', serif; --sans: 'DM Sans', sans-serif;
-      --radius: 8px; --shadow: 0 10px 30px rgba(0,0,0,0.3);
-    }
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
-    body { 
-      font-family: var(--sans); background: var(--dark); color: var(--text-body); 
-      line-height: 1.7; font-size: 16px; -webkit-font-smoothing: antialiased;
-    }
-    h1, h2, h3 { font-family: var(--serif); font-weight: 500; line-height: 1.2; color: var(--text-light); }
-    h1 { font-size: clamp(2.2rem, 6vw, 3.5rem); }
-    h1 em { font-style: italic; color: var(--gold); }
-    h2 { font-size: clamp(1.8rem, 4vw, 2.4rem); margin-bottom: 1rem; }
-    h3 { font-size: clamp(1.3rem, 3vw, 1.6rem); margin-bottom: 0.5rem; }
-    p { margin-bottom: 1rem; }
-    .container { max-width: 800px; margin: 0 auto; padding: 0 1.5rem; }
-    
-    .header { padding: 1.5rem 0; text-align: center; border-bottom: 1px solid rgba(201,168,76,0.1); }
-    .logo { width: 64px; margin-bottom: 1rem; opacity: 0.9; }
-    
-    .hero { padding: 4rem 0 3rem; text-align: center; }
-    .process-tag {
-      font-size: 11px; letter-spacing: 0.15em; text-transform: uppercase;
-      color: var(--gold); margin-bottom: 1.5rem; font-weight: 500;
-    }
-    .hero p { font-size: clamp(1rem, 2vw, 1.1rem); max-width: 600px; margin: 1.5rem auto; color: var(--text-muted); }
-    
-    .section { padding: 3rem 0; border-top: 1px solid rgba(201,168,76,0.1); }
-    .section-title { text-align: center; margin-bottom: 2.5rem; }
-    .section-title p { color: var(--text-muted); font-size: 15px; }
-    
-    .card {
-      background: var(--dark-2); border: 1px solid rgba(201,168,76,0.15);
-      border-radius: var(--radius); padding: 2rem; margin-bottom: 1.5rem;
-    }
-    .card h3 { color: var(--gold); font-size: 1.2rem; margin-bottom: 0.75rem; }
-    .card h3::before { content: '◆'; margin-right: 0.5rem; font-size: 0.8rem; }
-    
-    .frente { 
-      background: var(--dark-3); border: 1px solid rgba(201,168,76,0.1);
-      border-radius: var(--radius); padding: 1.75rem; margin-bottom: 1rem;
-    }
-    .frente .num {
-      font-family: var(--serif); font-size: 2.5rem; color: var(--gold);
-      line-height: 1; margin-bottom: 0.5rem; opacity: 0.8;
-    }
-    .frente h3 { font-size: 1.4rem; margin-bottom: 0.5rem; }
-    .frente p { font-size: 15px; color: var(--text-muted); margin: 0; }
-    
-    .cta-box {
-      background: linear-gradient(135deg, var(--dark-2), var(--dark-3));
-      border: 1px solid rgba(201,168,76,0.2); border-radius: var(--radius);
-      padding: 2.5rem; text-align: center; margin: 3rem 0;
-    }
-    .cta-box h2 { font-size: 1.8rem; margin-bottom: 1rem; }
-    .cta-box p { color: var(--text-muted); margin-bottom: 1.5rem; }
-    .btn {
-      display: inline-block; background: var(--gold); color: var(--dark);
-      padding: 1rem 2.5rem; border-radius: 50px; text-decoration: none;
-      font-weight: 500; letter-spacing: 0.05em; font-size: 15px;
-      transition: all 0.2s; border: 1px solid var(--gold);
-    }
-    .btn:hover { background: var(--gold-light); transform: translateY(-2px); }
-    
-    .back-link {
-      display: inline-block; margin-bottom: 2rem; color: var(--text-muted);
-      text-decoration: none; font-size: 14px; transition: color 0.2s;
-    }
-    .back-link:hover { color: var(--gold); }
-    .back-link::before { content: '← '; }
-    
-    .footer { 
-      padding: 3rem 0; text-align: center; font-size: 13px; 
-      color: var(--text-muted); border-top: 1px solid rgba(201,168,76,0.1);
-    }
-    .footer a { color: var(--text-muted); text-decoration: none; }
-    .footer a:hover { color: var(--gold); }
-    
-    @media (max-width: 640px) {
-      .hero { padding: 3rem 0 2rem; }
-      .section { padding: 2rem 0; }
-      .card, .frente { padding: 1.5rem; }
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Processo Tríade do Desbloqueio | Reginaldo Hsiao</title>
+<link rel="canonical" href="https://reginaldohsiao.com.br/processo/triade/">
+<meta property="og:title" content="Tríade do Desbloqueio | Reginaldo Hsiao">
+<meta property="og:description" content="Processo estruturado em 3 frentes: emocional, mental e comportamental. Com Reginaldo Hsiao.">
+<meta property="og:url" content="https://reginaldohsiao.com.br/processo/triade/">
+<meta property="og:type" content="website">
+<meta name="description" content="Processo estruturado em 3 frentes: emocional, mental e comportamental. Com Reginaldo Hsiao.">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{width:100%; background:#000; color:#fff; -webkit-font-smoothing:antialiased}
+body{font-family:Inter,system-ui,sans-serif}
+.wrap{max-width:820px; margin:0 auto; padding:24px 20px 60px}
+
+.back{color:#666; text-decoration:none; font-size:14px; display:inline-flex; align-items:center; gap:6px; margin-bottom:24px; transition:.2s}
+.back:hover{color:#C9A961}
+.logo{width:110px; height:110px; margin:0 auto 14px; display:block}
+.logo img{width:100%; height:100%; object-fit:contain}
+.tagline{color:#C9A961; font-size:10px; font-weight:400; text-align:center; margin-bottom:16px; letter-spacing:3px; text-transform:uppercase; opacity:.65;}
+
+.process-tag {
+  text-align: center; margin: 0 0 32px 0; padding: 16px;
+  border: 1px solid rgba(201,169,73,0.15); border-radius: 12px; background: #050505;
+}
+.process-tag span {
+  font-size: 10px; letter-spacing: 0.15em; text-transform: uppercase;
+  color: #C9A961; display: block; margin-bottom: 8px; font-weight: 500;
+}
+.process-tag p { font-size: 13px; color: #999; margin: 0; line-height: 1.5; }
+
+h1{font-size:36px; font-weight:800; line-height:1.15; margin-bottom:12px; text-align:center}
+h1 em{font-style:normal; color:#F2C94C}
+.subtitle{color:#999; font-size:18px; text-align:center; margin-bottom:32px}
+
+.price-box{background:linear-gradient(180deg,#050505 0%,#000 100%); border:1px solid #1a1a1a; border-radius:20px; padding:28px; text-align:center; margin-bottom:32px}
+.price{font-size:42px; font-weight:800; color:#F2C94C; margin-bottom:8px}
+.price-sub{color:#666; font-size:14px; margin-bottom:20px}
+
+.kiwify-btn {display:block; width:100%; padding:18px; border-radius:14px; background:#F2C94C; color:#000; text-decoration:none; font-weight:800; font-size:18px; cursor:pointer; transition:all .2s; border:none; margin-top: 10px; text-align: center;}
+.kiwify-btn:hover{background:#FFD760; transform:scale(1.02)}
+.garantia{font-size:12px; color:#666; margin-top:12px}
+
+.section{border:1px solid #1a1a1a; border-radius:16px; padding:24px; margin-bottom:16px; background:#050505}
+.section h2{font-size:12px; color:#C9A961; letter-spacing:2px; text-transform:uppercase; font-weight:600; margin-bottom:16px}
+.section h3{font-size:22px; font-weight:700; margin-bottom:12px}
+.section p{color:#BDBDBD; line-height:1.6; margin-bottom:12px}
+.list-item{display:flex; align-items:flex-start; gap:12px; margin:12px 0; color:#BDBDBD}
+.list-item:before{content:"→"; color:#F2C94C; font-weight:700; flex-shrink:0}
+
+.modulo{background:#0A0A0A; border:1px solid #1a1a1a; border-radius:12px; padding:16px; margin:12px 0}
+.modulo strong{display:block; color:#fff; margin-bottom:4px}
+.modulo span{color:#888; font-size:14px}
+
+.cta-final{background:linear-gradient(180deg,#050505 0%,#000 100%); border:1px solid #F2C94C; border-radius:20px; padding:32px 24px; text-align:center; margin-top:32px}
+.cta-final h3{font-size:24px; margin-bottom:20px}
+
+.footer-copy{font-size:11px; color:#444; text-align:center; margin-top:40px; letter-spacing:0.5px}
+
+@media(max-width:600px){ h1{font-size:28px}.logo{width:80px; height:80px}.subtitle{font-size:16px} }
+</style>
+<!-- COLA SEU GA4 AQUI -->
 </head>
+
 <body>
-  <header class="header">
-    <div class="container">
-      <img src="./logo.png" alt="Reginaldo Hsiao" class="logo">
-    </div>
-  </header>
+<div class="wrap">
+  <a href="/produtos/" class="back">← Ver todos os processos</a>
+  
+  <div class="logo">
+    <img src="./logo.png" alt="Logo">
+  </div>
+  
+  <p class="tagline">Reginaldo Hsiao | Mentor & Terapeuta</p>
 
-  <main>
-    <section class="hero">
-      <div class="container">
-        <a href="/produtos/" class="back-link">Voltar aos Processos</a>
-        <p class="process-tag">Processo Tríade do Desbloqueio</p>
-        <h1>Não é terapia aberta. É um <em>protocolo estruturado</em> em 3 frentes.</h1>
-        <p>Para quem já tentou de tudo — terapia, coaching, cursos — e continua travado nos mesmos padrões. A Tríade trabalha emocional, mental e comportamental ao mesmo tempo.</p>
-      </div>
-    </section>
+  <div class="process-tag">
+    <span>Processo Tríade do Desbloqueio</span>
+    <p>Não vendo sessões avulsas. Conduzo um processo estruturado em 3 frentes: emocional, mental e comportamental.</p>
+  </div>
 
-    <section class="section">
-      <div class="container">
-        <div class="section-title">
-          <h2>Por que você continua travado?</h2>
-          <p>Porque o problema não está em uma área só. Está nas 3.</p>
-        </div>
-        <div class="card">
-          <h3>Terapia tradicional só mexe no emocional</h3>
-          <p>Você entende a raiz, mas não muda o comportamento.</p>
-        </div>
-        <div class="card">
-          <h3>Coaching só mexe no comportamental</h3>
-          <p>Você cria plano de ação, mas a emoção te sabota.</p>
-        </div>
-        <div class="card">
-          <h3>Cursos só mexem no mental</h3>
-          <p>Você aprende a teoria, mas não aplica na prática.</p>
-        </div>
-      </div>
-    </section>
+  <h1>Tríade do <em>Desbloqueio</em></h1>
+  
+  <p class="subtitle">Para quem já tentou de tudo e continua travado nos mesmos padrões.</p>
 
-    <section class="section">
-      <div class="container">
-        <div class="section-title">
-          <h2>A Tríade ataca as 3 frentes</h2>
-          <p>Um processo com início, meio e fim. Sem enrolação.</p>
-        </div>
-        
-        <div class="frente">
-          <div class="num">1</div>
-          <h3>Frente Emocional</h3>
-          <p>Identificamos e desarmamos a carga emocional que dispara o padrão de autossabotagem. Você para de lutar contra si mesmo.</p>
-        </div>
-        
-        <div class="frente">
-          <div class="num">2</div>
-          <h3>Frente Mental</h3>
-          <p>Reescrevemos as crenças e narrativas que sustentam a trava. Você muda o diálogo interno que te paralisa.</p>
-        </div>
-        
-        <div class="frente">
-          <div class="num">3</div>
-          <h3>Frente Comportamental</h3>
-          <p>Criamos micro-ações e protocolos de execução que furam o bloqueio na prática. Você volta a agir.</p>
-        </div>
-      </div>
-    </section>
+  <div class="price-box">
+    <div class="price">R$ 497</div>
+    <div class="price-sub">Processo fechado com início, meio e fim</div>
+    
+    <a href="https://wa.me/5511999999999?text=Quero%20aplicar%20para%20a%20Tríade" class="kiwify-btn">QUERO APLICAR PARA A TRÍADE</a>
+    <div class="garantia">Vagas limitadas. Aplicação não garante entrada.</div>
+  </div>
 
-    <section class="section">
-      <div class="container">
-        <div class="section-title">
-          <h2>Este processo é pra você se:</h2>
-        </div>
-        <div class="card">
-          <h3>Você já fez terapia e não resolveu</h3>
-          <p>Entendeu tudo, mas continua repetindo os mesmos padrões na vida real.</p>
-        </div>
-        <div class="card">
-          <h3>Você sabe o que fazer, mas não faz</h3>
-          <p>Tem clareza mental, mas o corpo trava na hora de executar.</p>
-        </div>
-        <div class="card">
-          <h3>Você está cansado de abordagem superficial</h3>
-          <p>Quer profundidade, mas com direção. Sem ficar anos falando da infância.</p>
-        </div>
-      </div>
-    </section>
+  <div class="section">
+    <h2>Como funciona</h2>
+    <div class="modulo"><strong>Frente 1: Emocional</strong><span>Desarmar a carga emocional que dispara o padrão de autossabotagem</span></div>
+    <div class="modulo"><strong>Frente 2: Mental</strong><span>Reescrever as crenças e narrativas que sustentam a trava</span></div>
+    <div class="modulo"><strong>Frente 3: Comportamental</strong><span>Instalar micro-ações e protocolos que furam o bloqueio na prática</span></div>
+    <div class="list-item">8 a 12 semanas de processo intensivo</div>
+    <div class="list-item">Encontros individuais + material de apoio</div>
+  </div>
 
-    <section class="section">
-      <div class="container">
-        <div class="cta-box">
-          <h2>Não vendo sessões avulsas</h2>
-          <p>A Tríade é um processo fechado com começo, meio e fim. Duração média de 8 a 12 semanas. Entrada apenas via aplicação.</p>
-          <a href="https://wa.me/5511999999999?text=Quero%20entrar%20no%20Processo%20Tríade" class="btn" onclick="gtag('event', 'click_whatsapp', {'processo': 'triade'});">Quero Aplicar para a Tríade</a>
-          <p style="font-size: 12px; margin-top: 1rem; color: var(--text-muted);">Vagas limitadas. Aplicação não garante entrada.</p>
-        </div>
-      </div>
-    </section>
-  </main>
+  <div class="section">
+    <h2>Este processo é pra você se:</h2>
+    <div class="list-item">Você já fez terapia e entendeu tudo, mas continua repetindo os mesmos padrões</div>
+    <div class="list-item">Você tem clareza mental do que fazer, mas o corpo trava na hora de executar</div>
+    <div class="list-item">Você está cansado de abordagem superficial e quer profundidade com direção</div>
+  </div>
 
-  <footer class="footer">
-    <div class="container">
-      <p>Reginaldo Hsiao · Mentor & Terapeuta</p>
-      <p style="margin-top: 0.5rem;">
-        <a href="/diagnostico/mapa-da-trava/">Mapa da Trava</a> · 
-        <a href="/processo/reset/">Reset</a> · 
-        <a href="/processo/individual/">Processo Individual</a>
-      </p>
-    </div>
-  </footer>
+  <div class="cta-final">
+    <h3>Não é terapia aberta. É protocolo.</h3>
+    <a href="https://wa.me/5511999999999?text=Quero%20aplicar%20para%20a%20Tríade" class="kiwify-btn">QUERO APLICAR PARA A TRÍADE</a>
+  </div>
+
+  <p class="footer-copy">© 2026 Reginaldo Hsiao. Todos os direitos reservados.</p>
+</div>
+
 </body>
 </html>
