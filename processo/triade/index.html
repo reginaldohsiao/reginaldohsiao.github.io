@@ -90,7 +90,7 @@ main{ flex:1; }
 /* ESCUDO PADRONIZADO */
 .guarantee-shield {
   display: flex; align-items: center; gap: 12px;
-  background: #0A0A0A; border: 1px solid rgba(201,169,73,0.15);
+  background: #0A; border: 1px solid rgba(201,169,73,0.15);
   border-radius: 12px; padding: 16px; margin-top: 18px; text-align: left;
   transition:.3s;
 }
@@ -170,7 +170,7 @@ main{ flex:1; }
 
 .authority-numbers{
   display:flex; gap:32px; margin-top:32px; padding-top:28px;
-  border-top:1px solid rgba(255,255,255,0.07); flex-wrap:wrap; justify-content:center;
+  border-top:1px solid rgba(255,255,0.07); flex-wrap:wrap; justify-content:center;
 }
 .authority-number{ flex:1; min-width:140px; text-align:center; }
 .authority-number-value{ font-size:28px; font-weight:900; color:var(--gold); letter-spacing:-1px; line-height:1; margin-bottom:8px; }
@@ -259,12 +259,56 @@ main{ flex:1; }
   }
 }
 
+/* BOTÃO VOLTAR AO TOPO */
+.back-to-top {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  width: 48px;
+  height: 48px;
+  background: #f3c623;
+  color: #000;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  font-size: 20px;
+  font-weight: 700;
+  box-shadow: 0 4px 16px rgba(243,198,35,0.3);
+  transition: all .3s ease;
+  z-index: 999;
+  opacity: 0;
+  visibility: hidden;
+  border:2px solid transparent;
+}
+.back-to-top.show {
+  opacity: 1;
+  visibility: visible;
+}
+.back-to-top:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(243,198,35,0.4);
+}
+
 @media(max-width:768px){
   .container{ padding:0 16px; }
-  .header{ padding:32px 0 22px; }
-  .back{ left:16px; top:34px; font-size:13px; }
-  .logo{ width:84px; height:84px; }
-  .tag{ font-size:9px; letter-spacing:2px; }
+  .header{ padding:20px 0 18px; }
+  .back{ 
+    position: static; 
+    display: block; 
+    text-align: left; 
+    margin-bottom: 12px;
+    padding-left: 0;
+    font-size: 13px; 
+  }
+  .logo{ width:75px; height:75px; margin:0 auto 10px; }
+  .tag{ 
+    font-size:9px; 
+    letter-spacing:1.8px; 
+    line-height:1.4;
+    white-space:nowrap;
+  }
   .hero{ padding:0 0 58px; }
   .hero h1{ font-size:34px; line-height:1.12; margin-bottom:20px; }
   .hero-sub{ font-size:15px; line-height:1.7; margin-bottom:24px; }
@@ -288,38 +332,6 @@ main{ flex:1; }
   .final-cta{ padding:70px 0; }
   .final-cta h2{ font-size:24px; }
   .final-cta h3{ font-size:36px; margin-bottom:34px; }
-}
-
-.back-to-top {
-  position: fixed;
-  bottom: 24px;
-  right: 24px;
-  width: 48px;
-  height: 48px;
-  background: #f3c623;
-  color: #000;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-decoration: none;
-  font-size: 20px;
-  font-weight: 700;
-  box-shadow: 0 4px 16px rgba(243,198,35,0.3);
-  transition: all .3s ease;
-  z-index: 999;
-  opacity: 0;
-  visibility: hidden;
-}
-.back-to-top.show {
-  opacity: 1;
-  visibility: visible;
-}
-.back-to-top:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 6px 20px rgba(243,198,35,0.4);
-}
-@media(max-width:768px){
   .back-to-top { bottom: 20px; right: 20px; width: 44px; height: 44px; }
 }
 </style>
@@ -580,7 +592,7 @@ function checkoutUpgrade(){
       <div class="cta-sub">Acesso imediato após a confirmação.</div>
       <div class="guarantee-shield">
         <div class="shield-icon">
-          <svg viewBox="0 0 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm0 10.99h7c-.53 4.12-3.28 7.79-7 8.94V12H5V6.3l7-3.11v8.8z"/></svg>
+          <svg viewBox="0 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm0 10.99h7c-.53 4.12-3.28 7.79-7 8.94V12H5V6.3l7-3.11v8.8z"/></svg>
         </div>
         <div class="guarantee-text">
           <strong>Garantia de 7 dias incondicional</strong>
@@ -601,12 +613,4 @@ function checkoutUpgrade(){
 <p class="footer-copy">© 2026 Reginaldo Hsiao. Todos os direitos reservados.</p>
 
 <script>
-(function() {
-  const urlParams = new URLSearchParams(window.location.search);
-  const jaCliente = urlParams.has('status') || urlParams.has('purchase_id');
-
-  if (jaCliente) {
-    const bar = document.createElement('div');
-    bar.className = 'success-bar';
-    bar.innerText = '✓ Identificamos sua evolução. Você está pronto para o próximo nível.';
-    document.body.insertBefore(bar, document.body.firstChild);
+(function()
