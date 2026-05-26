@@ -79,16 +79,21 @@
     .cta-button:hover { transform: translateY(-2px); box-shadow: 0 8px 32px rgba(243,198,35,0.18); }
     .scarcity { margin: 18px 0 0; font-size: 0.8rem; color: var(--gold); line-height: 1.6; }
 
-    /* GARANTIA BADGE PADRONIZADO */
-    .guarantee-badge {
-      display: flex; align-items: center; justify-content: center; gap: 10px;
-      margin-top: 20px; padding: 14px 20px;
-      background: rgba(243,198,35,0.07); border: 1px solid rgba(243,198,35,0.25);
-      border-radius: 12px;
+    /* ESCUDO PADRONIZADO - IGUAL TRÍADE */
+    .guarantee-shield {
+      display: flex; align-items: center; gap: 12px;
+      background: #0A0A; border: 1px solid rgba(201,169,73,0.15);
+      border-radius: 12px; padding: 16px; margin-top: 18px; text-align: left;
     }
-    .guarantee-badge .shield { flex-shrink: 0; }
-    .guarantee-badge p { font-size: 0.875rem; color: var(--text-muted); margin: 0; text-align: left; line-height: 1.5; }
-    .guarantee-badge p strong { color: var(--gold); font-weight: 700; }
+    .shield-icon {
+      width: 44px; height: 44px; flex-shrink: 0;
+      background: linear-gradient(180deg, #4A90E2 0%, #2E5C8A 100%);
+      border-radius: 10px; display: flex; align-items: center; justify-content: center;
+      box-shadow: 0 4px 12px rgba(74,144,226,0.3);
+    }
+    .shield-icon svg { width: 24px; height: 24px; fill: #fff; }
+    .guarantee-text { font-size: 13px; color: #BDBDBD; line-height: 1.5; }
+    .guarantee-text strong { color: #fff; display: block; margin-bottom: 2px; }
 
     /* SEÇÕES */
     .section { padding: 90px 24px; border-bottom: 1px solid var(--border); }
@@ -183,7 +188,6 @@
       background: var(--card); border: 2px solid rgba(243,198,35,0.3);
       border-radius: 16px; padding: 48px; margin-top: 60px; text-align: center;
     }
-    .guarantee-icon { font-size: 3rem; margin-bottom: 16px; display: block; }
     .guarantee-box h3 { font-size: 1.5rem; font-weight: 900; margin: 0 0 16px; }
     .guarantee-box p { color: var(--text-muted); max-width: 500px; margin: 0 auto 16px; font-size: 18px; line-height: 1.8; }
     .guarantee-box p:last-child { margin: 0 auto; }
@@ -257,26 +261,17 @@
           <div class="price">R$ 897</div>
           <div class="price-installments">ou 12x de R$ 89,70</div>
           <div class="cta-wrapper">
-            <a href="https://pay.kiwify.com.br/LnNZaUG" class="cta-button">QUERO COMEÇAR MEU PROCESSO</a>
+            <a href="https://pay.kiwify.com.br/LnNZaUG" class="cta-button">AGENDAR MINHAS 5 SESSÕES</a>
           </div>
           <p class="scarcity">Para manter profundidade terapêutica e acompanhamento individual real, atendimento limitado à 8 pessoas por mês.</p>
-          <div class="guarantee-badge">
-            <svg class="shield" width="32" height="36" viewBox="0 0 32 36" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <defs>
-                <linearGradient id="sg1a" x1="16" y1="0" x2="16" y2="36" gradientUnits="userSpaceOnUse">
-                  <stop offset="0%" stop-color="#5BB8FF"/>
-                  <stop offset="100%" stop-color="#1A6FD4"/>
-                </linearGradient>
-                <linearGradient id="sg1b" x1="16" y1="4" x2="16" y2="20" gradientUnits="userSpaceOnUse">
-                  <stop offset="0%" stop-color="#A8D8FF" stop-opacity="0.5"/>
-                  <stop offset="100%" stop-color="#A8D8FF" stop-opacity="0"/>
-                </linearGradient>
-              </defs>
-              <path d="M16 1L3 6.5V17C3 25.5 9 33 16 35C23 33 29 25.5 29 17V6.5L16 1Z" fill="url(#sg1a)"/>
-              <path d="M16 3L5 8V17C5 24.5 10 31 16 33C22 31 27 24.5 27 17V8L16 3Z" fill="url(#sg1b)"/>
-              <path d="M11 18L14.5 21.5L21 14" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-            <p><strong>Garantia de 7 Dias após a 1ª Sessão</strong><br>Se não sentir clareza na primeira sessão, reembolso integral.</p>
+          <div class="guarantee-shield">
+            <div class="shield-icon">
+              <svg viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm0 10.99h7c-.53 4.12-3.28 7.79-7 8.94V12H5V6.3l7-3.11v8.8z"/></svg>
+            </div>
+            <div class="guarantee-text">
+              <strong>Garantia de 7 Dias após a 1ª Sessão</strong>
+              Se não sentir clareza na primeira sessão, reembolso integral.
+            </div>
           </div>
         </div>
       </div>
@@ -302,7 +297,7 @@
   <section class="section">
     <div class="container">
       <h2 class="section-title">O que acontece em cada encontro:</h2>
-      <p class="section-subtitle" style="font-size: 19px; color: #f3c623; font-weight: 600; margin-top: -8px;">5 etapas guiadas, com execução prática e sem enrolação.</p>
+      <p class="section-subtitle">5 etapas guiadas, com execução prática e sem enrolação.</p>
 
       <div class="session-list">
 
@@ -467,23 +462,14 @@
           <a href="https://pay.kiwify.com.br/LnNZaUG" class="cta-button">AGENDAR MINHAS 5 SESSÕES</a>
         </div>
         <p class="scarcity">Para manter profundidade terapêutica e acompanhamento individual real, atendimento limitado à 8 pessoas por mês.</p>
-        <div class="guarantee-badge">
-          <svg class="shield" width="32" height="36" viewBox="0 0 32 36" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <defs>
-              <linearGradient id="sg3a" x1="16" y1="0" x2="16" y2="36" gradientUnits="userSpaceOnUse">
-                <stop offset="0%" stop-color="#5BB8FF"/>
-                <stop offset="100%" stop-color="#1A6FD4"/>
-              </linearGradient>
-              <linearGradient id="sg3b" x1="16" y1="4" x2="16" y2="20" gradientUnits="userSpaceOnUse">
-                <stop offset="0%" stop-color="#A8D8FF" stop-opacity="0.5"/>
-                <stop offset="100%" stop-color="#A8D8FF" stop-opacity="0"/>
-              </linearGradient>
-            </defs>
-            <path d="M16 1L3 6.5V17C3 25.5 9 33 16 35C23 33 29 25.5 29 17V6.5L16 1Z" fill="url(#sg3a)"/>
-            <path d="M16 3L5 8V17C5 24.5 10 31 16 33C22 31 27 24.5 27 17V8L16 3Z" fill="url(#sg3b)"/>
-            <path d="M11 18L14.5 21.5L21 14" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
-          <p><strong>Garantia de 7 Dias após a 1ª Sessão</strong><br>Se não sentir clareza na primeira sessão, reembolso integral.</p>
+        <div class="guarantee-shield">
+          <div class="shield-icon">
+            <svg viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm0 10.99h7c-.53 4.12-3.28 7.79-7 8.94V12H5V6.3l7-3.11v8.8z"/></svg>
+          </div>
+          <div class="guarantee-text">
+            <strong>Garantia de 7 Dias após a 1ª Sessão</strong>
+            Se não sentir clareza na primeira sessão, reembolso integral.
+          </div>
         </div>
       </div>
     </div>
