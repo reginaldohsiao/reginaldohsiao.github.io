@@ -41,7 +41,7 @@ main{ flex:1; }
 .header{ padding:42px 0 28px; position:relative; text-align:center; }
 .back{
   position:absolute; left:22px; top:42px;
-  color:#8b8b; text-decoration:none; font-size:14px; transition:.2s;
+  color:#8b; text-decoration:none; font-size:14px; transition:.2s;
 }
 .back:hover{ color:var(--gold); }
 .logo{ width:105px; height:105px; margin:0 auto 14px; }
@@ -87,9 +87,10 @@ main{ flex:1; }
 .cta:hover{ transform:translateY(-2px); box-shadow:0 10px 30px rgba(243,198,35,.15); }
 .cta-sub{ margin-top:14px; font-size:13px; color:var(--gold-soft); }
 
+/* ESCUDO PADRONIZADO */
 .guarantee-shield {
   display: flex; align-items: center; gap: 12px;
-  background: #0A0A0A; border: 1px solid rgba(201,169,73,0.15);
+  background: #0A0A; border: 1px solid rgba(201,169,73,0.15);
   border-radius: 12px; padding: 16px; margin-top: 18px; text-align: left;
   transition:.3s;
 }
@@ -151,7 +152,7 @@ main{ flex:1; }
 .deliver-item::before{ content:"•"; color:var(--gold); flex-shrink:0; }
 
 .authority{
-  background:linear-gradient(180deg,#111 0%,#0b0b0b 100%);
+  background:linear-gradient(180deg,#111 0%,#0b0b 100%);
   border:1px solid var(--border); border-radius:24px;
   padding:40px 34px 50px; text-align:center;
   transition:.3s;
@@ -169,7 +170,7 @@ main{ flex:1; }
 
 .authority-numbers{
   display:flex; gap:32px; margin-top:32px; padding-top:28px;
-  border-top:1px solid rgba(255,255,255,0.07); flex-wrap:wrap; justify-content:center;
+  border-top:1px solid rgba(255,255,0.07); flex-wrap:wrap; justify-content:center;
 }
 .authority-number{ flex:1; min-width:140px; text-align:center; }
 .authority-number-value{ font-size:28px; font-weight:900; color:var(--gold); letter-spacing:-1px; line-height:1; margin-bottom:8px; }
@@ -240,7 +241,7 @@ main{ flex:1; }
   border:2px solid rgba(243,198,35,0.6);
 }
 
-/* TOQUE MOBILE */
+/* TOQUE MOBILE - mesmo efeito do hover */
 @media(hover:none){
   .price-card:active,
   .pilar:active,
@@ -292,10 +293,22 @@ main{ flex:1; }
 
 @media(max-width:768px){
   .container{ padding:0 16px; }
-  .header{ padding:32px 0 22px; }
-  .back{ left:16px; top:34px; font-size:13px; }
-  .logo{ width:84px; height:84px; }
-  .tag{ font-size:9px; letter-spacing:2px; }
+  .header{ padding:20px 0 18px; }
+  .back{ 
+    position: static; 
+    display: block; 
+    text-align: left; 
+    margin-bottom: 12px;
+    padding-left: 0;
+    font-size: 13px; 
+  }
+  .logo{ width:75px; height:75px; margin:0 auto 10px; }
+  .tag{ 
+    font-size:9px; 
+    letter-spacing:1.8px; 
+    line-height:1.4;
+    white-space:nowrap;
+  }
   .hero{ padding:0 0 58px; }
   .hero h1{ font-size:34px; line-height:1.12; margin-bottom:20px; }
   .hero-sub{ font-size:15px; line-height:1.7; margin-bottom:24px; }
@@ -448,169 +461,4 @@ function checkoutUpgrade(){
       <div class="pilar-title">Execução — Sustentar ação real</div>
       <div class="pilar-item">Plano prático de 30 dias para sair da inércia</div>
       <div class="pilar-item">Ferramentas para manter consistência sem depender de motivação</div>
-      <div class="pilar-item">Sistema SOS para momentos de recaída</div>
-    </div>
-  </div>
-</section>
-
-<section class="section">
-  <div class="container">
-    <h2 class="section-title">O que sustenta a mudança</h2>
-    <p class="section-sub">Cada elemento tem uma função dentro da estrutura.</p>
-
-    <div class="deliver-box">
-      <div class="deliver-label">Conteúdo central</div>
-      <div class="deliver-item">9 módulos da Tríade do Desbloqueio — liberados progressivamente para garantir aplicação real e integração prática de cada etapa</div>
-      <div class="deliver-item">Cada etapa prepara a próxima para evitar sobrecarga e aumentar execução real</div>
-      <div class="deliver-item">Direto ao ponto, sem excesso de teoria</div>
-    </div>
-
-    <div class="deliver-box">
-      <div class="deliver-label">Regulação emocional</div>
-      <div class="deliver-item">6 áudios terapêuticos de reorganização emocional</div>
-      <div class="deliver-item">Para usar nos momentos de trava e ansiedade</div>
-    </div>
-
-    <div class="deliver-box">
-      <div class="deliver-label">Aplicação prática</div>
-      <div class="deliver-item">Workbook prático para transformar clareza em ação diária</div>
-      <div class="deliver-item">Sistema de acompanhamento para impedir recaídas nos primeiros 30 dias</div>
-    </div>
-
-    <div class="deliver-box">
-      <div class="deliver-label">Sustentação</div>
-      <div class="deliver-item">Protocolo SOS anti-recaída</div>
-      <div class="deliver-item">Aula bônus de instalação de hábitos via PNL</div>
-    </div>
-  </div>
-</section>
-
-<section class="section">
-  <div class="container">
-    <div class="authority">
-      <img src="./reginaldo-02.png" alt="Reginaldo Hsiao" class="authority-photo">
-      <div>
-        <div class="authority-tag">Quem conduz o processo</div>
-        <h3>Reginaldo Hsiao</h3>
-        <p>Especialista em reorganização emocional e desbloqueio comportamental.</p>
-        <p>Meu trabalho integra reprocessamento emocional, neurociência aplicada e direcionamento estratégico para pessoas que entendem muito, mas continuam travadas na execução.</p>
-        <p>O foco não é apenas gerar consciência. É reorganizar padrões internos para sustentar ação real.</p>
-
-        <div class="authority-numbers">
-          <div class="authority-number">
-            <div class="authority-number-value">+1.500h</div>
-            <div class="authority-number-label">Em atendimentos e reprocessamento emocional</div>
-          </div>
-          <div class="authority-number">
-            <div class="authority-number-value">+20 anos</div>
-            <div class="authority-number-label">Integrando comportamento e negociações estratégicas</div>
-          </div>
-        </div>
-
-        <div class="protocol-highlight">
-            <div class="protocol-title">Protocolo de Autoliderança</div>
-            <div class="protocol-desc">O passo a passo definitivo para você dominar sua própria jornada, no seu tempo e com total autonomia.</div>
-        </div>
-
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="section">
-  <div class="container">
-    <div class="guarantee-box">
-      <div class="guarantee-shield" style="margin: 0 auto 24px; max-width: 500px;">
-        <div class="shield-icon">
-          <svg viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm0 10.99h7c-.53 4.12-3.28 7.79-7 8.94V12H5V6.3l7-3.11v8.8z"/></svg>
-        </div>
-        <div class="guarantee-text">
-          <strong>Garantia de 7 dias incondicional</strong>
-          Reembolso de 100% se não fizer sentido pra você.
-        </div>
-      </div>
-      <h3>Garantia de 7 dias incondicional</h3>
-      <p>Se em 7 dias você não sentir que está num caminho diferente, reembolso de 100% do seu investimento.</p>
-      <p><strong>Sem burocracia. Sem questionamento.</strong></p>
-    </div>
-  </div>
-</section>
-
-<section class="section">
-  <div class="container">
-    <h2 class="section-title">Perguntas frequentes</h2>
-
-    <div class="faq-item">
-      <h4>Isso é terapia?</h4>
-      <p>É um protocolo de reorganização com base terapêutica e foco em desbloqueio emocional e execução prática.</p>
-    </div>
-
-    <div class="faq-item">
-      <h4>Quanto tempo para ver resultado?</h4>
-      <p>Muitas pessoas relatam diferença já na primeira semana aplicando os áudios e exercícios. A consolidação depende da aplicação prática.</p>
-    </div>
-
-    <div class="faq-item">
-      <h4>Preciso assistir tudo de uma vez?</h4>
-      <p>Não. O processo foi estruturado para aplicação progressiva, no seu ritmo.</p>
-    </div>
-
-    <div class="faq-item">
-      <h4>O acesso é liberado tudo de uma vez?</h4>
-      <p>Não. Os módulos são liberados progressivamente para garantir aplicação prática e evitar acúmulo de conteúdo sem execução.</p>
-    </div>
-
-    <div class="faq-item">
-      <h4>E se eu não conseguir aplicar?</h4>
-      <p>Por isso existe a garantia de 7 dias. Você pode testar sem risco.</p>
-    </div>
-  </div>
-</section>
-
-<section class="final-cta">
-  <div class="container">
-    <h2>Você pode continuar entendendo seus padrões.</h2>
-    <h3>Ou começar a reorganizar eles na prática.</h3>
-    <div class="price-card">
-      <div class="price-label">Investimento</div>
-      <div class="price">R$ 497</div>
-      <div class="price-installments">à vista ou 12x de R$ 51,23</div>
-      <button id="btn-final" class="cta" onclick="checkout()">Quero começar minha reorganização</button>
-      <div class="cta-sub">Acesso imediato após a confirmação.</div>
-      <div class="guarantee-shield">
-        <div class="shield-icon">
-          <svg viewBox="0 0 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm0 10.99h7c-.53 4.12-3.28 7.79-7 8.94V12H5V6.3l7-3.11v8.8z"/></svg>
-        </div>
-        <div class="guarantee-text">
-          <strong>Garantia de 7 dias incondicional</strong>
-          Reembolso de 100% se não fizer sentido pra você.
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<div class="next">
-  <div class="container">
-    <p>Quer um processo individual com acompanhamento direto?</p>
-    <a href="https://reginaldohsiao.com.br/processo/individual/">Conheça o Processo Terapêutico →</a>
-  </div>
-</main>
-
-<p class="footer-copy">© 2026 Reginaldo Hsiao. Todos os direitos reservados.</p>
-
-<a href="#" class="back-to-top" id="btnTopo">↑</a>
-
-<script>
-(function() {
-  const urlParams = new URLSearchParams(window.location.search);
-  const jaCliente = urlParams.has('status') || urlParams.has('purchase_id');
-
-  if (jaCliente) {
-    const bar = document.createElement('div');
-    bar.className = 'success-bar';
-    bar.innerText = '✓ Identificamos sua evolução. Você está pronto para o próximo nível.';
-    document.body.insertBefore(bar, document.body.firstChild);
-
-    const btnPrincipal = document.getElementById('btn-principal');
-    const btnFinal = document.getElementById('
+      <div class
