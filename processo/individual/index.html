@@ -59,6 +59,7 @@
       background: var(--card); border: 1px solid var(--border);
       border-radius: 20px; padding: 40px 36px; max-width: 460px;
       margin: 0 auto; text-align: center;
+      transition: .3s;
     }
     .price-label {
       font-size: 13px; letter-spacing: 3px; text-transform: uppercase;
@@ -127,7 +128,7 @@
     .session-card {
       padding: 34px; border-radius: 18px; border: 1px solid #1f1f1f;
       background: var(--card); margin-bottom: 24px; display: flex;
-      gap: 24px; align-items: flex-start;
+      gap: 24px; align-items: flex-start; transition: .3s;
     }
     .session-card:last-child { margin-bottom: 0; }
     .session-card.featured {
@@ -148,7 +149,7 @@
     .checklist li {
       background: var(--card); border: 1px solid var(--border); border-radius: 12px;
       padding: 16px 20px; display: flex; align-items: center; gap: 12px;
-      font-size: 18px; line-height: 1.8;
+      font-size: 18px; line-height: 1.8; transition: .3s;
     }
     .checklist li::before { content: '✓'; color: var(--gold); font-weight: 700; font-size: 1.25rem; }
 
@@ -157,6 +158,7 @@
       background: linear-gradient(180deg, #111 0%, #0b0b0b 100%);
       border: 1px solid #1f1f1f; border-radius: 24px; padding: 52px 42px;
       display: flex; flex-direction: column; align-items: center; text-align: center; gap: 36px;
+      transition: .3s;
     }
     .about-photo-wrap { width: 280px; max-width: 100%; }
     .about-photo {
@@ -174,7 +176,7 @@
     }
     .about-text h4 { font-size: 1.75rem; font-weight: 900; margin: 0 0 20px; line-height: 1.2; }
     .about-text p {
-      color: #d6d6d6; font-size: 1.05rem; line-height: 1.8;
+      color: #d6; font-size: 1.05rem; line-height: 1.8;
       margin: 0 auto 14px; max-width: 560px;
     }
     .about-text p:last-of-type { margin-bottom: 36px; }
@@ -187,6 +189,7 @@
     .guarantee-box {
       background: var(--card); border: 2px solid rgba(243,198,35,0.3);
       border-radius: 16px; padding: 48px; margin-top: 60px; text-align: center;
+      transition: .3s;
     }
     .guarantee-icon { font-size: 3rem; margin-bottom: 16px; display: block; }
     .guarantee-box h3 { font-size: 1.5rem; font-weight: 900; margin: 0 0 16px; }
@@ -196,7 +199,7 @@
 
     /* FAQ */
     .faq-list { display: flex; flex-direction: column; gap: 16px; max-width: 700px; margin: 0 auto; }
-    .faq-item { background: var(--card); border: 1px solid var(--border); border-radius: 14px; padding: 24px; }
+    .faq-item { background: var(--card); border: 1px solid var(--border); border-radius: 14px; padding: 24px; transition: .3s; }
     .faq-item h4 { font-size: 1.125rem; font-weight: 700; margin: 0 0 8px; color: var(--text); }
     .faq-item p { font-size: 16px; color: var(--text-muted); margin: 0; line-height: 1.8; }
 
@@ -239,7 +242,7 @@
       .cta-button { font-size: 14px; padding: 18px 28px; min-height: 56px; }
     }
 
-    /* HOVER DESKTOP: Fundo dourado bem leve + aro dourado */
+    /* HOVER DINÂMICO DOURADO - SÓ ISSO FOI ADICIONADO */
     .price-card:hover,
     .section:hover,
     .session-card:hover,
@@ -253,7 +256,6 @@
       border-color:rgba(243,198,35,0.35);
     }
 
-    /* BOTÕES: Aro dourado extra no hover */
     .cta-button:hover{
       border:2px solid rgba(243,198,35,0.6);
     }
@@ -262,7 +264,7 @@
       border:2px solid rgba(243,198,35,0.6);
     }
 
-    /* TOQUE MOBILE: Mesma coisa usando :active */
+    /* TOQUE MOBILE */
     @media(hover:none){
       .price-card:active,
       .section:active,
@@ -547,4 +549,5 @@
         </div>
         <p class="scarcity">Para manter profundidade terapêutica e acompanhamento individual real, atendimento limitado à 8 pessoas por mês.</p>
         <div class="guarantee-badge">
-          <svg
+          <svg class="shield" width="32" height="36" viewBox="0 0 32 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <
