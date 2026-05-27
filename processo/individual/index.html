@@ -11,7 +11,7 @@
   <style>
     :root {
       --bg: #000000;
-      --card: #0f;
+      --card: #0f0f0f;
       --border: #1f1f1f;
       --text: #ffffff;
       --text-muted: #bdbdbd;
@@ -63,7 +63,7 @@
     }
     .price-label {
       font-size: 13px; letter-spacing: 3px; text-transform: uppercase;
-      color: #8a8a; margin-bottom: 18px; display: block;
+      color: #8a8a8a; margin-bottom: 18px; display: block;
     }
     .price {
       font-size: 78px; font-weight: 800; letter-spacing: -3px;
@@ -112,11 +112,11 @@
     /* PAIN ITEMS */
     .problem-list { display: flex; flex-direction: column; gap: 14px; max-width: 560px; margin: 0 auto; }
     .pain-item {
-      background: #111; border: 1px solid #1f1f; border-radius: 18px;
+      background: #111; border: 1px solid #1f1f1f; border-radius: 18px;
       padding: 18px 22px; font-size: 18px; color: var(--text-muted);
       line-height: 1.8; transition: .3s;
     }
-    .pain-item:hover { border-color: #2f; transform: translateY(-2px); }
+    .pain-item:hover { border-color: #2f2f2f; transform: translateY(-2px); }
     .pain-box {
       background: var(--card); border: 1px solid var(--border);
       border-radius: 16px; padding: 28px; margin-top: 28px; text-align: center;
@@ -128,7 +128,7 @@
     /* SESSÕES */
     .session-list { display: flex; flex-direction: column; gap: 16px; }
     .session-card {
-      padding: 34px; border-radius: 18px; border: 1px solid #1f;
+      padding: 34px; border-radius: 18px; border: 1px solid #1f1f1f;
       background: var(--card); margin-bottom: 24px; display: flex;
       gap: 24px; align-items: flex-start; transition: .3s;
     }
@@ -347,19 +347,8 @@
           <p class="scarcity">Para manter profundidade terapêutica e acompanhamento individual real, atendimento limitado à 8 pessoas por mês.</p>
           <div class="guarantee-badge">
             <svg class="shield" width="32" height="36" viewBox="0 0 32 36" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <defs>
-                <linearGradient id="sg3a" x1="16" y1="0" x2="16" y2="36" gradientUnits="userSpaceOnUse">
-                  <stop offset="0%" stop-color="#5BB8FF"/>
-                  <stop offset="100%" stop-color="#1A6FD4"/>
-                </linearGradient>
-                <linearGradient id="sg3b" x1="16" y1="4" x2="16" y2="20" gradientUnits="userSpaceOnUse">
-                  <stop offset="0%" stop-color="#A8D8FF" stop-opacity="0.5"/>
-                  <stop offset="100%" stop-color="#A8D8FF" stop-opacity="0"/>
-                </linearGradient>
-              </defs>
-              <path d="M16 1L3 6.5V17C3 25.5 9 33 16 35C23 33 29 25.5 29 17V6.5L16 1Z" fill="url(#sg3a)"/>
-              <path d="M16 3L5 8V17C5 24.5 10 31 16 33C22 31 27 24.5 27 17V8L16 3Z" fill="url(#sg3b)"/>
-              <path d="M11 18L14.5 21.5L21 14" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M16 1L3 6.5V17C3 25.5 9 33 16 35C23 33 29 25.5 29 17V6.5L16 1Z" fill="#F3C623"/>
+              <path d="M11 18L14.5 21.5L21 14" stroke="#000" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
             </svg>
             <p><strong>Garantia de 7 Dias após a 1ª Sessão</strong><br>Se não sentir clareza na primeira sessão, reembolso integral.</p>
           </div>
@@ -487,19 +476,8 @@
       <div class="guarantee-box">
         <span class="guarantee-icon">
           <svg width="48" height="54" viewBox="0 0 32 36" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <defs>
-              <linearGradient id="sg2a" x1="16" y1="0" x2="16" y2="36" gradientUnits="userSpaceOnUse">
-                <stop offset="0%" stop-color="#5BB8FF"/>
-                <stop offset="100%" stop-color="#1A6FD4"/>
-              </linearGradient>
-              <linearGradient id="sg2b" x1="16" y1="4" x2="16" y2="20" gradientUnits="userSpaceOnUse">
-                <stop offset="0%" stop-color="#A8D8FF" stop-opacity="0.5"/>
-                <stop offset="100%" stop-color="#A8D8FF" stop-opacity="0"/>
-              </linearGradient>
-            </defs>
-            <path d="M16 1L3 6.5V17C3 25.5 9 33 16 35C23 33 29 25.5 29 17V6.5L16 1Z" fill="url(#sg2a)"/>
-            <path d="M16 3L5 8V17C5 24.5 10 31 16 33C22 31 27 24.5 27 17V8L16 3Z" fill="url(#sg2b)"/>
-            <path d="M11 18L14.5 21.5L21 14" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M16 1L3 6.5V17C3 25.5 9 33 16 35C23 33 29 25.5 29 17V6.5L16 1Z" fill="#F3C623"/>
+            <path d="M11 18L14.5 21.5L21 14" stroke="#000" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
           </svg>
         </span>
         <h3>Garantia de 7 Dias após a 1ª Sessão</h3>
@@ -553,4 +531,42 @@
         </div>
         <p class="scarcity">Para manter profundidade terapêutica e acompanhamento individual real, atendimento limitado à 8 pessoas por mês.</p>
         <div class="guarantee-badge">
-          <svg class="shield" width="32" height="36" viewBox="0 0 32 36" fill="none" xmlns="http://www.w3.org/200
+          <svg class="shield" width="32" height="36" viewBox="0 32 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M16 1L3 6.5V17C3 25.5 9 33 16 35C23 33 29 25.5 29 17V6.5L16 1Z" fill="#F3C623"/>
+            <path d="M11 18L14.5 21.5L21 14" stroke="#000" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          <p><strong>Garantia de 7 Dias após a 1ª Sessão</strong><br>Se não sentir clareza na primeira sessão, reembolso integral.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TRANSIÇÃO PRÓXIMO PRODUTO -->
+  <div class="next-product">
+    <div class="container">
+      <p>Prefere começar por algo mais direto e acessível?</p>
+      <a href="https://reginaldohsiao.com.br/processo/reset/">Conheça o Reset da Autossabotagem →</a>
+    </div>
+  </div>
+
+<p class="footer-copy">© 2026 Reginaldo Hsiao. Todos os direitos reservados.</p>
+
+<a href="#" class="back-to-top" id="btnTopo">↑</a>
+
+<script>
+const btnTopo = document.getElementById('btnTopo');
+window.addEventListener('scroll', () => {
+  if (window.scrollY > 400) {
+    btnTopo.classList.add('show');
+  } else {
+    btnTopo.classList.remove('show');
+  }
+});
+btnTopo.addEventListener('click', (e) => {
+  e.preventDefault();
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+});
+</script>
+</body>
+</html>
+```
