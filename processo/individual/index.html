@@ -346,9 +346,9 @@
           </div>
           <p class="scarcity">Para manter profundidade terapêutica e acompanhamento individual real, atendimento limitado à 8 pessoas por mês.</p>
           <div class="guarantee-badge">
-            <svg class="shield" width="32" height="36" viewBox="0 0 32 36" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M16 1L3 6.5V17C3 25.5 9 33 16 35C23 33 29 25.5 29 17V6.5L16 1Z" fill="#F3C623"/>
-              <path d="M11 18L14.5 21.5L21 14" stroke="#000" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+            <svg class="shield" width="32" height="32" viewBox="0 0 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect width="24" height="24" rx="6" fill="#2563EB"/>
+              <path d="M7 12L10.5 15.5L17 8" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
             </svg>
             <p><strong>Garantia de 7 Dias após a 1ª Sessão</strong><br>Se não sentir clareza na primeira sessão, reembolso integral.</p>
           </div>
@@ -476,8 +476,19 @@
       <div class="guarantee-box">
         <span class="guarantee-icon">
           <svg width="48" height="54" viewBox="0 0 32 36" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M16 1L3 6.5V17C3 25.5 9 33 16 35C23 33 29 25.5 29 17V6.5L16 1Z" fill="#F3C623"/>
-            <path d="M11 18L14.5 21.5L21 14" stroke="#000" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+            <defs>
+              <linearGradient id="sg2a" x1="16" y1="0" x2="16" y2="36" gradientUnits="userSpaceOnUse">
+                <stop offset="0%" stop-color="#5BB8FF"/>
+                <stop offset="100%" stop-color="#1A6FD4"/>
+              </linearGradient>
+              <linearGradient id="sg2b" x1="16" y1="4" x2="16" y2="20" gradientUnits="userSpaceOnUse">
+                <stop offset="0%" stop-color="#A8D8FF" stop-opacity="0.5"/>
+                <stop offset="100%" stop-color="#A8D8FF" stop-opacity="0"/>
+              </linearGradient>
+            </defs>
+            <path d="M16 1L3 6.5V17C3 25.5 9 33 16 35C23 33 29 25.5 29 17V6.5L16 1Z" fill="url(#sg2a)"/>
+            <path d="M16 3L5 8V17C5 24.5 10 31 16 33C22 31 27 24.5 27 17V8L16 3Z" fill="url(#sg2b)"/>
+            <path d="M11 18L14.5 21.5L21 14" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
           </svg>
         </span>
         <h3>Garantia de 7 Dias após a 1ª Sessão</h3>
@@ -531,9 +542,9 @@
         </div>
         <p class="scarcity">Para manter profundidade terapêutica e acompanhamento individual real, atendimento limitado à 8 pessoas por mês.</p>
         <div class="guarantee-badge">
-          <svg class="shield" width="32" height="36" viewBox="0 32 36" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M16 1L3 6.5V17C3 25.5 9 33 16 35C23 33 29 25.5 29 17V6.5L16 1Z" fill="#F3C623"/>
-            <path d="M11 18L14.5 21.5L21 14" stroke="#000" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+          <svg class="shield" width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect width="24" height="24" rx="6" fill="#2563EB"/>
+            <path d="M7 12L10.5 15.5L17 8" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
           </svg>
           <p><strong>Garantia de 7 Dias após a 1ª Sessão</strong><br>Se não sentir clareza na primeira sessão, reembolso integral.</p>
         </div>
@@ -550,23 +561,8 @@
   </div>
 
 <p class="footer-copy">© 2026 Reginaldo Hsiao. Todos os direitos reservados.</p>
-
 <a href="#" class="back-to-top" id="btnTopo">↑</a>
 
 <script>
 const btnTopo = document.getElementById('btnTopo');
-window.addEventListener('scroll', () => {
-  if (window.scrollY > 400) {
-    btnTopo.classList.add('show');
-  } else {
-    btnTopo.classList.remove('show');
-  }
-});
-btnTopo.addEventListener('click', (e) => {
-  e.preventDefault();
-  window.scrollTo({ top: 0, behavior: 'smooth' });
-});
-</script>
-</body>
-</html>
-```
+window
