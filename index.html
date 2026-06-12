@@ -2,51 +2,27 @@
 <html lang="pt-BR">
 <head>
 <meta charset="UTF-8">
-<title>Reginaldo Hsiao</title>
+<title>Reginaldo Hsiao | Processo</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="canonical" href="https://reginaldohsiao.com.br/processo/">
+<meta name="robots" content="index, follow">
+<meta http-equiv="refresh" content="0; url=https://reginaldohsiao.com.br/processo/">
 <script>
   (function() {
     var params = new URLSearchParams(window.location.search);
     var comprado = params.get('comprado');
     var produtosValidos = ['mapa', 'reset', 'triade', 'sessoes'];
     
-    // Delay de 300ms pra não piscar feio
-    setTimeout(function() {
-      if (comprado && produtosValidos.includes(comprado)) {
-        window.location.replace('/hub/?comprado=' + comprado);
-      } else {
-        window.location.replace('/produtos/');
-      }
-    }, 300);
+    // Se tem parâmetro ?comprado= válido, vai pro /hub/
+    if (comprado && produtosValidos.includes(comprado)) {
+      window.location.replace('/hub/?comprado=' + comprado);
+    } else {
+      // Senão, vai direto pro /processo/
+      window.location.replace('https://reginaldohsiao.com.br/processo/');
+    }
   })();
 </script>
-<style>
-  body {
-    font-family: 'Inter', sans-serif;
-    background: #0b0b0b;
-    color: #888;
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-  }
-  .logo {
-    width: 80px;
-    height: 80px;
-    border-radius: 50%;
-    margin-bottom: 20px;
-    animation: pulse 1.5s infinite;
-  }
-  @keyframes pulse {
-    0%, 100% { opacity: 0.6; }
-    50% { opacity: 1; }
-  }
-</style>
 </head>
 <body>
-  <img src="/logo.png" class="logo" alt="RH">
-  Redirecionando...
 </body>
 </html>
